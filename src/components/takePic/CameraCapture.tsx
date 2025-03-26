@@ -60,11 +60,16 @@ const CameraCapture = ({
   };
 
   return (
-    <div className="flex flex-col w-xl">
+    <div className="flex flex-col w-xl gap-2">
       <div>{videoRef && <video ref={videoRef} width="720" height="480" />}</div>
       <div className="flex flex-row justify-center gap-10">
         {images?.length < 4 && (
-          <button onClick={capturePhoto}>사진 찍기</button>
+          <button
+            className="bg-black p-3 text-white rounded-2xl"
+            onClick={capturePhoto}
+          >
+            사진 찍기
+          </button>
         )}
       </div>
       {canvasRef && (
