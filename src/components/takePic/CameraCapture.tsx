@@ -64,12 +64,17 @@ const CameraCapture = () => {
   };
 
   return (
-    <div className="flex flex-col w-xl gap-2">
+    <div className="flex flex-col gap-2">
       <video
         ref={videoRef}
-        width="720"
-        height="480"
-        style={{ filter: filter }}
+        width="540"
+        style={{
+          filter: filter,
+          transform: 'scaleX(-1)',
+          aspectRatio: '3 / 2',
+          objectFit: 'cover',
+          objectPosition: '50% 50%',
+        }}
       />
       <div className="flex flex-row justify-center gap-10">
         {photos?.length < 4 && (
@@ -82,12 +87,13 @@ const CameraCapture = () => {
         )}
         <button onClick={() => applyFilter()}>사진 필터</button>
       </div>
-
       <canvas
         ref={canvasRef}
         width="720"
         height="480"
-        style={{ display: 'none' }}
+        style={{
+          display: 'none',
+        }}
       ></canvas>
     </div>
   );
