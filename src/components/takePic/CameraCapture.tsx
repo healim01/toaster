@@ -7,8 +7,7 @@ const CameraCapture = ({
   images: string[];
   setImages: React.Dispatch<React.SetStateAction<string[]>>;
 }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [streamVideo, setStreamVideo] = useState<MediaStream | null>(null);
+  const [, setStreamVideo] = useState<MediaStream | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 

@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
-import { ROUTE_PATH } from '@/constants/routePath';
+// import { useNavigate } from 'react-router-dom';
+// import { ROUTE_PATH } from '@/constants/routePath';
 import { CameraCapture, CameraFrame } from '@/components/takePic';
 
 const TakePicPage = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [capturedImages, setCapturedImages] = useState<string[]>([]);
 
   // useEffect(() => {
