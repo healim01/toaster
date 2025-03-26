@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
 
 const CameraCapture = ({
+  images,
   setImages,
 }: {
+  images: string[];
   setImages: React.Dispatch<React.SetStateAction<string[]>>;
 }) => {
   const [streamVideo, setStreamVideo] = useState<MediaStream | null>(null);
@@ -43,6 +45,8 @@ const CameraCapture = ({
     const canvas = canvasRef.current;
     const video = videoRef.current;
 
+    if (images.length >= 4) return;
+
     if (video && canvas) {
       const context = canvas.getContext('2d');
       if (context) {
@@ -61,7 +65,9 @@ const CameraCapture = ({
         <video ref={videoRef} width='720' height='480' />
       </div>
       <div className='flex flex-row justify-center gap-10'>
-        <button onClick={capturePhoto}>사진 찍기</button>
+        {images?.length < 4 && (
+          <button onClick={capturePhoto}>사진 찍기</button>
+        )}
       </div>
       <canvas
         ref={canvasRef}

@@ -7,7 +7,7 @@ const HomePage = () => {
 
   return (
     <div className='flex flex-row items-center justify-center w-full gap-10'>
-      <CameraCapture setImages={setCapturedImages} />
+      <CameraCapture images={capturedImages} setImages={setCapturedImages} />
       <CameraFrame imgs={capturedImages} />
     </div>
   );
