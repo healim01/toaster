@@ -7,6 +7,7 @@ const CameraCapture = ({
   images: string[];
   setImages: React.Dispatch<React.SetStateAction<string[]>>;
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [streamVideo, setStreamVideo] = useState<MediaStream | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -18,7 +19,7 @@ const CameraCapture = ({
   const openCamera = () => {
     navigator.mediaDevices
       .getUserMedia({ video: true })
-      .then((stream) => {
+      .then(stream => {
         setStreamVideo(stream);
         const video = videoRef.current;
         if (video) {
@@ -26,7 +27,7 @@ const CameraCapture = ({
           video.play();
         }
       })
-      .catch((error) => {
+      .catch(error => {
         console.error('Error opening camera:', error);
       });
   };
@@ -54,15 +55,15 @@ const CameraCapture = ({
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
         // 캔버스를 이미지로 변환
         const imageData = canvas.toDataURL('image/png');
-        setImages((prev) => [...prev, imageData]);
+        setImages(prev => [...prev, imageData]);
       }
     }
   };
 
   return (
-    <div className='flex flex-col w-xl'>
-      <div>{videoRef && <video ref={videoRef} width='720' height='480' />}</div>
-      <div className='flex flex-row justify-center gap-10'>
+    <div className="flex flex-col w-xl">
+      <div>{videoRef && <video ref={videoRef} width="720" height="480" />}</div>
+      <div className="flex flex-row justify-center gap-10">
         {images?.length < 4 && (
           <button onClick={capturePhoto}>사진 찍기</button>
         )}
@@ -70,8 +71,8 @@ const CameraCapture = ({
       {canvasRef && (
         <canvas
           ref={canvasRef}
-          width='720'
-          height='480'
+          width="720"
+          height="480"
           style={{ display: 'none' }}
         ></canvas>
       )}
