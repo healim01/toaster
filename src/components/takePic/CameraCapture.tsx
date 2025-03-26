@@ -11,6 +11,8 @@ const CameraCapture = ({
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
+  const { filter, setFilter } = useFilterContext();
+
   useEffect(() => {
     openCamera();
   }, []);
@@ -59,11 +61,21 @@ const CameraCapture = ({
     }
   };
 
+  const applyFilter = () => {
+    const filter = 'grayscale(20%) brightness(1.1) contrast(110%) blur(1px)';
+    setFilter(filter);
+  };
+
   return (
     <div className="flex flex-col w-xl gap-2">
-      <div>{videoRef && <video ref={videoRef} width="720" height="480" />}</div>
+      <video
+        ref={videoRef}
+        width="720"
+        height="480"
+        style={{ filter: filter }}
+      />
       <div className="flex flex-row justify-center gap-10">
-        {images?.length < 4 && (
+        {photos?.length < 4 && (
           <button
             className="bg-black p-3 text-white rounded-2xl"
             onClick={capturePhoto}
@@ -71,15 +83,15 @@ const CameraCapture = ({
             사진 찍기
           </button>
         )}
+        <button onClick={() => applyFilter()}>사진 필터</button>
       </div>
-      {canvasRef && (
-        <canvas
-          ref={canvasRef}
-          width="720"
-          height="480"
-          style={{ display: 'none' }}
-        ></canvas>
-      )}
+
+      <canvas
+        ref={canvasRef}
+        width="720"
+        height="480"
+        style={{ display: 'none' }}
+      ></canvas>
     </div>
   );
 };
