@@ -1,3 +1,4 @@
+import { useFilterContext, usePhotosContext } from '@/hooks';
 import { useState, useRef, useEffect } from 'react';
 
 const CameraCapture = () => {
@@ -43,7 +44,7 @@ const CameraCapture = () => {
     const canvas = canvasRef.current;
     const video = videoRef.current;
 
-    if (images.length >= 4) return;
+    if (photos.length >= 4) return;
 
     if (video && canvas) {
       const context = canvas.getContext('2d');
@@ -52,7 +53,7 @@ const CameraCapture = () => {
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
         // 캔버스를 이미지로 변환
         const imageData = canvas.toDataURL('image/png');
-        setImages(prev => [...prev, imageData]);
+        setPhotos(prev => [...prev, imageData]);
       }
     }
   };

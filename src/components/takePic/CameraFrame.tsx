@@ -1,15 +1,21 @@
-const CameraFrame = ({ imgs }: { imgs: string[] }) => {
+import { useFilterContext, usePhotosContext } from '@/hooks';
+
 const CameraFrame = () => {
   const { photos } = usePhotosContext();
+  const { filter } = useFilterContext();
+
   return (
     <div className="flex flex-col items-center gap-2 bg-slate-300 p-5">
       {photos?.map(photo => (
         <img
-          src={img}
-          key={`Captured-${img}`}
-          alt={`Captured-${img}`}
-          width="300"
-          height={100}
+          src={photo}
+          key={`Captured-${photo}`}
+          alt={`Captured-${photo}`}
+          width="360"
+          height="240"
+          style={{
+            filter: filter,
+          }}
         />
       ))}
     </div>

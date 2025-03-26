@@ -4,10 +4,13 @@ import { FilterProvider, PhotosProvider } from '@/context';
 import './tailwind.css';
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <FilterProvider>
       <PhotosProvider>
         <RouterProvider router={router} />
       </PhotosProvider>
+    </FilterProvider>
+  );
 }
 
 export default App;
