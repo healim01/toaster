@@ -1,12 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 
-const CameraCapture = ({
-  images,
-  setImages,
-}: {
-  images: string[];
-  setImages: React.Dispatch<React.SetStateAction<string[]>>;
-}) => {
+const CameraCapture = () => {
+  const { photos, setPhotos } = usePhotosContext();
+
   const [, setStreamVideo] = useState<MediaStream | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);

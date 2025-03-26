@@ -1,7 +1,9 @@
 const CameraFrame = ({ imgs }: { imgs: string[] }) => {
+const CameraFrame = () => {
+  const { photos } = usePhotosContext();
   return (
     <div className="flex flex-col items-center gap-2 bg-slate-300 p-5">
-      {imgs?.map(img => (
+      {photos?.map(photo => (
         <img
           src={img}
           key={`Captured-${img}`}
