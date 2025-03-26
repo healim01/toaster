@@ -61,20 +61,20 @@ const CameraCapture = ({
 
   return (
     <div className='flex flex-col w-xl'>
-      <div>
-        <video ref={videoRef} width='720' height='480' />
-      </div>
+      <div>{videoRef && <video ref={videoRef} width='720' height='480' />}</div>
       <div className='flex flex-row justify-center gap-10'>
         {images?.length < 4 && (
           <button onClick={capturePhoto}>사진 찍기</button>
         )}
       </div>
-      <canvas
-        ref={canvasRef}
-        width='720'
-        height='480'
-        style={{ display: 'none' }}
-      ></canvas>
+      {canvasRef && (
+        <canvas
+          ref={canvasRef}
+          width='720'
+          height='480'
+          style={{ display: 'none' }}
+        ></canvas>
+      )}
     </div>
   );
 };
