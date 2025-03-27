@@ -1,8 +1,8 @@
 import { useFilterContext, usePhotosContext } from '@/hooks';
-import { useState, useRef, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const CameraCapture = () => {
-  const { photos, setPhotos } = usePhotosContext();
+  const { setPhotos } = usePhotosContext();
 
   const [, setStreamVideo] = useState<MediaStream | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -30,21 +30,9 @@ const CameraCapture = () => {
       });
   };
 
-  //   const closeCamera = () => {
-  //     if (streamVideo) {
-  //       const tracks = streamVideo.getTracks();
-  //       if (tracks[0]) {
-  //         tracks[0].stop();
-  //       }
-  //       setStreamVideo(null);
-  //     }
-  //   };
-
   const capturePhoto = () => {
     const canvas = canvasRef.current;
     const video = videoRef.current;
-
-    if (photos.length >= 4) return;
 
     if (video && canvas) {
       const context = canvas.getContext('2d');
@@ -68,32 +56,31 @@ const CameraCapture = () => {
       <video
         ref={videoRef}
         width="540"
+        className="w-[540px] scale-x-[-1] aspect-[3/2] object-cover object-center"
         style={{
           filter: filter,
-          transform: 'scaleX(-1)',
-          aspectRatio: '3 / 2',
-          objectFit: 'cover',
-          objectPosition: '50% 50%',
         }}
       />
       <div className="flex flex-row justify-center gap-10">
-        {photos?.length < 4 && (
-          <button
-            className="bg-black p-3 text-white rounded-2xl"
-            onClick={capturePhoto}
-          >
-            사진 찍기
-          </button>
-        )}
-        <button onClick={() => applyFilter()}>사진 필터</button>
+        <button
+          className="bg-black p-3 text-white rounded-2xl"
+          onClick={capturePhoto}
+        >
+          사진 찍기
+        </button>
+
+        <button
+          className="bg-gray-500 p-3 text-white rounded-2xl"
+          onClick={() => applyFilter()}
+        >
+          사진 필터
+        </button>
       </div>
       <canvas
+        className="hidden"
         ref={canvasRef}
         width="720"
         height="480"
-        style={{
-          display: 'none',
-        }}
       ></canvas>
     </div>
   );

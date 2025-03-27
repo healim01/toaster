@@ -1,5 +1,11 @@
+import { PhotoFrame } from '@/components/savePic';
+
 const SavePicPage = () => {
-  return <div>SavePicPage</div>;
+  return (
+    <div>
+      <PhotoFrame />
+    </div>
+  );
 };
 
 export default SavePicPage;

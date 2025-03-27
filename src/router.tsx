@@ -1,10 +1,15 @@
+import { Layout } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { TakePicPage, SavePicPage } from '@/pages';
+import { SavePicPage, TakePicPage } from '@/pages';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
-    element: <Outlet />,
+    element: (
+      <Layout>
+        <Outlet />
+      </Layout>
+    ),
     children: [
       {
         path: ROUTE_PATH.home,

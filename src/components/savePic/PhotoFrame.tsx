@@ -1,8 +1,16 @@
 // import html2canvas from 'html2canvas';
-import domtoimage from 'dom-to-image';
-import { useRef } from 'react';
-import saveAs from 'file-saver';
+import { frame1 } from '@/assets/frame';
 import { useFilterContext, usePhotosContext } from '@/hooks';
+import domtoimage from 'dom-to-image';
+import saveAs from 'file-saver';
+import { useRef } from 'react';
+
+const positions = [
+  { top: '12.5px', left: '12.5px' },
+  { top: '175px', left: '12.5px' },
+  { top: '337.5px', left: '12.5px' },
+  { top: '500px', left: '12.5px' },
+];
 
 const PhotoFrame = () => {
   const { photos } = usePhotosContext();
@@ -22,34 +30,36 @@ const PhotoFrame = () => {
   };
 
   return (
-    <div>
-      <button onClick={handleDownload}>다운로드</button>
-      <div
-        ref={divRef}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          backgroundColor: 'lime',
-          filter: filter,
-          padding: '4px',
-          gap: '4px',
-        }}
+    <div className="flex flex-col items-center gap-3 p-3">
+      <button
+        className="bg-black p-2 text-white rounded-2xl"
+        onClick={handleDownload}
       >
-        {photos.map(photo => (
-          <img
-            src={photo}
-            key={`Captured-${photo}`}
-            alt={`Captured-${photo}`}
-            width="300"
-            style={{
-              filter: filter,
-              transform: 'scaleX(-1)',
-              aspectRatio: '3 / 2',
-              objectFit: 'cover',
-              objectPosition: '50% 50%',
-            }}
-          />
-        ))}
+        다운로드
+      </button>
+      <div ref={divRef} className="relative h-[750px] w-[250px]">
+        <img
+          src={frame1}
+          alt="Photo Frame"
+          className="absolute top-0 left-0 w-full h-full z-10"
+        />
+
+        {photos?.map((photo, index) => {
+          return (
+            <img
+              src={photo}
+              key={`Captured-${photo}`}
+              alt={`Captured-${photo}`}
+              className={`absolute ${filter} transform -scale-x-100 z-20`}
+              style={{
+                filter: filter,
+                ...positions[index],
+              }}
+              width="225"
+              height="150"
+            />
+          );
+        })}
       </div>
     </div>
   );
