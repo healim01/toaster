@@ -1,6 +1,6 @@
-import Button from '@/components/_common/Button/Button';
-import { useFilterContext, usePhotosContext } from '@/hooks';
-import useFrameContext from '@/hooks/useFrameContext';
+import { Button } from '@/components';
+import { frames } from '@/constants/frames';
+import { useFilterContext, useFrameContext, usePhotosContext } from '@/hooks';
 import domtoimage from 'dom-to-image';
 import saveAs from 'file-saver';
 import { useRef } from 'react';
@@ -36,7 +36,7 @@ const PhotoFrame = () => {
       <Button label="다운로드" onClick={handleDownload} />
       <div ref={divRef} className="relative h-[750px] w-[250px]">
         <img
-          src={frame}
+          src={frames[frame]}
           alt="Photo Frame"
           className="absolute top-0 left-0 w-full h-full z-100"
         />

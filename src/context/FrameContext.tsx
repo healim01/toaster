@@ -10,7 +10,7 @@ export const FrameContext = createContext<FrameContextType | undefined>(
 );
 
 export const FrameProvider = ({ children }: PropsWithChildren) => {
-  const [frame, setFrame] = useState<string>('');
+  const [frame, setFrame] = useState<string>('default');
 
   return (
     <FrameContext.Provider value={{ frame, setFrame }}>

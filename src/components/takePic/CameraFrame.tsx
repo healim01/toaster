@@ -22,11 +22,6 @@ const CameraFrame = () => {
   return (
     <div className="flex flex-col items-center gap-3 p-3">
       <div className="relative h-[750px] w-[250px]">
-        {/* <img
-          src={gdyFrame}
-          alt="Photo Frame"
-          className="absolute top-0 left-0 w-full h-full z-100"
-        /> */}
         {photos?.map((photo, index) => {
           return (
             <img
