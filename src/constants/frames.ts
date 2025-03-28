@@ -1,8 +1,7 @@
-import { frame1, gdyFrame } from '@/assets/frame';
+import { frame, gdyFrame, greenFrame } from '@/assets/frame';
 
-const frames = {
-  basic: frame1,
-  gdy: gdyFrame,
+export const frames: Record<string, string> = {
+  default: frame,
+  버건디: gdyFrame,
+  무한도전: greenFrame,
 };
-
-export default frames;
