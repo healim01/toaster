@@ -12,6 +12,7 @@ const CameraCapture = () => {
   const { filter, setFilter } = useFilterContext();
 
   const [timer, setTimer] = useState<number>(3);
+  const [leftTime, setLeftTime] = useState<number>(3);
 
   useEffect(() => {
     openCamera();
@@ -35,8 +36,14 @@ const CameraCapture = () => {
 
   const takePhoto = () => {
     if (timer) {
+      const leftTime = setInterval(() => {
+        setLeftTime(prev => (prev -= 1));
+      }, 1000);
+
       setTimeout(() => {
         capturePhoto();
+        clearInterval(leftTime);
+        setLeftTime(timer);
       }, timer * 1000);
     }
   };
@@ -70,6 +77,7 @@ const CameraCapture = () => {
           filter: filter,
         }}
       />
+      <div>{leftTime}</div>
       <div className="flex flex-row justify-center gap-10">
         <Dropdown
           label={timer ? `${timer}초` : '타이머'}
