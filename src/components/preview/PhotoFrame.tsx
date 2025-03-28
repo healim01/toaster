@@ -1,5 +1,4 @@
-// import html2canvas from 'html2canvas';
-import { frame1 } from '@/assets/frame';
+import { gdyFrame } from '@/assets/frame';
 import { useFilterContext, usePhotosContext } from '@/hooks';
 import domtoimage from 'dom-to-image';
 import saveAs from 'file-saver';
@@ -39,7 +38,7 @@ const PhotoFrame = () => {
       </button>
       <div ref={divRef} className="relative h-[750px] w-[250px]">
         <img
-          src={frame1}
+          src={gdyFrame}
           alt="Photo Frame"
           className="absolute top-0 left-0 w-full h-full z-100"
         />

@@ -1,2 +1,2 @@
+export { default as PreviewPage } from './PreviewPage';
 export { default as TakePicPage } from './TakePicPage';
-export { default as SavePicPage } from './SavePicPage';

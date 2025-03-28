@@ -1,6 +1,6 @@
 import { Layout } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { SavePicPage, TakePicPage } from '@/pages';
+import { PreviewPage, TakePicPage } from '@/pages';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -16,8 +16,8 @@ const router = createBrowserRouter([
         element: <TakePicPage />,
       },
       {
-        path: ROUTE_PATH.save,
-        element: <SavePicPage />,
+        path: ROUTE_PATH.preview,
+        element: <PreviewPage />,
       },
     ],
   },
