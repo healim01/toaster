@@ -1,3 +1,4 @@
+import Button from '@/components/_common/Button/Button';
 import { useFilterContext, usePhotosContext } from '@/hooks';
 import { useEffect, useRef, useState } from 'react';
 
@@ -62,19 +63,8 @@ const CameraCapture = () => {
         }}
       />
       <div className="flex flex-row justify-center gap-10">
-        <button
-          className="bg-black p-3 text-white rounded-2xl"
-          onClick={capturePhoto}
-        >
-          사진 찍기
-        </button>
-
-        <button
-          className="bg-gray-500 p-3 text-white rounded-2xl"
-          onClick={() => applyFilter()}
-        >
-          사진 필터
-        </button>
+        <Button label="사진 찍기" color="gray" onClick={capturePhoto} />
+        <Button label="필터 추가" color="green" onClick={applyFilter} />
       </div>
       <canvas
         className="hidden"
