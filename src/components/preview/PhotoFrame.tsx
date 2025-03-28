@@ -1,5 +1,6 @@
-import { gdyFrame } from '@/assets/frame';
+import Button from '@/components/_common/Button/Button';
 import { useFilterContext, usePhotosContext } from '@/hooks';
+import useFrameContext from '@/hooks/useFrameContext';
 import domtoimage from 'dom-to-image';
 import saveAs from 'file-saver';
 import { useRef } from 'react';
@@ -14,6 +15,8 @@ const positions = [
 const PhotoFrame = () => {
   const { photos } = usePhotosContext();
   const { filter } = useFilterContext();
+  const { frame } = useFrameContext();
+
   const divRef = useRef<HTMLDivElement>(null);
 
   const handleDownload = async () => {
@@ -30,15 +33,10 @@ const PhotoFrame = () => {
 
   return (
     <div className="flex flex-col items-center gap-3 p-3">
-      <button
-        className="bg-black p-2 text-white rounded-2xl"
-        onClick={handleDownload}
-      >
-        다운로드
-      </button>
+      <Button label="다운로드" onClick={handleDownload} />
       <div ref={divRef} className="relative h-[750px] w-[250px]">
         <img
-          src={gdyFrame}
+          src={frame}
           alt="Photo Frame"
           className="absolute top-0 left-0 w-full h-full z-100"
         />

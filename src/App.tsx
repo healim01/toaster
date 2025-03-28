@@ -1,13 +1,15 @@
-import { RouterProvider } from 'react-router-dom';
+import { FilterProvider, FrameProvider, PhotosProvider } from '@/context';
 import router from '@/router';
-import { FilterProvider, PhotosProvider } from '@/context';
+import { RouterProvider } from 'react-router-dom';
 import './tailwind.css';
 
 function App() {
   return (
     <FilterProvider>
       <PhotosProvider>
-        <RouterProvider router={router} />
+        <FrameProvider>
+          <RouterProvider router={router} />
+        </FrameProvider>
       </PhotosProvider>
     </FilterProvider>
   );
