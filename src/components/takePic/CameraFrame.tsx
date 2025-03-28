@@ -26,7 +26,7 @@ const CameraFrame = () => {
         <img
           src={frame1}
           alt="Photo Frame"
-          className="absolute top-0 left-0 w-full h-full z-10"
+          className="absolute top-0 left-0 w-full h-full z-100"
         />
 
         {photos?.map((photo, index) => {
