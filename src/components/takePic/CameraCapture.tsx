@@ -1,4 +1,4 @@
-import Button from '@/components/_common/Button/Button';
+import { Button, Dropdown } from '@/components';
 import { useFilterContext, usePhotosContext } from '@/hooks';
 import { useEffect, useRef, useState } from 'react';
 
@@ -10,6 +10,8 @@ const CameraCapture = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   const { filter, setFilter } = useFilterContext();
+
+  const [timer, setTimer] = useState<number>(3);
 
   useEffect(() => {
     openCamera();
@@ -31,6 +33,14 @@ const CameraCapture = () => {
       });
   };
 
+  const takePhoto = () => {
+    if (timer) {
+      setTimeout(() => {
+        capturePhoto();
+      }, timer * 1000);
+    }
+  };
+
   const capturePhoto = () => {
     const canvas = canvasRef.current;
     const video = videoRef.current;
@@ -38,9 +48,7 @@ const CameraCapture = () => {
     if (video && canvas) {
       const context = canvas.getContext('2d');
       if (context) {
-        // 비디오 화면을 캔버스에 그리기
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        // 캔버스를 이미지로 변환
         const imageData = canvas.toDataURL('image/png');
         setPhotos(prev => [...prev, imageData]);
       }
@@ -63,7 +71,15 @@ const CameraCapture = () => {
         }}
       />
       <div className="flex flex-row justify-center gap-10">
-        <Button label="사진 찍기" color="gray" onClick={capturePhoto} />
+        <Dropdown
+          label={timer ? `${timer}초` : '타이머'}
+          items={['3초', '5초']}
+          selectedItem={timer?.toString() || null}
+          setSelectedItem={(item: string) =>
+            setTimer(Number(item.replace('초', '')))
+          }
+        />
+        <Button label="사진 찍기" color="gray" onClick={takePhoto} />
         <Button label="필터 추가" color="green" onClick={applyFilter} />
       </div>
       <canvas
