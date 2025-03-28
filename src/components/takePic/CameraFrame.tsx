@@ -1,4 +1,4 @@
-import { frame1 } from '@/assets/frame';
+import { gdyFrame } from '@/assets/frame';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { useFilterContext, usePhotosContext } from '@/hooks';
 import { useEffect } from 'react';
@@ -24,7 +24,7 @@ const CameraFrame = () => {
     <div className="flex flex-col items-center gap-3 p-3">
       <div className="relative h-[750px] w-[250px]">
         <img
-          src={frame1}
+          src={gdyFrame}
           alt="Photo Frame"
           className="absolute top-0 left-0 w-full h-full z-100"
         />
