@@ -37,7 +37,7 @@ const CameraCapture = () => {
   const takePhoto = () => {
     if (timer) {
       const leftTime = setInterval(() => {
-        setLeftTime(prev => (prev -= 1));
+        setLeftTime(prev => prev - 1);
       }, 1000);
 
       setTimeout(() => {
