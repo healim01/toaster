@@ -1,4 +1,4 @@
-import { frame, gdyFrame, greenFrame } from '@/assets/frame';
+import { frame, gdyFrame, greenFrame } from '@/assets/frames';
 
 export const frames: Record<string, string> = {
   default: frame,
