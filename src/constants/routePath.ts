@@ -1,4 +1,5 @@
 export const ROUTE_PATH = {
   home: '/',
-  save: '/save',
+  preview: '/preview',
+  save: '/toasted-well',
 };

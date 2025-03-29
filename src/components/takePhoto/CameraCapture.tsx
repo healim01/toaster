@@ -1,3 +1,4 @@
+import { Button, Dropdown } from '@/components';
 import { useFilterContext, usePhotosContext } from '@/hooks';
 import { useEffect, useRef, useState } from 'react';
 
@@ -9,6 +10,9 @@ const CameraCapture = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   const { filter, setFilter } = useFilterContext();
+
+  const [timer, setTimer] = useState<number>(3);
+  const [leftTime, setLeftTime] = useState<number>(3);
 
   useEffect(() => {
     openCamera();
@@ -30,6 +34,20 @@ const CameraCapture = () => {
       });
   };
 
+  const takePhoto = () => {
+    if (timer) {
+      const leftTime = setInterval(() => {
+        setLeftTime(prev => prev - 1);
+      }, 1000);
+
+      setTimeout(() => {
+        capturePhoto();
+        clearInterval(leftTime);
+        setLeftTime(timer);
+      }, timer * 1000);
+    }
+  };
+
   const capturePhoto = () => {
     const canvas = canvasRef.current;
     const video = videoRef.current;
@@ -37,9 +55,7 @@ const CameraCapture = () => {
     if (video && canvas) {
       const context = canvas.getContext('2d');
       if (context) {
-        // 비디오 화면을 캔버스에 그리기
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        // 캔버스를 이미지로 변환
         const imageData = canvas.toDataURL('image/png');
         setPhotos(prev => [...prev, imageData]);
       }
@@ -61,20 +77,18 @@ const CameraCapture = () => {
           filter: filter,
         }}
       />
+      <div>{leftTime}</div>
       <div className="flex flex-row justify-center gap-10">
-        <button
-          className="bg-black p-3 text-white rounded-2xl"
-          onClick={capturePhoto}
-        >
-          사진 찍기
-        </button>
-
-        <button
-          className="bg-gray-500 p-3 text-white rounded-2xl"
-          onClick={() => applyFilter()}
-        >
-          사진 필터
-        </button>
+        <Dropdown
+          label={timer ? `${timer}초` : '타이머'}
+          items={['3초', '5초']}
+          selectedItem={timer?.toString() || null}
+          setSelectedItem={(item: string) =>
+            setTimer(Number(item.replace('초', '')))
+          }
+        />
+        <Button label="사진 찍기" color="gray" onClick={takePhoto} />
+        <Button label="필터 추가" color="green" onClick={applyFilter} />
       </div>
       <canvas
         className="hidden"

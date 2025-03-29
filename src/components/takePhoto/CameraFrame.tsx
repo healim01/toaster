@@ -1,4 +1,3 @@
-import { frame1 } from '@/assets/frame';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { useFilterContext, usePhotosContext } from '@/hooks';
 import { useEffect } from 'react';
@@ -17,18 +16,12 @@ const CameraFrame = () => {
   const { filter } = useFilterContext();
 
   useEffect(() => {
-    if (photos.length === 4) navigate(ROUTE_PATH.save);
+    if (photos.length === 4) navigate(ROUTE_PATH.preview);
   }, [photos]);
 
   return (
     <div className="flex flex-col items-center gap-3 p-3">
       <div className="relative h-[750px] w-[250px]">
-        <img
-          src={frame1}
-          alt="Photo Frame"
-          className="absolute top-0 left-0 w-full h-full z-10"
-        />
-
         {photos?.map((photo, index) => {
           return (
             <img
