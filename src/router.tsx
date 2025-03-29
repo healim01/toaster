@@ -19,6 +19,10 @@ const router = createBrowserRouter([
         path: ROUTE_PATH.preview,
         element: <PreviewPage />,
       },
+      {
+        path: ROUTE_PATH.save,
+        element: <SavePhotoPage />,
+      },
     ],
   },
 ]);
