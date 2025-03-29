@@ -1,42 +1,39 @@
-import { Filter } from '@/constants/filter';
-import { ROUTE_PATH } from '@/constants/routePath';
+import ToastFrame from '@/components/takePhoto/ToastFrame';
 import { useFilterContext, usePhotosContext } from '@/hooks';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+
+const breadHeight = 200;
+const breadGap = 25;
 
 const positions = [
-  { top: '12.5px', left: '12.5px' },
-  { top: '175px', left: '12.5px' },
-  { top: '337.5px', left: '12.5px' },
-  { top: '500px', left: '12.5px' },
+  { top: '0' },
+  { top: `${breadHeight - breadGap}px` },
+  { top: `${(breadHeight - breadGap) * 2}px` },
+  { top: `${(breadHeight - breadGap) * 3}px` },
+];
+
+const rotates = [
+  { transform: `rotate(9deg)` },
+  { transform: `rotate(0deg)` },
+  { transform: `rotate(-12deg)` },
+  { transform: `rotate(0deg)` },
 ];
 
 const CameraFrame = () => {
-  const navigate = useNavigate();
   const { photos } = usePhotosContext();
   const { filter } = useFilterContext();
 
-  useEffect(() => {
-    if (photos.length === 4) navigate(ROUTE_PATH.preview);
-  }, [photos]);
-
   return (
-    <div className="flex flex-col items-center gap-3 p-3">
-      <div className="relative h-[750px] w-[250px]">
+    <div className="h-full w-[300px] flex flex-col justify-center items-center">
+      <div className="relative h-[730px] w-[250px]">
         {photos?.map((photo, index) => {
           return (
-            <img
-              src={photo}
-              key={`Captured-${photo}`}
-              alt={`Captured-${photo}`}
-              className={`absolute transform -scale-x-100 z-20`}
-              style={{
-                filter: Filter[filter],
-                ...positions[index],
-              }}
-              width="225"
-              height="150"
-            />
+            <div
+              key={index}
+              className="absolute left-1/2 transform -translate-x-1/2"
+              style={{ ...positions[index], ...rotates[index] }}
+            >
+              <ToastFrame photo={photo} filter={filter} />
+            </div>
           );
         })}
       </div>
