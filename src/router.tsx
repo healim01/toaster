@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: ROUTE_PATH.home,
+        path: ROUTE_PATH.takePhoto,
         element: <TakePhotoPage />,
       },
       {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         element: <PreviewPage />,
       },
       {
-        path: ROUTE_PATH.save,
+        path: ROUTE_PATH.savePhoto,
         element: <SavePhotoPage />,
       },
     ],

@@ -1,5 +1,5 @@
 export const ROUTE_PATH = {
-  home: '/',
+  takePhoto: '/',
   preview: '/preview',
-  save: '/toasted-well',
+  savePhoto: '/toasted-well',
 };

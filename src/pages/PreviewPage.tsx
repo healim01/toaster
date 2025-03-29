@@ -10,11 +10,11 @@ const PreviewPage = () => {
 
   const handleReturn = () => {
     setPhotos([]);
-    navigate(ROUTE_PATH.home);
+    navigate(ROUTE_PATH.takePhoto);
   };
 
   const handleComplete = () => {
-    navigate(ROUTE_PATH.save);
+    navigate(ROUTE_PATH.savePhoto);
   };
 
   return (

@@ -13,7 +13,7 @@ const SavePhotoPage = () => {
 
   const handleReturn = () => {
     setPhotos([]);
-    navigate(ROUTE_PATH.home);
+    navigate(ROUTE_PATH.takePhoto);
   };
 
   const divRef = useRef<HTMLDivElement>(null);
