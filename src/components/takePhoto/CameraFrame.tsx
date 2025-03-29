@@ -25,14 +25,14 @@ const CameraFrame = () => {
   return (
     <div className="h-full w-[300px] flex flex-col justify-center items-center">
       <div className="relative h-[730px] w-[250px]">
-        {photos?.map((photo, index) => {
+        {Array.from({ length: 4 }).map((_, index) => {
           return (
             <div
               key={index}
               className="absolute left-1/2 transform -translate-x-1/2"
               style={{ ...positions[index], ...rotates[index] }}
             >
-              <ToastFrame photo={photo} filter={filter} />
+              <ToastFrame photo={photos[index]} filter={filter} />
             </div>
           );
         })}
