@@ -1,3 +1,4 @@
+import { Filter } from '@/constants/filter';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { useFilterContext, usePhotosContext } from '@/hooks';
 import { useEffect } from 'react';
@@ -30,7 +31,7 @@ const CameraFrame = () => {
               alt={`Captured-${photo}`}
               className={`absolute transform -scale-x-100 z-20`}
               style={{
-                filter: filter,
+                filter: Filter[filter],
                 ...positions[index],
               }}
               width="225"

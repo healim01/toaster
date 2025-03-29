@@ -1,4 +1,5 @@
 import { Button, Dropdown } from '@/components';
+import { Filter } from '@/constants/filter';
 import { useFilterContext, usePhotosContext } from '@/hooks';
 import { useEffect, useRef, useState } from 'react';
 
@@ -9,7 +10,7 @@ const CameraCapture = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  const { filter, setFilter } = useFilterContext();
+  const { filter } = useFilterContext();
 
   const [timer, setTimer] = useState<number>(3);
   const [leftTime, setLeftTime] = useState<number>(3);
@@ -62,11 +63,6 @@ const CameraCapture = () => {
     }
   };
 
-  const applyFilter = () => {
-    const filter = 'grayscale(20%) brightness(1.1) contrast(110%) blur(1px)';
-    setFilter(filter);
-  };
-
   return (
     <div className="flex flex-col gap-2">
       <video
@@ -74,7 +70,7 @@ const CameraCapture = () => {
         width="540"
         className="w-[540px] scale-x-[-1] aspect-[3/2] object-cover object-center"
         style={{
-          filter: filter,
+          filter: Filter[filter],
         }}
       />
       <div>{leftTime}</div>
@@ -88,7 +84,6 @@ const CameraCapture = () => {
           }
         />
         <Button label="사진 찍기" color="gray" onClick={takePhoto} />
-        <Button label="필터 추가" color="green" onClick={applyFilter} />
       </div>
       <canvas
         className="hidden"
