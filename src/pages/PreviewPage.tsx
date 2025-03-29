@@ -1,5 +1,5 @@
 import { Button } from '@/components';
-import { FrameSelectSection, PhotoFrame } from '@/components/preview';
+import { FrameSelectSection, PreviewFrame } from '@/components/preview';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { usePhotosContext } from '@/hooks';
 import { useNavigate } from 'react-router-dom';
@@ -13,11 +13,16 @@ const PreviewPage = () => {
     navigate(ROUTE_PATH.home);
   };
 
+  const handleComplete = () => {
+    navigate(ROUTE_PATH.save);
+  };
+
   return (
     <div className="flex flex-row items-center justify-center w-full gap-10 bg-amber-50">
       <Button label="home" onClick={handleReturn} />
-      <PhotoFrame />
+      <PreviewFrame />
       <FrameSelectSection />
+      <Button label="완료" onClick={handleComplete} />
     </div>
   );
 };
