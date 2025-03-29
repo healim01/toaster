@@ -1,6 +1,6 @@
-import { CameraCapture, CameraFrame } from '@/components/takePic';
+import { CameraCapture, CameraFrame } from '@/components/takePhoto';
 
-const TakePicPage = () => {
+const TakePhotoPage = () => {
   return (
     <div className="flex flex-row items-center justify-center w-full h-full gap-10 bg-amber-50 flex-wrap">
       <CameraCapture />
@@ -9,4 +9,4 @@ const TakePicPage = () => {
   );
 };
 
-export default TakePicPage;
+export default TakePhotoPage;
