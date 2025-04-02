@@ -1,19 +1,16 @@
-import { SignIn } from '@/components/rive/tempRive';
+import { CardholderRive } from '@/components/rive';
 
 const RivePage = () => {
-  //   const { rive, RiveComponent } = useRive({
-  //     src: 'https://cdn.rive.app/animations/vehicles.riv',
-  //     stateMachines: 'bumpy',
-  //     autoplay: false,
-  //   });
-
-  const checkUser = (user: string, pass: string) => {
-    return user === 'user' && pass === 'password';
-  };
+  // const checkUser = (user: string | null, pass: string | null) => {
+  //   return user === 'user' && pass === 'password';
+  // };
 
   return (
-    <div className="block w-[800px] h-[800px]">
-      <SignIn checkLogin={checkUser} />
+    <div className="flex justify-center w-screen h-screen">
+      <div className="w-[800px] h-[600px]">
+        {/* <SignInRive checkLogin={checkUser} /> */}
+        <CardholderRive />
+      </div>
     </div>
   );
 };

@@ -1,20 +1,19 @@
-// import RiveImg from '@/assets/rive/teddy.riv';
-import RiveImg from '@/assets/rive/teddy.riv?url';
+import TeddyRiveImg from '@/assets/rive/teddy.riv?url';
 import { useRive, useStateMachineInput } from '@rive-app/react-canvas';
 import { useEffect, useState } from 'react';
 
 const STATE_MACHINE_NAME = 'State Machine 1';
 
-export const SignIn = ({
-  checkLogin,
-}: {
+interface Props {
   checkLogin: (user: string | null, password: string | null) => boolean;
-}) => {
+}
+
+const SignInRive = ({ checkLogin }: Props) => {
   const [user, setUser] = useState<string | null>(null);
   const [password, setPassword] = useState<string | null>(null);
 
   const { rive, RiveComponent } = useRive({
-    src: RiveImg,
+    src: TeddyRiveImg,
     autoplay: true,
     stateMachines: STATE_MACHINE_NAME,
   });
@@ -61,10 +60,8 @@ export const SignIn = ({
     }
 
     const ratio = nbChars / parseFloat(String(41));
-    // console.log('ratio ' + ratio);
 
     const lookToSet = ratio * 100 - 25;
-    console.log('lookToSet ' + Math.round(lookToSet));
     stateLook.value = Math.round(lookToSet);
   };
 
@@ -76,20 +73,14 @@ export const SignIn = ({
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log({
-      email: user,
-      password: password,
-    });
+    checkLogin(user, password);
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gray-50">
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
         <div className="flex justify-center">
-          <RiveComponent
-            style={{ width: '400px', height: '400px' }}
-            // src="520-990-teddy-login-screen.riv"
-          />
+          <RiveComponent style={{ width: '400px', height: '400px' }} />
         </div>
 
         <div className="mt-4">
@@ -171,3 +162,5 @@ export const SignIn = ({
     </div>
   );
 };
+
+export default SignInRive;
