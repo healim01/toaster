@@ -21,7 +21,9 @@ const CameraCapture = () => {
 
   const openCamera = () => {
     navigator.mediaDevices
-      .getUserMedia({ video: true })
+      .getUserMedia({
+        video: { width: 1920, height: 1080, facingMode: 'user' },
+      })
       .then(stream => {
         setStreamVideo(stream);
         const video = videoRef.current;
@@ -67,7 +69,6 @@ const CameraCapture = () => {
     <div className="flex flex-col gap-2">
       <video
         ref={videoRef}
-        width="540"
         className="w-[540px] scale-x-[-1] aspect-[3/2] object-cover object-center"
         style={{
           filter: Filter[filter],
@@ -88,8 +89,8 @@ const CameraCapture = () => {
       <canvas
         className="hidden"
         ref={canvasRef}
-        width="720"
-        height="480"
+        width="2400"
+        height="1600"
       ></canvas>
     </div>
   );
