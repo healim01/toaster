@@ -13,6 +13,7 @@ const CameraCapture = () => {
   const { filter } = useFilterContext();
 
   const [timer, setTimer] = useState<number>(3);
+  const [isTakingPhoto, setIsTakingPhoto] = useState(false);
   const [leftTime, setLeftTime] = useState<number>(3);
 
   useEffect(() => {
@@ -38,17 +39,19 @@ const CameraCapture = () => {
   };
 
   const takePhoto = () => {
-    if (timer) {
-      const leftTime = setInterval(() => {
-        setLeftTime(prev => prev - 1);
-      }, 1000);
+    if (isTakingPhoto || !timer) return;
 
-      setTimeout(() => {
-        capturePhoto();
-        clearInterval(leftTime);
-        setLeftTime(timer);
-      }, timer * 1000);
-    }
+    setIsTakingPhoto(true);
+    const leftTime = setInterval(() => {
+      setLeftTime(prev => prev - 1);
+    }, 1000);
+
+    setTimeout(() => {
+      capturePhoto();
+      clearInterval(leftTime);
+      setLeftTime(timer);
+      setIsTakingPhoto(false);
+    }, timer * 1000);
   };
 
   const capturePhoto = () => {
@@ -84,7 +87,12 @@ const CameraCapture = () => {
             setTimer(Number(item.replace('초', '')))
           }
         />
-        <Button label="사진 찍기" color="gray" onClick={takePhoto} />
+        <Button
+          label="사진 찍기"
+          color="blue"
+          onClick={takePhoto}
+          disabled={isTakingPhoto}
+        />
       </div>
       <canvas
         className="hidden"
