@@ -1,5 +1,5 @@
 export const ROUTE_PATH = {
   takePhoto: '/',
-  preview: '/preview',
+  customPhoto: '/put-jam-on-it',
   savePhoto: '/toasted-well',
 };

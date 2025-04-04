@@ -1,6 +1,6 @@
 import { Header, Layout } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { FrameSelectPage, SavePhotoPage, TakePhotoPage } from '@/pages';
+import { CustomPhotoPage, SavePhotoPage, TakePhotoPage } from '@/pages';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -17,8 +17,8 @@ const router = createBrowserRouter([
         element: <TakePhotoPage />,
       },
       {
-        path: ROUTE_PATH.preview,
-        element: <FrameSelectPage />,
+        path: ROUTE_PATH.customPhoto,
+        element: <CustomPhotoPage />,
       },
       {
         path: ROUTE_PATH.savePhoto,

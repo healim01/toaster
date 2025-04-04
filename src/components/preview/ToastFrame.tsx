@@ -1,4 +1,4 @@
-import { ToastFrameCut } from '@/components/takePhoto';
+import { ToastFrameCut } from '@/components/preview';
 import { useFilterContext, usePhotosContext } from '@/hooks';
 
 const breadHeight = 200;

@@ -4,7 +4,7 @@ import { Filter } from '@/constants/filter';
 import { useFilterContext, usePhotosContext } from '@/hooks';
 import { useEffect, useRef, useState } from 'react';
 
-const CameraCapture = () => {
+const CameraSection = () => {
   const { setPhotos } = usePhotosContext();
 
   const [, setStreamVideo] = useState<MediaStream | null>(null);
@@ -70,7 +70,7 @@ const CameraCapture = () => {
   };
 
   return (
-    <div className="flex flex-col gap-2">
+    <section className="flex flex-col gap-2">
       <div className="relative w-[925px]">
         <img src={toasterImg} className="w-full" />
         <video
@@ -105,8 +105,8 @@ const CameraCapture = () => {
         width="1920"
         height="1080"
       ></canvas>
-    </div>
+    </section>
   );
 };
 
-export default CameraCapture;
+export default CameraSection;

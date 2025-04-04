@@ -1,8 +1,5 @@
-import {
-  CameraCapture,
-  CameraFrame,
-  FilterSelectSection,
-} from '@/components/takePhoto';
+import { CameraSection } from '@/components/camera';
+import { PreviewSection } from '@/components/preview';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { usePhotosContext } from '@/hooks';
 import { useEffect } from 'react';
@@ -13,16 +10,14 @@ const TakePhotoPage = () => {
   const { photos } = usePhotosContext();
 
   useEffect(() => {
-    if (photos.length >= 4) navigate(ROUTE_PATH.preview);
+    if (photos.length >= 4) navigate(ROUTE_PATH.customPhoto);
   }, [photos]);
 
   return (
-    <div className="flex flex-row items-center justify-center w-screen h-screen gap-10 bg-amber-50">
-      <div className="flex flex-col">
-        <CameraCapture />
-        <FilterSelectSection />
-      </div>
-      <CameraFrame />
+    <div className="flex flex-row items-center justify-center h-screen gap-10 bg-amber-50">
+      <CameraSection />
+
+      <PreviewSection />
     </div>
   );
 };
