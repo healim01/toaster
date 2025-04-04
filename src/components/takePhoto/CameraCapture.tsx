@@ -82,6 +82,7 @@ const CameraCapture = () => {
         />
       </div>
       <div>{leftTime}</div>
+
       <div className="flex flex-row justify-center gap-10">
         <Dropdown
           label={timer ? `${timer}초` : '타이머'}
@@ -101,8 +102,8 @@ const CameraCapture = () => {
       <canvas
         className="hidden"
         ref={canvasRef}
-        width="2400"
-        height="1600"
+        width="1920"
+        height="1080"
       ></canvas>
     </div>
   );
