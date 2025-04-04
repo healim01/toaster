@@ -1,6 +1,5 @@
 import { toasterImg } from '@/assets/imgs';
 import { Button, Dropdown } from '@/components';
-import { Filter } from '@/constants/filter';
 import { useFilterContext, usePhotosContext } from '@/hooks';
 import { useEffect, useRef, useState } from 'react';
 
@@ -77,7 +76,7 @@ const CameraSection = () => {
           ref={videoRef}
           className="absolute top-64 left-20 w-[450px] h-[253px] scale-x-[-1] object-contain z-20"
           style={{
-            filter: Filter[filter],
+            filter: filter?.filterStyle,
           }}
         />
       </div>

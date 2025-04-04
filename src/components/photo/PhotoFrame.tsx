@@ -1,4 +1,3 @@
-import { Filter } from '@/constants/filter';
 import { frames } from '@/constants/frames';
 import { useFilterContext, useFrameContext, usePhotosContext } from '@/hooks';
 import { getFormatDate } from '@/utils/getFormatDate';
@@ -22,7 +21,7 @@ const PhotoFrame = () => {
   const { frame } = useFrameContext();
 
   return (
-    <div className={`relative w-[250px] h-[675px]`}>
+    <div className={`relative w-[250px] h-[675px] shrink-0`}>
       <img
         src={frames[frame]}
         alt="Photo Frame"
@@ -36,7 +35,7 @@ const PhotoFrame = () => {
             alt={`Captured-${photo}`}
             className={`absolute transform -scale-x-100 z-20`}
             style={{
-              filter: Filter[filter],
+              filter: filter?.filterStyle,
               ...positions[index],
             }}
             width="225"

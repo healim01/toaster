@@ -1,5 +1,5 @@
 import { ToastFrameCut } from '@/components/preview';
-import { useFilterContext, usePhotosContext } from '@/hooks';
+import { usePhotosContext } from '@/hooks';
 
 const breadHeight = 200;
 const breadGap = 25;
@@ -20,7 +20,6 @@ const rotates = [
 
 const ToastFrame = () => {
   const { photos } = usePhotosContext();
-  const { filter } = useFilterContext();
 
   return (
     <div className="relative h-[730px] w-[250px]">
@@ -31,7 +30,7 @@ const ToastFrame = () => {
             className="absolute left-1/2 transform -translate-x-1/2"
             style={{ ...positions[index], ...rotates[index] }}
           >
-            <ToastFrameCut photo={photos[index]} filter={filter} />
+            <ToastFrameCut photo={photos[index]} />
           </div>
         );
       })}
