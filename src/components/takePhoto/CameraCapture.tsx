@@ -1,3 +1,4 @@
+import { toasterImg } from '@/assets/imgs';
 import { Button, Dropdown } from '@/components';
 import { Filter } from '@/constants/filter';
 import { useFilterContext, usePhotosContext } from '@/hooks';
@@ -70,13 +71,16 @@ const CameraCapture = () => {
 
   return (
     <div className="flex flex-col gap-2">
-      <video
-        ref={videoRef}
-        className="w-[540px] scale-x-[-1] aspect-[3/2] object-cover object-center"
-        style={{
-          filter: Filter[filter],
-        }}
-      />
+      <div className="relative w-[925px]">
+        <img src={toasterImg} className="w-full" />
+        <video
+          ref={videoRef}
+          className="absolute top-103 left-36 w-[450px] h-[253px] scale-x-[-1] object-contain z-20"
+          style={{
+            filter: Filter[filter],
+          }}
+        />
+      </div>
       <div>{leftTime}</div>
       <div className="flex flex-row justify-center gap-10">
         <Dropdown
