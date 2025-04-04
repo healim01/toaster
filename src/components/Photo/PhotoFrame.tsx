@@ -3,11 +3,17 @@ import { frames } from '@/constants/frames';
 import { useFilterContext, useFrameContext, usePhotosContext } from '@/hooks';
 import { getFormatDate } from '@/utils/getFormatDate';
 
+const photoSize = {
+  width: 450,
+  height: 253,
+};
+
+const gap = 25;
 const positions = [
-  { top: '12.5px', left: '12.5px' },
-  { top: '175px', left: '12.5px' },
-  { top: '337.5px', left: '12.5px' },
-  { top: '500px', left: '12.5px' },
+  { top: gap / 2, left: gap / 2 },
+  { top: gap + photoSize.height / 2, left: gap / 2 },
+  { top: (gap / 2) * 3 + (photoSize.height / 2) * 2, left: gap / 2 },
+  { top: (gap / 2) * 4 + (photoSize.height / 2) * 3, left: gap / 2 },
 ];
 
 const PhotoFrame = () => {
@@ -16,7 +22,7 @@ const PhotoFrame = () => {
   const { frame } = useFrameContext();
 
   return (
-    <div className="relative h-[750px] w-[250px]">
+    <div className={`relative w-[250px] h-[675px]`}>
       <img
         src={frames[frame]}
         alt="Photo Frame"
@@ -34,7 +40,7 @@ const PhotoFrame = () => {
               ...positions[index],
             }}
             width="225"
-            height="150"
+            height="127"
           />
         );
       })}
