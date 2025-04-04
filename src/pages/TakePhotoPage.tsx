@@ -14,7 +14,7 @@ const TakePhotoPage = () => {
   }, [photos]);
 
   return (
-    <div className="flex flex-row items-center justify-center h-screen gap-10 bg-amber-50">
+    <div className="flex flex-row items-center justify-center w-full h-full gap-10 bg-amber-50">
       <CameraSection />
 
       <PreviewSection />

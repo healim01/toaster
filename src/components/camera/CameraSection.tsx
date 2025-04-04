@@ -71,11 +71,11 @@ const CameraSection = () => {
 
   return (
     <section className="flex flex-col gap-2">
-      <div className="relative w-[925px]">
+      <div className="relative w-[830px]">
         <img src={toasterImg} className="w-full" />
         <video
           ref={videoRef}
-          className="absolute top-103 left-36 w-[450px] h-[253px] scale-x-[-1] object-contain z-20"
+          className="absolute top-64 left-20 w-[450px] h-[253px] scale-x-[-1] object-contain z-20"
           style={{
             filter: Filter[filter],
           }}

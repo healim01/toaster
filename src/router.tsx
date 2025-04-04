@@ -1,4 +1,4 @@
-import { Header, Layout } from '@/components';
+import { Header, Layout, MainLayout } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { CustomPhotoPage, SavePhotoPage, TakePhotoPage } from '@/pages';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
@@ -8,7 +8,9 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Header />
-        <Outlet />
+        <MainLayout>
+          <Outlet />
+        </MainLayout>
       </Layout>
     ),
     children: [

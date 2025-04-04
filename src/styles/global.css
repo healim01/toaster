@@ -1,14 +1,13 @@
 @import 'tailwindcss';
-/* @import 'tailwindcss/utilities'; */
 
 @layer base {
   html {
     font-size: 100%;
   }
 
-  /* body {
-    @apply overflow-y-hidden min-h-screen;
-  } */
+  body {
+    @apply h-screen overflow-y-hidden;
+  }
 
   div {
     box-sizing: border-box;
@@ -16,7 +15,7 @@
 
   @media (max-width: 768px) {
     body {
-      /* 모바일 스타일 여기에 */
+      @apply min-h-screen;
     }
   }
 }
