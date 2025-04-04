@@ -13,12 +13,17 @@ const CustomPhotoPage = () => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-center w-full h-full gap-10 bg-amber-50">
-      <div className="flex flex-col items-center gap-3 p-3">
+    <div className="flex flex-row w-full h-full p-3 gap-3">
+      <Button label="뒤로가기" onClick={() => navigate(ROUTE_PATH.takePhoto)} />
+      <div className="flex p-3 bg-white rounded-lg shadow-md">
         <PhotoFrame />
       </div>
-      <FilterSelectSection />
-      <FrameSelectSection />
+
+      <div className="flex flex-col flex-1 gap-3">
+        <FilterSelectSection />
+        <FrameSelectSection />
+      </div>
+
       <Button label="완료" onClick={handleComplete} />
     </div>
   );
