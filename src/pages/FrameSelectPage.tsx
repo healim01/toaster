@@ -1,5 +1,5 @@
 import { Button } from '@/components';
-import { FrameSelectSection, PreviewFrame } from '@/components/preview';
+import { FrameSelectSection, PreviewFrame } from '@/components/FrameSelect';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { usePhotosContext } from '@/hooks';
 import { useNavigate } from 'react-router-dom';
