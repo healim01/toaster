@@ -1,4 +1,5 @@
 import {
+  blueFrame,
   frame,
   gdyFrame,
   grassFrame,
@@ -12,4 +13,5 @@ export const frames: Record<string, string> = {
   무한도전: greenFrame,
   핑크그린: pinkGreenFrame,
   초록초록: grassFrame,
+  블루베리: blueFrame,
 };
