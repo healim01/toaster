@@ -1,16 +1,12 @@
-import { Button } from '@/components';
-import { useFilterContext } from '@/hooks';
+import FilterButton from '@/components/filter/FilterButton';
+import { Filter } from '@/constants/filter';
 
 const FilterSelectSection = () => {
-  const { setFilter } = useFilterContext();
-
-  const applyFilter = (filter: string) => {
-    setFilter(filter);
-  };
-
   return (
-    <section>
-      <Button label="필터1" color="green" onClick={() => applyFilter('fog')} />
+    <section className="flex gap-3 p-5 w-full h-[120px] overflow-x-scroll bg-green-200">
+      {Object.entries(Filter).map(([key, value]) => (
+        <FilterButton key={key} filter={value} />
+      ))}
     </section>
   );
 };
