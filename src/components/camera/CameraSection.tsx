@@ -85,7 +85,7 @@ const CameraSection = () => {
       <div className="flex flex-row justify-center gap-10">
         <Dropdown
           label={timer ? `${timer}초` : '타이머'}
-          items={['3초', '5초']}
+          items={['1초','3초', '5초']}
           selectedItem={timer?.toString() || null}
           setSelectedItem={(item: string) =>
             setTimer(Number(item.replace('초', '')))
