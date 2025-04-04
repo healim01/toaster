@@ -15,11 +15,9 @@ const Header = () => {
 
   return (
     <div
-      className={`sticky top-0 flex items-center justify-center h-[${HeaderSize}px] w-full z-10 shrink-0`}
+      className={`sticky top-0 flex items-center w-full h-[${HeaderSize}px] bg-amber-200 z-10 shrink-0`}
     >
-      <div className="flex items-center w-5xl h-full bg-amber-200">
-        <Button label="toaster" onClick={handleReturn} />
-      </div>
+      <Button label="toaster" onClick={handleReturn} />
     </div>
   );
 };
