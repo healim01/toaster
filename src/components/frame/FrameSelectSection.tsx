@@ -1,20 +1,14 @@
-import { Button } from '@/components';
+import FrameButton from '@/components/frame/FrameButton';
 import { frames } from '@/constants/frames';
-import { useFrameContext } from '@/hooks';
 
 const FrameSelectSection = () => {
-  const { setFrame } = useFrameContext();
-
   return (
-    <section className="flex flex-wrap gap-4 p-4 bg-gray-100 rounded-lg">
-      {Object.entries(frames).map(([key]) => (
-        <Button
-          key={key}
-          label={key}
-          onClick={() => setFrame(key)}
-          size="medium"
-        />
-      ))}
+    <section className="flex w-full h-[85%] p-5 bg-white rounded-lg overflow-y-scroll shadow-md">
+      <div className="grid grid-cols-4 gap-4 w-full justify-center mb-4">
+        {Object.entries(frames).map(([name, url]) => (
+          <FrameButton key={name} frameName={name} frameUrl={url} />
+        ))}
+      </div>
     </section>
   );
 };
