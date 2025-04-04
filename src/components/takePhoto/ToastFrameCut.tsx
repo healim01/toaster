@@ -15,11 +15,12 @@ const ToastFrameCut = ({ photo, filter }: Props) => {
           src={photo}
           key={`Captured-${photo}`}
           alt={`Captured-${photo}`}
-          className={`absolute transform -scale-x-100 z-20 rounded-l top-12 left-8`}
+          className={`absolute transform -scale-x-100 z-20 rounded-l top-15 left-6`}
           style={{
             filter: Filter[filter],
           }}
-          width="180"
+          width="200"
+          height="112"
         />
       )}
     </div>
