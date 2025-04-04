@@ -14,15 +14,26 @@ const FilterButton = ({ filter }: Props) => {
   };
 
   return (
-    <div
+    <button
       onClick={() => applyFilter(filter)}
-      className={`flex flex-col items-center justify-center p-2
-      ${isSelected ? 'bg-fuchsia-500' : 'bg-fuchsia-200'}
-      hover:bg-fuchsia-300 cursor-pointer`}
+      className={`flex flex-col items-center justify-center p-3 w-[100px] rounded-2xl 
+      transition-all duration-200 border 
+      ${
+        isSelected
+          ? 'bg-fuchsia-100 border-fuchsia-400'
+          : 'bg-white border-gray-200 hover:border-fuchsia-300 hover:bg-fuchsia-50'
+      }
+      shadow-sm hover:shadow-md`}
     >
-      <img src={filter.iconUrl} width={50} />
-      <div>{filter.name}</div>
-    </div>
+      <img
+        src={filter.iconUrl}
+        alt={filter.name}
+        width={48}
+        height={48}
+        className="mb-2"
+      />
+      <span className="text-sm font-medium text-gray-700">{filter.name}</span>
+    </button>
   );
 };
 
