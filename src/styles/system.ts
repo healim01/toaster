@@ -9,8 +9,9 @@ export const sizeStyle: Record<string, string> = {
 
 export const colorStyle: Record<string, string> = {
   blue: 'bg-blue-500 text-white hover:bg-blue-600',
-  red: 'bg-red-500 text-white hover:bg-red-600',
+  pink: 'bg-pink-500 text-white hover:bg-pink-600',
   green: 'bg-green-500 text-white hover:bg-green-600',
+  yellow: 'bg-yellow-500 text-black hover:bg-yellow-600',
   gray: 'bg-gray-500 text-white hover:bg-gray-600',
 };
 
