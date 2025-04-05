@@ -67,17 +67,23 @@ const CameraSection = () => {
   };
 
   return (
-    <section className="flex flex-col gap-2">
-      <div className="relative w-[830px]">
-        <img src={toasterImg} className="w-full" />
+    <section className="flex flex-col gap-4 p-4 items-center w-full max-w-[830px] mx-auto">
+      <div className="relative w-full aspect-[830/467]">
+        <img
+          src={toasterImg}
+          className="w-full h-full object-cover rounded-xl"
+        />
         <video
           ref={videoRef}
-          className="absolute top-64 left-20 w-[450px] h-[253px] scale-x-[-1] object-contain z-20 rounded-2xl"
+          className="absolute top-1/2 left-1/2 w-4/5 max-w-[450px] aspect-video 
+             -translate-x-1/2 -translate-y-1/2 scale-x-[-1] object-contain 
+             z-20 rounded-2xl shadow-md"
         />
       </div>
-      <div>{leftTime}</div>
 
-      <div className="flex flex-row justify-center gap-10">
+      <div className="text-center text-xl font-semibold">{leftTime}</div>
+
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
         <Dropdown
           label={timer ? `${timer}초` : '타이머'}
           items={['1초', '3초', '5초']}
@@ -93,6 +99,7 @@ const CameraSection = () => {
           disabled={isTakingPhoto}
         />
       </div>
+
       <canvas
         className="hidden"
         ref={canvasRef}
