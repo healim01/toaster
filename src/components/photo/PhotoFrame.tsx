@@ -1,6 +1,5 @@
 import { frames } from '@/constants/frames';
 import { useFilterContext, useFrameContext, usePhotosContext } from '@/hooks';
-import { getFormatDate } from '@/utils/getFormatDate';
 
 const photoSize = {
   width: 450,
@@ -43,9 +42,6 @@ const PhotoFrame = () => {
           />
         );
       })}
-      <div className={`absolute bottom-1 right-2 z-100`}>
-        {getFormatDate(new Date())}
-      </div>
     </div>
   );
 };

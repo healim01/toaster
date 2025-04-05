@@ -72,7 +72,7 @@ const CameraSection = () => {
         <img src={toasterImg} className="w-full" />
         <video
           ref={videoRef}
-          className="absolute top-64 left-20 w-[450px] h-[253px] scale-x-[-1] object-contain z-20"
+          className="absolute top-64 left-20 w-[450px] h-[253px] scale-x-[-1] object-contain z-20 rounded-2xl"
         />
       </div>
       <div>{leftTime}</div>
