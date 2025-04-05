@@ -1,6 +1,6 @@
 import { toasterImg } from '@/assets/imgs';
 import { Button, Dropdown } from '@/components';
-import { useFilterContext, usePhotosContext } from '@/hooks';
+import { usePhotosContext } from '@/hooks';
 import { useEffect, useRef, useState } from 'react';
 
 const CameraSection = () => {
@@ -9,8 +9,6 @@ const CameraSection = () => {
   const [, setStreamVideo] = useState<MediaStream | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-  const { filter } = useFilterContext();
 
   const [timer, setTimer] = useState<number>(3);
   const [isTakingPhoto, setIsTakingPhoto] = useState(false);
@@ -75,9 +73,6 @@ const CameraSection = () => {
         <video
           ref={videoRef}
           className="absolute top-64 left-20 w-[450px] h-[253px] scale-x-[-1] object-contain z-20"
-          style={{
-            filter: filter?.filterStyle,
-          }}
         />
       </div>
       <div>{leftTime}</div>
@@ -85,7 +80,7 @@ const CameraSection = () => {
       <div className="flex flex-row justify-center gap-10">
         <Dropdown
           label={timer ? `${timer}초` : '타이머'}
-          items={['1초','3초', '5초']}
+          items={['1초', '3초', '5초']}
           selectedItem={timer?.toString() || null}
           setSelectedItem={(item: string) =>
             setTimer(Number(item.replace('초', '')))
