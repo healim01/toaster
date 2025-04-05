@@ -12,7 +12,7 @@
   }
 
   body {
-    @apply h-screen overflow-y-hidden;
+    @apply min-h-screen overflow-y-hidden;
   }
 
   div {

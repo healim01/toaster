@@ -17,7 +17,7 @@ const Header = () => {
     <div
       className={`sticky top-0 flex items-center w-full h-[${HeaderSize}px] bg-white z-10 shrink-0`}
     >
-      <div className="flex flex-row w-[1200px] h-full max-w-full mx-auto">
+      <div className="flex flex-row w-full h-full max-w-screen-xl px-4 sm:px-6 md:px-8 mx-auto">
         <Button label="toaster" onClick={handleReturn} />
       </div>
     </div>
