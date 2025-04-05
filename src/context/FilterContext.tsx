@@ -3,7 +3,7 @@ import { createContext, PropsWithChildren, useState } from 'react';
 
 type FilterContextType = {
   filter: FilterObject | null;
-  setFilter: (filter: FilterObject) => void;
+  setFilter: (filter: FilterObject | null) => void;
 };
 
 export const FilterContext = createContext<FilterContextType | undefined>(

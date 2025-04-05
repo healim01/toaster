@@ -10,7 +10,8 @@ const FilterButton = ({ filter }: Props) => {
   const isSelected = selectedFilter?.name === filter.name;
 
   const applyFilter = (filter: FilterObject) => {
-    setFilter(filter);
+    if (isSelected) setFilter(null);
+    else setFilter(filter);
   };
 
   return (

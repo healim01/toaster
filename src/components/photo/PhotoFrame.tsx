@@ -35,7 +35,7 @@ const PhotoFrame = () => {
             alt={`Captured-${photo}`}
             className={`absolute transform -scale-x-100 z-20`}
             style={{
-              filter: filter?.filterStyle,
+              filter: filter?.filterStyle ?? 'none',
               ...positions[index],
             }}
             width="225"
