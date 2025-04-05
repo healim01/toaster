@@ -18,7 +18,7 @@ const FilterButton = ({ filter }: Props) => {
     <button
       onClick={() => applyFilter(filter)}
       className={`flex flex-col items-center justify-center p-3 w-[100px] rounded-2xl 
-      transition-all duration-200 border 
+      transition-all duration-200 border shrink-0
       ${
         isSelected
           ? 'bg-froly-100 border-froly-400'

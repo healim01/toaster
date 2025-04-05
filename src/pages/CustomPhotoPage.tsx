@@ -1,4 +1,4 @@
-import { Button } from '@/components';
+import { FloatingButton } from '@/components';
 import { FilterSelectSection } from '@/components/filter';
 import { FrameSelectSection } from '@/components/frame';
 import { PhotoFrame } from '@/components/photo';
@@ -13,18 +13,29 @@ const CustomPhotoPage = () => {
   };
 
   return (
-    <div className="flex flex-row w-full h-full p-3 gap-3">
-      <Button label="뒤로가기" onClick={() => navigate(ROUTE_PATH.takePhoto)} />
-      <div className="flex p-3 bg-gray-100 rounded-lg shadow-md">
-        <PhotoFrame />
+    <div className="flex relative w-full h-full pt-2 pb-2 md:p-4">
+      <div className="flex flex-col md:flex-row gap-4 w-full h-full">
+        {/* 사진 영역 */}
+        <div className="flex justify-center w-full md:w-[280px] h-fit bg-gray-50 p-4 rounded-lg shadow-md">
+          <PhotoFrame />
+        </div>
+
+        {/* 필터 & 프레임 선택 영역 */}
+        <div className="flex flex-col gap-4 flex-1">
+          <FilterSelectSection />
+          <FrameSelectSection />
+        </div>
       </div>
 
-      <div className="flex flex-col flex-1 gap-3">
-        <FilterSelectSection />
-        <FrameSelectSection />
-      </div>
-
-      <Button label="완료" onClick={handleComplete} />
+      {/* 플로팅 버튼 */}
+      <FloatingButton
+        label="사진 편집 완료"
+        onClick={handleComplete}
+        variant="contained"
+        color="pink"
+        size="medium"
+        round
+      />
     </div>
   );
 };
