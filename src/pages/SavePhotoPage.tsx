@@ -21,7 +21,7 @@ const SavePhotoPage = () => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-center w-full h-full gap-10">
+    <div className="flex flex-col md:flex-row items-center justify-center w-full h-full gap-10">
       <div ref={divRef}>
         <PhotoFrame />
       </div>
