@@ -26,7 +26,7 @@ const FilterButton = ({ filter }: Props) => {
       shadow-sm hover:shadow-md`}
     >
       <img
-        src={filter.iconUrl}
+        src={isSelected ? filter.openIconUrl : filter.iconUrl}
         alt={filter.name}
         width={48}
         height={48}
