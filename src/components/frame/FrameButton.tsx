@@ -16,7 +16,7 @@ const FrameButton = ({ frameName, frameUrl }: Props) => {
        ${
          isSelected
            ? 'border-blue-500 bg-blue-100 shadow-md'
-           : 'border-gray-300 hover:bg-blue-50 hover:shadow-sm'
+           : 'border-gray-300 bg-white hover:bg-blue-50 hover:shadow-sm'
        }
       )}`}
     >

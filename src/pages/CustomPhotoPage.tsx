@@ -15,7 +15,7 @@ const CustomPhotoPage = () => {
   return (
     <div className="flex flex-row w-full h-full p-3 gap-3">
       <Button label="뒤로가기" onClick={() => navigate(ROUTE_PATH.takePhoto)} />
-      <div className="flex p-3 bg-white rounded-lg shadow-md">
+      <div className="flex p-3 bg-gray-100 rounded-lg shadow-md">
         <PhotoFrame />
       </div>
 
