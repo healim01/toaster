@@ -1,5 +1,6 @@
 import { Button } from '@/components';
 import { PhotoFrame } from '@/components/photo';
+import { getFormatDate } from '@/utils/getFormatDate';
 import domtoimage from 'dom-to-image';
 import saveAs from 'file-saver';
 import { useRef } from 'react';
@@ -13,18 +14,18 @@ const SavePhotoPage = () => {
     try {
       const div = divRef.current;
       const blob = await domtoimage.toBlob(div);
-      saveAs(blob, 'result.png');
+      saveAs(blob, `photoast-${getFormatDate(new Date())}.png`);
     } catch (error) {
       console.error('Error converting div to image:', error);
     }
   };
 
   return (
-    <div className="flex flex-row items-center justify-center w-full gap-10 bg-amber-50">
-      <Button label="다운로드" onClick={handleDownload} />
+    <div className="flex flex-row items-center justify-center w-full h-full gap-10">
       <div ref={divRef}>
         <PhotoFrame />
       </div>
+      <Button label="사진 다운로드" onClick={handleDownload} />
     </div>
   );
 };
