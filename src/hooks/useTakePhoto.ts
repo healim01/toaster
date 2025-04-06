@@ -1,4 +1,4 @@
-import usePhotosContext from '@/hooks/usePhotosContext';
+import { usePhotosContext } from '@/hooks';
 import { useEffect, useRef, useState } from 'react';
 
 const useTakePhoto = () => {

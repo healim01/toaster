@@ -1,7 +1,6 @@
-import FloatingButton from '@/components/_common/Button/FloatingButton';
-import Camera from '@/components/camera/Camera';
-import useTakePhoto from '@/hooks/useTakePhoto';
-import useToasterRiv from '@/hooks/useToasterRiv';
+import { FloatingButton } from '@/components';
+import { Camera } from '@/components/camera';
+import { useTakePhoto, useToasterRiv } from '@/hooks';
 
 const CameraSection = () => {
   const { videoRef, canvasRef, takePhoto } = useTakePhoto();

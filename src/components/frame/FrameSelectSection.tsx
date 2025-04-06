@@ -1,4 +1,4 @@
-import FrameButton from '@/components/frame/FrameButton';
+import { FrameButton } from '@/components/frame';
 import { frames } from '@/constants/frames';
 
 const FrameSelectSection = () => {

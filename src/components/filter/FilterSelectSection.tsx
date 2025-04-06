@@ -1,4 +1,4 @@
-import FilterButton from '@/components/filter/FilterButton';
+import { FilterButton } from '@/components/filter';
 import { Filter } from '@/constants/filter';
 
 const FilterSelectSection = () => {
