@@ -11,10 +11,10 @@ const Camera = ({ videoRef, canvasRef }: Props) => {
         ref={videoRef}
         className="absolute w-4/6 md:w-4/5 max-w-[480px] aspect-video 
       -translate-x-1/2 object-contain scale-x-[-1]
-      z-20 rounded-2xl shadow-md"
+      z-0 rounded-2xl shadow-md"
         style={{
-          left: '44%',
-          bottom: '11%',
+          left: '43%',
+          bottom: '11.5%',
           objectFit: 'cover',
         }}
       />

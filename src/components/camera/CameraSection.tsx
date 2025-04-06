@@ -10,7 +10,7 @@ const CameraSection = () => {
   });
 
   return (
-    <section className="flex flex-col items-center w-full h-[400px] md:h-full max-w-[900px]">
+    <section className="flex flex-col items-center w-full h-[400px] md:h-[750px] max-w-[850px]">
       <div className="relative w-full h-full">
         <ToasterRive
           style={{
