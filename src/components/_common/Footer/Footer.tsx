@@ -9,7 +9,7 @@ const Footer = () => {
       className={`flex flex-col justify-end w-full text-sm text-white mt-20
       ${
         location.pathname === ROUTE_PATH.takePhoto
-          ? 'bg-amber-500'
+          ? 'bg-yellow-500'
           : 'bg-blue-100'
       }
     `}
