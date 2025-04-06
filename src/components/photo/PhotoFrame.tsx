@@ -24,7 +24,7 @@ const PhotoFrame = () => {
       <img
         src={frames[frame]}
         alt="Photo Frame"
-        className="absolute top-0 left-0 w-full h-full z-100"
+        className="absolute top-0 left-0 w-full h-full z-10"
       />
       {photos?.map((photo, index) => {
         return (
@@ -32,7 +32,7 @@ const PhotoFrame = () => {
             src={photo}
             key={`Captured-${photo}`}
             alt={`Captured-${photo}`}
-            className={`absolute transform -scale-x-100 z-20`}
+            className={`absolute transform -scale-x-100 z-0`}
             style={{
               filter: filter?.filterStyle ?? 'none',
               ...positions[index],
