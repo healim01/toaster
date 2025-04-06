@@ -25,9 +25,10 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed top-0 flex items-center w-full h-[45px] z-50 shrink-0 transition-colors duration-300 ${
-        isScrolled ? 'bg-amber-50 shadow-sm' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 flex items-center w-full h-[45px] z-50 shrink-0 transition-colors duration-300
+      bg-amber-50         
+      ${isScrolled ? 'md:bg-amber-50 md:shadow-sm' : 'md:bg-transparent'}
+    `}
     >
       <div className="flex flex-row items-center w-full h-full max-w-screen-xl px-4 sm:px-6 md:px-8 mx-auto">
         <TextToasterIcon width={150} height={40} onClick={handleReturn} />
