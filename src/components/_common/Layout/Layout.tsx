@@ -7,7 +7,7 @@ const Layout = ({ children }: PropsWithChildren) => {
 
   return (
     <div
-      className={`flex flex-col w-screen h-screen ${
+      className={`flex flex-col w-screen m-h-screen ${
         location.pathname === ROUTE_PATH.takePhoto
           ? 'bg-amber-100'
           : 'bg-blue-200'

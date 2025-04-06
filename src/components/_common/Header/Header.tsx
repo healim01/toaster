@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <div
-      className={`sticky top-0 flex items-center w-full h-[45px] z-10 shrink-0`}
+      className={`fixed top-0 flex items-center w-full h-[45px] z-10 shrink-0`}
     >
       <div className="flex flex-row items-center w-full h-full max-w-screen-xl px-4 sm:px-6 md:px-8 mx-auto">
         <TextToasterIcon width={150} height={40} onClick={handleReturn} />
