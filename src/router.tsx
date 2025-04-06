@@ -1,7 +1,11 @@
-import { Header, Layout, MainLayout } from '@/components';
-import Footer from '@/components/_common/Footer/Footer';
+import { Footer, Header, Layout, MainLayout } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { CustomPhotoPage, SavePhotoPage, TakePhotoPage } from '@/pages';
+import {
+  CustomPhotoPage,
+  SavePhotoPage,
+  StartPage,
+  TakePhotoPage,
+} from '@/pages';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -16,6 +20,10 @@ const router = createBrowserRouter([
       </Layout>
     ),
     children: [
+      {
+        path: ROUTE_PATH.start,
+        element: <StartPage />,
+      },
       {
         path: ROUTE_PATH.takePhoto,
         element: <TakePhotoPage />,

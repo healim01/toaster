@@ -11,7 +11,7 @@ const Header = () => {
 
   const handleReturn = () => {
     setPhotos([]);
-    navigate(ROUTE_PATH.takePhoto);
+    navigate(ROUTE_PATH.start);
   };
 
   useEffect(() => {
