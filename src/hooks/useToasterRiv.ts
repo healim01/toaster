@@ -2,9 +2,10 @@ import ToasterRiveImg from '@/assets/rive/toaster.riv?url';
 import {
   EventCallback,
   EventType,
+  RuntimeLoader,
   useRive,
   useStateMachineInput,
-} from '@rive-app/react-canvas';
+} from '@rive-app/react-canvas-lite';
 import { useEffect } from 'react';
 
 const STATE_MACHINE_NAME = 'State Machine 1';
@@ -13,6 +14,8 @@ const BAR_CLICK_STATE = 'bar';
 interface Props {
   takePhoto: () => void;
 }
+
+RuntimeLoader.setWasmUrl(ToasterRiveImg);
 
 const useToasterRiv = ({ takePhoto }: Props) => {
   const { rive, RiveComponent } = useRive({

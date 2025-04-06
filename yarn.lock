@@ -416,17 +416,17 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@rive-app/canvas@2.26.7":
+"@rive-app/canvas-lite@2.26.7":
   version "2.26.7"
-  resolved "https://registry.yarnpkg.com/@rive-app/canvas/-/canvas-2.26.7.tgz#593ccc6d875e42feaae001a3e5052fa0627933fe"
-  integrity sha512-0/L3jsLdpVXfZHqkK6famgLQf7wFT1TuWrB4A8I8K+/uLPulpTK76/jJ78odCdZ7WyO5OpRkK2OwuW5MvH4qJg==
+  resolved "https://registry.yarnpkg.com/@rive-app/canvas-lite/-/canvas-lite-2.26.7.tgz#db26b51b35fc86c1ace698c4b2917fc6bd51941c"
+  integrity sha512-cFaR6rj7he0gZJSbYBC8Mi13MQ89JPPLDyqYM9VXY8m1GAfYoT3EWQI4kjIyAAgGfc+XIXjj39kTrb5HL70yrA==
 
-"@rive-app/react-canvas@^4.18.6":
+"@rive-app/react-canvas-lite@^4.18.6":
   version "4.18.6"
-  resolved "https://registry.yarnpkg.com/@rive-app/react-canvas/-/react-canvas-4.18.6.tgz#772b403752907f7a2da46a57bfc2949d799d4218"
-  integrity sha512-T/fk9I1lJh2C59WbommT0Jw1mURdLx6X/qOD+6yCsczFGQtfK44H4xGzlKxIz/UAewt8iCwNGs57T1zvu/cSmQ==
+  resolved "https://registry.yarnpkg.com/@rive-app/react-canvas-lite/-/react-canvas-lite-4.18.6.tgz#d22fbacc8d4d56b9d20f3557fe6c8d47d2e382ff"
+  integrity sha512-XpHEZ46kyjivG5IcmT9CIWpkcqXySXr6LIB0HT67oJTd4JqKtoIntyVDEzBoCxU7eQYLsLWELYEMoMnGMzIsBg==
   dependencies:
-    "@rive-app/canvas" "2.26.7"
+    "@rive-app/canvas-lite" "2.26.7"
 
 "@rollup/pluginutils@^5.1.3":
   version "5.1.4"
