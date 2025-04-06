@@ -21,8 +21,8 @@ const FilterButton = ({ filter }: Props) => {
       transition-all duration-200 border shrink-0
       ${
         isSelected
-          ? 'bg-froly-100 border-froly-400'
-          : 'bg-white border-gray-200 hover:border-froly-300 hover:bg-froly-50'
+          ? 'bg-pink-100 border-pink-400'
+          : 'bg-white border-gray-200 hover:border-pink-300 hover:bg-pink-50'
       }
       shadow-sm hover:shadow-md`}
     >
