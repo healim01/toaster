@@ -14,18 +14,20 @@ const SavePhotoPage = () => {
     try {
       const div = divRef.current;
       const blob = await domtoimage.toBlob(div);
-      saveAs(blob, `photoast-${getFormatDate(new Date())}.png`);
+      saveAs(blob, `toaster-booth-${getFormatDate(new Date())}.png`);
     } catch (error) {
       console.error('Error converting div to image:', error);
     }
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center w-full h-full gap-10">
-      <div ref={divRef}>
-        <PhotoFrame />
+    <div className="flex justify-center items-center w-full h-full gap-10">
+      <div className="flex flex-col items-end w-fit h-fit md:flex-row p-5 gap-5 bg-white rounded-2xl">
+        <div ref={divRef}>
+          <PhotoFrame />
+        </div>
+        <Button label="사진 다운로드" onClick={handleDownload} />
       </div>
-      <Button label="사진 다운로드" onClick={handleDownload} />
     </div>
   );
 };
