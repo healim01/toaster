@@ -5,7 +5,7 @@ import {
   RuntimeLoader,
   useRive,
   useStateMachineInput,
-} from '@rive-app/react-canvas-lite';
+} from '@rive-app/react-canvas';
 import { useEffect } from 'react';
 
 const STATE_MACHINE_NAME = 'State Machine 1';
