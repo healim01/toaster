@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+
+@theme {
+  --animate-marquee: marquee 10s linear infinite;
+  --animate-marquee-vertical: marquee-vertical 10s linear infinite;
+
+  @keyframes marquee-vertical {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(calc(-100% - 1rem));
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(calc(-100% - 1rem));
+    }
+  }
+}
