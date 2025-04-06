@@ -1,7 +1,16 @@
-import { toasterImg } from '@/assets/imgs';
-import { Button, Dropdown } from '@/components';
+import ToasterRiveImg from '@/assets/rive/toaster.riv?url';
+import Camera from '@/components/camera/Camera';
 import { usePhotosContext } from '@/hooks';
+import {
+  EventCallback,
+  EventType,
+  useRive,
+  useStateMachineInput,
+} from '@rive-app/react-canvas';
 import { useEffect, useRef, useState } from 'react';
+
+const STATE_MACHINE_NAME = 'State Machine 1';
+const BAR_CLICK_STATE = 'bar';
 
 const CameraSection = () => {
   const { setPhotos } = usePhotosContext();
@@ -10,9 +19,11 @@ const CameraSection = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  const [timer, setTimer] = useState<number>(3);
-  const [isTakingPhoto, setIsTakingPhoto] = useState(false);
-  const [leftTime, setLeftTime] = useState<number>(3);
+  const { rive, RiveComponent } = useRive({
+    src: ToasterRiveImg,
+    autoplay: true,
+    stateMachines: STATE_MACHINE_NAME,
+  });
 
   useEffect(() => {
     openCamera();
@@ -36,22 +47,6 @@ const CameraSection = () => {
       });
   };
 
-  const takePhoto = () => {
-    if (isTakingPhoto || !timer) return;
-
-    setIsTakingPhoto(true);
-    const leftTime = setInterval(() => {
-      setLeftTime(prev => prev - 1);
-    }, 1000);
-
-    setTimeout(() => {
-      capturePhoto();
-      clearInterval(leftTime);
-      setLeftTime(timer);
-      setIsTakingPhoto(false);
-    }, timer * 1000);
-  };
-
   const capturePhoto = () => {
     const canvas = canvasRef.current;
     const video = videoRef.current;
@@ -66,46 +61,64 @@ const CameraSection = () => {
     }
   };
 
+  const stateToastUp = useStateMachineInput(
+    rive,
+    STATE_MACHINE_NAME,
+    'isToastUp',
+  );
+
+  const stateTime = useStateMachineInput(
+    rive,
+    STATE_MACHINE_NAME,
+    'time count',
+  );
+
+  const clickBar = () => {
+    const time = stateTime?.value !== -1 ? Number(stateTime?.value) : 3;
+
+    if (stateToastUp) {
+      stateToastUp.value = false;
+
+      setTimeout(() => {
+        stateToastUp.value = true;
+        capturePhoto();
+      }, 1000 * time);
+    }
+  };
+
+  useEffect(() => {
+    if (!rive) return;
+
+    const handler: EventCallback = event => {
+      if (!Array.isArray(event.data)) return;
+
+      if (event.data.includes(BAR_CLICK_STATE) && stateToastUp) {
+        clickBar();
+      }
+    };
+
+    rive.on(EventType.StateChange, handler);
+
+    return () => {
+      rive.off(EventType.StateChange, handler);
+    };
+  }, [rive, stateToastUp]);
+
   return (
-    <section className="flex flex-col gap-4 p-4 items-center w-full max-w-[830px] mx-auto">
-      <div className="relative w-full aspect-[830/467]">
-        <img
-          src={toasterImg}
-          className="w-full h-full object-cover rounded-xl"
+    <section className="flex flex-col gap-4 p-4 items-center w-full h-full max-w-[830px] mx-auto">
+      <div className="relative w-full h-full">
+        <RiveComponent
+          style={{
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            width: '100%',
+            zIndex: 10,
+            objectFit: 'cover',
+          }}
         />
-        <video
-          ref={videoRef}
-          className="absolute top-1/2 left-1/2 w-4/5 max-w-[450px] aspect-video 
-             -translate-x-1/2 -translate-y-1/2 scale-x-[-1] object-contain 
-             z-20 rounded-2xl shadow-md"
-        />
+        <Camera videoRef={videoRef} canvasRef={canvasRef} />
       </div>
-
-      <div className="text-center text-xl font-semibold">{leftTime}</div>
-
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-        <Dropdown
-          label={timer ? `${timer}초` : '타이머'}
-          items={['1초', '3초', '5초']}
-          selectedItem={timer?.toString() || null}
-          setSelectedItem={(item: string) =>
-            setTimer(Number(item.replace('초', '')))
-          }
-        />
-        <Button
-          label="사진 찍기"
-          color="blue"
-          onClick={takePhoto}
-          disabled={isTakingPhoto}
-        />
-      </div>
-
-      <canvas
-        className="hidden"
-        ref={canvasRef}
-        width="1920"
-        height="1080"
-      ></canvas>
     </section>
   );
 };
