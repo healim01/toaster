@@ -13,8 +13,8 @@ const CustomPhotoPage = () => {
   };
 
   return (
-    <div className="flex relative w-full h-full pt-2 pb-2">
-      <div className="flex flex-col md:flex-row gap-4 w-full h-full">
+    <div className="flex relative w-full h-[92%] pt-2 pb-2">
+      <div className="flex flex-col  md:flex-row gap-4 w-full h-full mt-[50px]">
         {/* 사진 영역 */}
         <div className="flex items-center justify-center w-full md:w-[280px] h-full bg-gray-50 p-4 rounded-lg shadow-md">
           <PhotoFrame />
