@@ -39,15 +39,6 @@ export const Filter: Record<string, FilterObject> = {
     blur(.5px) 
     hue-rotate(5deg)`,
   },
-  blueberry: {
-    iconUrl: blueberryJamImg,
-    openIconUrl: blueberryJamOpenImg,
-    name: '블루베리잼',
-    filterStyle: `grayscale(20%) 
-      brightness(1.1) 
-      contrast(110%) 
-      blur(1px)`,
-  },
   fresh: {
     iconUrl: blueberryJamImg,
     openIconUrl: blueberryJamOpenImg,
@@ -65,5 +56,18 @@ export const Filter: Record<string, FilterObject> = {
     filterStyle: `grayscale(100%) 
       contrast(150%) 
       brightness(110%)`,
+  },
+  peach2: {
+    iconUrl: blueberryJamImg,
+    openIconUrl: blueberryJamOpenImg,
+    name: 'peach2',
+    filterStyle: `
+    brightness(1.15)      
+    contrast(0.9)         
+    saturate(1.1)        
+    sepia(0.03)          
+    hue-rotate(-2deg)    
+    blur(.5px)
+    `,
   },
 };
