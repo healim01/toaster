@@ -1,5 +1,5 @@
 import { GithubIcon, InstagramIcon } from '@/assets';
-import { ROUTE_PATH } from '@/constants/routePath';
+import { YellowBg } from '@/constants/system';
 import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
@@ -7,11 +7,7 @@ const Footer = () => {
   return (
     <footer
       className={`flex flex-col justify-end w-full text-sm text-white mt-20
-      ${
-        location.pathname === ROUTE_PATH.takePhoto
-          ? 'bg-yellow-500'
-          : 'bg-blue-100'
-      }
+      ${YellowBg.includes(location.pathname) ? 'bg-yellow-50' : 'bg-blue-100'}
     `}
     >
       <div className="flex flex-col md:flex-row w-full justify-between md:items-end px-6 py-8 gap-6 md:gap-0 bg-blue-300">

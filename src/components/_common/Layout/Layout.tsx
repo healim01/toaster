@@ -1,8 +1,6 @@
-import { ROUTE_PATH } from '@/constants/routePath';
+import { YellowBg } from '@/constants/system';
 import { PropsWithChildren } from 'react';
 import { useLocation } from 'react-router-dom';
-
-const YellowBg = [ROUTE_PATH.start, ROUTE_PATH.takePhoto];
 
 const Layout = ({ children }: PropsWithChildren) => {
   const location = useLocation();
