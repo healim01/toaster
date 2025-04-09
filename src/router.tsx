@@ -13,9 +13,7 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Header />
-        <MainLayout>
-          <Outlet />
-        </MainLayout>
+        <Outlet />
         <Footer />
       </Layout>
     ),
@@ -25,16 +23,25 @@ const router = createBrowserRouter([
         element: <StartPage />,
       },
       {
-        path: ROUTE_PATH.takePhoto,
-        element: <TakePhotoPage />,
-      },
-      {
-        path: ROUTE_PATH.customPhoto,
-        element: <CustomPhotoPage />,
-      },
-      {
-        path: ROUTE_PATH.savePhoto,
-        element: <SavePhotoPage />,
+        element: (
+          <MainLayout>
+            <Outlet />
+          </MainLayout>
+        ),
+        children: [
+          {
+            path: ROUTE_PATH.takePhoto,
+            element: <TakePhotoPage />,
+          },
+          {
+            path: ROUTE_PATH.customPhoto,
+            element: <CustomPhotoPage />,
+          },
+          {
+            path: ROUTE_PATH.savePhoto,
+            element: <SavePhotoPage />,
+          },
+        ],
       },
     ],
   },

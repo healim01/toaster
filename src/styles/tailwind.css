@@ -9,7 +9,7 @@
       transform: translateY(0%);
     }
     100% {
-      transform: translateY(calc(-100% - 1rem));
+      transform: translateY(calc(-100% - 60px));
     }
   }
 
@@ -18,7 +18,7 @@
       transform: translateX(0%);
     }
     100% {
-      transform: translateX(calc(-100% - 1rem));
+      transform: translateX(calc(-100% - 60px));
     }
   }
 }
