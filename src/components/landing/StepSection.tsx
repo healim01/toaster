@@ -28,10 +28,10 @@ const StepSection = () => {
             alt={step.title}
             className="w-30 h-30 object-contain rounded-xl"
           />
-          <p className="text-brown-500">{step.title}</p>
+          <p className="text-lg text-brown-500">{step.title}</p>
 
           {index !== steps.length - 1 && (
-            <div className="w-0 h-0 border-l-20 border-r-20 border-t-[10px] border-l-transparent border-r-transparent border-t-amber-900 mx-auto rounded-2xl" />
+            <div className="w-0 h-0 border-l-20 border-r-20 border-t-[10px] border-l-transparent border-r-transparent border-t-gray-600 mx-auto rounded-2xl" />
           )}
         </div>
       ))}

@@ -10,10 +10,10 @@ const IntroSection = () => {
     <div className="flex flex-col justify-center md:w-1/3 min-h-[500px] p-4">
       <img src={toasterBoothImg} className="w-1/2" />
 
-      <p className="text-lg font-bold text-amber-800 mt-4 mb-2">
+      <p className="text-2xl font-bold text-amber-800 mt-4 mb-2">
         오늘의 기분, 오늘의 토스트 🌞
       </p>
-      <p className="text-md text-amber-800 mb-8">
+      <p className="text-lg text-amber-800 mb-8">
         마음에 드는 재료를 골라, 나만의 토스트를 만들어보세요!
         <br />
         귀여운 네컷 사진으로 추억을 담아요 📸
