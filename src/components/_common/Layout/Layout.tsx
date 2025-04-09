@@ -7,7 +7,7 @@ const Layout = ({ children }: PropsWithChildren) => {
 
   return (
     <div
-      className={`flex flex-col w-screen m-h-screen ${
+      className={`flex flex-col w-screen min-h-screen ${
         YellowBg.includes(location.pathname) ? 'bg-yellow-50' : 'bg-blue-100'
       }`}
     >
