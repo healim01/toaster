@@ -7,7 +7,7 @@ const IntroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col justify-center md:w-1/3 min-h-[500px] p-4 bg-pink-50">
+    <div className="flex flex-col justify-center md:w-1/3 min-h-[500px] p-4">
       <img src={toasterBoothImg} className="w-1/2" />
 
       <p className="text-lg font-bold text-amber-800 mt-4 mb-2">
