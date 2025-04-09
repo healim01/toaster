@@ -7,7 +7,7 @@ import {
   peanutButterJamOpenImg,
   strawberryJamImg,
   strawberryJamOpenImg,
-} from '@/assets/imgs';
+} from '@/assets';
 import { FilterObject } from '@/types/filter';
 
 export const Filter: Record<string, FilterObject> = {

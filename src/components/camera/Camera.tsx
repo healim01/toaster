@@ -13,7 +13,7 @@ const Camera = ({ videoRef, canvasRef }: Props) => {
       -translate-x-1/2 object-contain scale-x-[-1]
       z-0 rounded-2xl shadow-md"
         style={{
-          left: '43%',
+          left: '39%',
           bottom: '11.5%',
           objectFit: 'cover',
         }}

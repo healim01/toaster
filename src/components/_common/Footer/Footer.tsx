@@ -40,9 +40,12 @@ const Footer = () => {
               <GithubIcon />
             </a>
           </div>
-          <p className="text-xs sm:text-sm break-all">
+          <a
+            href="mailto:HyelimChoi01@gmail.com"
+            className="text-xs sm:text-sm break-all"
+          >
             Contact: HyelimChoi01@gmail.com
-          </p>
+          </a>
           <p className="text-xs sm:text-sm">
             Cooked with JavaScript, served with love
           </p>

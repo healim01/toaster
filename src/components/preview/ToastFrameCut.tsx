@@ -1,4 +1,4 @@
-import { toastImg } from '@/assets/imgs';
+import { toastImg } from '@/assets';
 
 interface Props {
   photo: string | null;
@@ -13,7 +13,7 @@ const ToastFrameCut = ({ photo }: Props) => {
           src={photo}
           key={`Captured-${photo}`}
           alt={`Captured-${photo}`}
-          className={`absolute transform -scale-x-100 z-10 rounded-l top-15 left-8.5`}
+          className={`absolute transform -scale-x-100 z-10 rounded-xl top-15 left-8`}
           width="200"
           height="112"
         />
