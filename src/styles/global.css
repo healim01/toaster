@@ -1,0 +1,27 @@
+@import 'tailwindcss';
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  html {
+    font-size: 100%;
+  }
+
+  body {
+    @apply min-h-screen;
+  }
+
+  div {
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      @apply min-h-screen;
+    }
+  }
+}

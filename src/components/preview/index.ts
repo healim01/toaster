@@ -1,2 +1,3 @@
-export { default as FrameSelectSection } from './FrameSelectSection';
-export { default as PreviewFrame } from './PreviewFrame';
+export { default as PreviewSection } from './PreviewSection';
+export { default as ToastFrame } from './ToastFrame';
+export { default as ToastFrameCut } from './ToastFrameCut';

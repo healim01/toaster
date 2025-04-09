@@ -1,16 +1,17 @@
 import { ButtonVariant } from '@/types/style';
 
 export const sizeStyle: Record<string, string> = {
-  small: 'px-2 py-1 text-sm',
-  medium: 'px-4 py-2 text-base',
-  large: 'px-6 py-3 text-lg',
+  small: 'px-2 py-1 text-sm h-10',
+  medium: 'px-4 py-2 text-base h-12',
+  large: 'px-6 py-3 text-lg h-16',
   full: 'w-full',
 };
 
 export const colorStyle: Record<string, string> = {
   blue: 'bg-blue-500 text-white hover:bg-blue-600',
-  red: 'bg-red-500 text-white hover:bg-red-600',
+  pink: 'bg-pink-500 text-white hover:bg-pink-600',
   green: 'bg-green-500 text-white hover:bg-green-600',
+  yellow: 'bg-yellow-500 text-black hover:bg-yellow-600',
   gray: 'bg-gray-500 text-white hover:bg-gray-600',
 };
 

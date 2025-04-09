@@ -11,6 +11,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   round?: boolean;
   iconPosition?: 'start' | 'end';
   icon?: React.ElementType;
+  className?: string;
 }
 
 const Button = ({
@@ -22,6 +23,7 @@ const Button = ({
   round = false,
   iconPosition = 'start',
   icon: Icon,
+  className = '',
   ...props
 }: Props) => {
   return (
@@ -31,6 +33,7 @@ const Button = ({
         round ? 'rounded-full' : 'rounded-md'
       }
         ${disabled && 'opacity-50 cursor-not-allowed'}
+        ${className}
         `}
       disabled={disabled}
       {...props}
