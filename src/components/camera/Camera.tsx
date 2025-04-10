@@ -9,6 +9,9 @@ const Camera = ({ videoRef, canvasRef }: Props) => {
     <>
       <video
         ref={videoRef}
+        autoPlay
+        muted
+        playsInline
         className="absolute w-4/6 md:w-4/5 max-w-[480px] aspect-video 
       -translate-x-1/2 object-contain
       z-0 rounded-2xl shadow-md"
