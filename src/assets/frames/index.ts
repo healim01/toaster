@@ -6,4 +6,6 @@ export { default as grassFrame } from './grass.png';
 export { default as greenFrame } from './greenFrame.png';
 export { default as maxFrame } from './max.png';
 export { default as pinkFrame } from './pink.png';
+export { default as pinkFogFrame } from './pinkFog.png';
+export { default as toastFrame } from './toast.png';
 export { default as whiteFrame } from './white.png';
