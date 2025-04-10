@@ -7,5 +7,8 @@ export { default as greenFrame } from './greenFrame.png';
 export { default as maxFrame } from './max.png';
 export { default as pinkFrame } from './pink.png';
 export { default as pinkFogFrame } from './pinkFog.png';
+export { default as tecotalkNoFrame } from './tecotalk-no.png';
+export { default as tecotalkYesFrame } from './tecotalk-yes.png';
 export { default as toastFrame } from './toast.png';
+export { default as tossFrame } from './toss.png';
 export { default as whiteFrame } from './white.png';

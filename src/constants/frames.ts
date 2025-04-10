@@ -8,7 +8,10 @@ import {
   maxFrame,
   pinkFogFrame,
   pinkFrame,
+  tecotalkNoFrame,
+  tecotalkYesFrame,
   toastFrame,
+  tossFrame,
   whiteFrame,
 } from '@/assets/frames';
 
@@ -19,6 +22,9 @@ export const frames: Record<string, string> = {
   초록초록: grassFrame,
   맥스날드: maxFrame,
   y2k핑크: pinkFogFrame,
+  토스: tossFrame,
+  테코톡끗: tecotalkYesFrame,
+  테코톡아직: tecotalkNoFrame,
   블랙: frame,
   블루베리: blueFrame,
   핑크: pinkFrame,
