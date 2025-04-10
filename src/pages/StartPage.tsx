@@ -6,7 +6,7 @@ import {
 
 const StartPage = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center w-full h-fit md:gap-30 mt-[50px]">
+    <div className="flex flex-col md:flex-row justify-center items-center w-full min-h-screen md:gap-30">
       <IntroSection />
 
       <div className="flex flex-col">

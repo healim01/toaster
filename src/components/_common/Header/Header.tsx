@@ -11,7 +11,7 @@ const Header = () => {
 
   const handleReturn = () => {
     setPhotos([]);
-    navigate(ROUTE_PATH.start);
+    navigate(ROUTE_PATH.takePhoto);
   };
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed top-0 flex items-center w-full h-[45px] z-50 shrink-0 transition-colors duration-300
+      className={`fixed top-0 flex items-center w-full h-[55px] z-50 shrink-0 transition-colors duration-300 
       bg-yellow-50         
       ${isScrolled ? 'md:bg-yellow-50 md:shadow-sm' : 'md:bg-transparent'}
     `}
