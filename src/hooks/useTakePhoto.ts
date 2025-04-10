@@ -12,7 +12,8 @@ const useTakePhoto = () => {
     navigator.mediaDevices
       .getUserMedia({
         video: {
-          //width: 1920, height: 1080,
+          width: 1920,
+          height: 1080,
           facingMode: 'user',
         },
       })
@@ -21,7 +22,9 @@ const useTakePhoto = () => {
         const video = videoRef.current;
         if (video) {
           video.srcObject = stream;
-          video.play();
+          video.onloadedmetadata = () => {
+            video.play();
+          };
         }
       })
       .catch(error => {

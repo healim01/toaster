@@ -13,7 +13,7 @@ const ToastFrameCut = ({ photo }: Props) => {
           src={photo}
           key={`Captured-${photo}`}
           alt={`Captured-${photo}`}
-          className={`absolute transform z-10 rounded-xl top-15 left-8 object-cover`}
+          className={`absolute transform scale-x-[-1] z-10 rounded-xl top-15 left-8 object-cover`}
           width="200"
           height="112"
         />
