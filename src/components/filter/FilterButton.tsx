@@ -31,9 +31,8 @@ const FilterButton = ({ filter }: Props) => {
         alt={filter.name}
         width={48}
         height={48}
-        className="mb-2"
       />
-      <span className="text-sm font-medium text-gray-700">{filter.name}</span>
+      <span className="text-md font-medium text-gray-700">{filter.name}</span>
     </button>
   );
 };
