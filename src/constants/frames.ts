@@ -5,6 +5,7 @@ import {
   gdyFrame,
   grassFrame,
   greenFrame,
+  maxFrame,
   pinkFrame,
   whiteFrame,
 } from '@/assets/frames';
@@ -18,4 +19,5 @@ export const frames: Record<string, string> = {
   핑크: pinkFrame,
   버터: butterFrame,
   화이트: whiteFrame,
+  맥스날드: maxFrame,
 };
