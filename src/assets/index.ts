@@ -18,9 +18,13 @@ export { default as toastImg } from './imgs/toast/toast.png';
 // jam
 export { default as blueberryJamOpenImg } from './imgs/jam/blueberry-jam-open.png';
 export { default as blueberryJamImg } from './imgs/jam/blueberry-jam.png';
+export { default as orangeJamOpenImg } from './imgs/jam/orange-jam-open.png';
+export { default as orangeJamImg } from './imgs/jam/orange-jam.png';
 export { default as peachJamOpenImg } from './imgs/jam/peach-jam-open.png';
 export { default as peachJamImg } from './imgs/jam/peach-jam.png';
 export { default as peanutButterJamOpenImg } from './imgs/jam/peanutbutter-jam-open.png';
 export { default as peanutButterJamImg } from './imgs/jam/peanutbutter-jam.png';
 export { default as strawberryJamOpenImg } from './imgs/jam/strawberry-jam-open.png';
 export { default as strawberryJamImg } from './imgs/jam/strawberry-jam.png';
+export { default as vegemiteJamOpenImg } from './imgs/jam/vegemite-jam-open.png';
+export { default as vegemiteJamImg } from './imgs/jam/vegemite-jam.png';
