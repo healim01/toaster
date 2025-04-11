@@ -1,9 +1,9 @@
 import MobileBlocker from '@/components/etc/MobileBlocker';
-import { useIsMobile } from '@/hooks';
+import { useIsMobileDevice } from '@/hooks';
 import { PropsWithChildren } from 'react';
 
 const MainLayout = ({ children }: PropsWithChildren) => {
-  const isMobile = useIsMobile();
+  const isMobile = useIsMobileDevice();
   if (isMobile) return <MobileBlocker />;
 
   return (
