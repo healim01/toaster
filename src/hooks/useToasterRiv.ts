@@ -24,7 +24,7 @@ interface Props {
   takePhoto: () => void;
 }
 
-RuntimeLoader.setWasmUrl(ToasterRiveImg);
+RuntimeLoader.setWasmUrl('/rive.wasm');
 
 const useToasterRiv = ({ takePhoto }: Props) => {
   const { rive, RiveComponent } = useRive({
