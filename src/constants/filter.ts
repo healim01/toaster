@@ -1,12 +1,16 @@
 import {
   blueberryJamImg,
   blueberryJamOpenImg,
+  orangeJamImg,
+  orangeJamOpenImg,
   peachJamImg,
   peachJamOpenImg,
   peanutButterJamImg,
   peanutButterJamOpenImg,
   strawberryJamImg,
   strawberryJamOpenImg,
+  vegemiteJamImg,
+  vegemiteJamOpenImg,
 } from '@/assets';
 import { FilterObject } from '@/types/filter';
 
@@ -50,17 +54,17 @@ export const Filter: Record<string, FilterObject> = {
       drop-shadow(0 0 5px rgba(255,255,255,0.5))`,
   },
   black: {
-    iconUrl: blueberryJamImg,
-    openIconUrl: blueberryJamOpenImg,
+    iconUrl: vegemiteJamImg,
+    openIconUrl: vegemiteJamOpenImg,
     name: '베지마이트',
     filterStyle: `grayscale(100%) 
       contrast(150%) 
       brightness(110%)`,
   },
   peach2: {
-    iconUrl: blueberryJamImg,
-    openIconUrl: blueberryJamOpenImg,
-    name: '라즈베리잼',
+    iconUrl: orangeJamImg,
+    openIconUrl: orangeJamOpenImg,
+    name: '오렌지잼',
     filterStyle: `
     brightness(1.15)      
     contrast(0.9)         
