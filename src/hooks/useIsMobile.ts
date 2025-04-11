@@ -5,7 +5,7 @@ const useIsMobile = () => {
 
   useEffect(() => {
     const userAgent = navigator.userAgent || navigator.vendor;
-    const mobileRegex = /android|iphone|ipad|ipod/i;
+    const mobileRegex = /android|iphone/i;
 
     if (mobileRegex.test(userAgent)) {
       setIsMobile(true);
