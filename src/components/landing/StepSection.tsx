@@ -21,14 +21,14 @@ const StepSection = () => {
       {steps.map((step, index) => (
         <div
           key={index}
-          className="flex flex-col items-center text-center gap-4 max-w-md"
+          className="flex flex-col items-center text-center gap-2 max-w-md"
         >
           <img
             src={step.imgSrc}
             alt={step.title}
-            className="w-30 h-30 object-contain rounded-xl"
+            className="w-30 h-25 object-contain rounded-xl"
           />
-          <p className="text-lg text-brown-500">{step.title}</p>
+          <p className="text-2xl text-brown-500">{step.title}</p>
 
           {index !== steps.length - 1 && (
             <div className="w-0 h-0 border-l-20 border-r-20 border-t-[10px] border-l-transparent border-r-transparent border-t-gray-600 mx-auto rounded-2xl" />
