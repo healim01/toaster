@@ -11,6 +11,8 @@ import {
   tecotalkYesFrame,
   toastFrame,
   whiteFrame,
+  wooteco6Frame,
+  wooteco7Frame,
 } from '@/assets/frames';
 
 export const frames: Record<string, string> = {
@@ -21,6 +23,8 @@ export const frames: Record<string, string> = {
   맥스날드: maxFrame,
   y2k핑크: pinkFogFrame,
   // 토스: tossFrame,
+  내가우테코6기: wooteco6Frame,
+  내가우테코7기: wooteco7Frame,
   테코톡끗: tecotalkYesFrame,
   테코톡아직: tecotalkNoFrame,
   블랙: frame,
