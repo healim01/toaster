@@ -16,7 +16,7 @@ import { Marquee } from '@/components';
 
 const MarqueeSection = () => {
   return (
-    <div className="fixed bottom-10 md:absolute md:bottom-30 w-full">
+    <div className="fixed bottom-0 md:absolute md:bottom-10 w-full bg-blue-50 md:bg-transparent p-2">
       <Marquee
         height={50}
         marqueeItem={[

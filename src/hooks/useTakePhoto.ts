@@ -2,9 +2,9 @@ import { usePhotosContext } from '@/hooks';
 import { useEffect, useRef, useState } from 'react';
 
 const useTakePhoto = () => {
-  const { setPhotos } = usePhotosContext();
+  const { photos, setPhotos } = usePhotosContext();
 
-  const [, setStreamVideo] = useState<MediaStream | null>(null);
+  const [streamVideo, setStreamVideo] = useState<MediaStream | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -26,6 +26,20 @@ const useTakePhoto = () => {
       });
   };
 
+  const closeCamera = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.srcObject = null;
+    }
+
+    if (streamVideo) {
+      streamVideo.getTracks().forEach(track => {
+        track.stop();
+      });
+      setStreamVideo(null);
+    }
+  };
+
   const takePhoto = () => {
     const canvas = canvasRef.current;
     const video = videoRef.current;
@@ -44,7 +58,11 @@ const useTakePhoto = () => {
     openCamera();
   }, []);
 
-  return { videoRef, canvasRef, takePhoto };
+  useEffect(() => {
+    if (photos.length === 4) closeCamera();
+  }, [photos]);
+
+  return { videoRef, canvasRef, takePhoto, closeCamera };
 };
 
 export default useTakePhoto;
