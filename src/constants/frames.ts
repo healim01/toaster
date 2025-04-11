@@ -2,7 +2,6 @@ import {
   blueFrame,
   butterFrame,
   frame,
-  gdyFrame,
   grassFrame,
   greenFrame,
   maxFrame,
@@ -16,7 +15,7 @@ import {
 
 export const frames: Record<string, string> = {
   토스트: toastFrame,
-  버건디: gdyFrame,
+  // 버건디: gdyFrame,
   무한도전: greenFrame,
   초록초록: grassFrame,
   맥스날드: maxFrame,
