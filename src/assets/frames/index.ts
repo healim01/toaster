@@ -12,3 +12,5 @@ export { default as tecotalkYesFrame } from './tecotalk-yes.png';
 export { default as toastFrame } from './toast.png';
 export { default as tossFrame } from './toss.png';
 export { default as whiteFrame } from './white.png';
+export { default as wooteco6Frame } from './wooteco-6.png';
+export { default as wooteco7Frame } from './wooteco-7.png';
