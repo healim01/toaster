@@ -17,6 +17,12 @@ Toaster Booth는 웹캠을 이용해 네 컷의 사진을 찍고,
 
 ![screenshot](https://blog.kakaocdn.net/dn/2kX99/btsNdVwNn1n/8BkKpbSPuLiQeKUkxAZQNk/img.gif)
 
+## 📖 관련 블로그 포스트
+
+[🍞 toaster: 헤일리의 웹캠네컷의 시작 ! ; 브라우저에서 카메라 사용부터 컴포넌트를 이미지로 변환 후 저장까지!](https://healim01.tistory.com/104)  
+[🥐 toaster: Rive를 사용해서 귀엽고 인터랙티브한 서비스 만들기](https://healim01.tistory.com/105)  
+[🍓 toaster: 네컷 사진이 사라졌다!? 새로고침을 견디는 상태 저장 여정](https://healim01.tistory.com/106)
+
 ## 🛠️ 기술 스택
 
 ```
@@ -31,4 +37,3 @@ Toaster Booth는 웹캠을 이용해 네 컷의 사진을 찍고,
 
 - **개발자 : 헤일리(최혜림)**
 - **인터랙션 디자이너 : 리버(최재희)**
-- Contact: [이메일/링크드인/깃헙 링크 등]
