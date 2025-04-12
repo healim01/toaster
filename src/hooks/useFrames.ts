@@ -3,9 +3,9 @@ import { useLocation } from 'react-router-dom';
 
 const useFrames = () => {
   const query = new URLSearchParams(useLocation().search);
-  const event = query.get('eventId') ?? undefined;
+  const eventId = query.get('eventId') ?? undefined;
 
-  const frames = getFramesByEvent(event);
+  const frames = getFramesByEvent(eventId);
 
   return { frames };
 };

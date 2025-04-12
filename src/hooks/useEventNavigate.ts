@@ -6,10 +6,10 @@ const useEventNavigate = () => {
 
   return (to: string) => {
     const query = new URLSearchParams(location.search);
-    const event = query.get('eventId');
+    const eventId = query.get('eventId');
 
-    if (event) {
-      const withEvent = `${to}?eventId=${event}`;
+    if (eventId) {
+      const withEvent = `${to}?eventId=${eventId}`;
       navigate(withEvent);
     } else {
       navigate(to);
