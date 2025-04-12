@@ -1,5 +1,10 @@
 import { GithubIcon, InstagramIcon, TistoryIcon } from '@/assets';
 import { YellowBg } from '@/constants/system';
+import {
+  trackGithubButton,
+  trackInstagramButton,
+  trackTistoryButton,
+} from '@/service/amplitude/trackEvent';
 import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
@@ -28,6 +33,7 @@ const Footer = () => {
               className="hover:underline"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={trackInstagramButton}
             >
               <InstagramIcon />
             </a>
@@ -36,6 +42,7 @@ const Footer = () => {
               className="hover:underline"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={trackGithubButton}
             >
               <GithubIcon />
             </a>
@@ -44,6 +51,7 @@ const Footer = () => {
               className="hover:underline"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={trackTistoryButton}
             >
               <TistoryIcon />
             </a>

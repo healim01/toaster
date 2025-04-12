@@ -25,3 +25,15 @@ export const trackFinishedEditButton = () => {
 export const trackDownloadButton = () => {
   amplitudeService.customTrack('[Click] 사진 다운로드 버튼');
 };
+
+export const trackInstagramButton = () => {
+  amplitudeService.customTrack('[Click] 인스타그램 버튼');
+};
+
+export const trackGithubButton = () => {
+  amplitudeService.customTrack('[Click] 깃허브 버튼');
+};
+
+export const trackTistoryButton = () => {
+  amplitudeService.customTrack('[Click] 티스토리 버튼');
+};
