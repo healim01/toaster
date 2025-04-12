@@ -6,7 +6,7 @@ export const amplitudeInitializer = () => {
   const init = (userName?: string) => {
     amplitude.init(amplitudeApiKey, userName, {
       defaultTracking: {
-        pageViews: false,
+        pageViews: true,
       },
       autocapture: {
         elementInteractions: true,
