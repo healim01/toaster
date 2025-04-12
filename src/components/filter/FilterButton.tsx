@@ -1,4 +1,5 @@
 import { useFilterContext } from '@/hooks';
+import { trackFilterButton } from '@/service/amplitude/trackEvent';
 import { FilterObject } from '@/types/filter';
 
 interface Props {
@@ -9,14 +10,14 @@ const FilterButton = ({ filter }: Props) => {
   const { filter: selectedFilter, setFilter } = useFilterContext();
   const isSelected = selectedFilter?.name === filter.name;
 
-  const applyFilter = (filter: FilterObject) => {
-    if (isSelected) setFilter(null);
-    else setFilter(filter);
+  const handleApplyFilter = () => {
+    trackFilterButton(filter.name);
+    setFilter(isSelected ? null : filter);
   };
 
   return (
     <button
-      onClick={() => applyFilter(filter)}
+      onClick={handleApplyFilter}
       className={`flex flex-col items-center justify-center p-3 w-[100px] rounded-2xl 
       transition-all duration-200 border shrink-0
       ${

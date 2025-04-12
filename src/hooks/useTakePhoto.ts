@@ -1,4 +1,5 @@
 import { usePhotosContext } from '@/hooks';
+import { trackTakeToasterButton } from '@/service/amplitude/trackEvent';
 import { useEffect, useRef, useState } from 'react';
 
 const useTakePhoto = () => {
@@ -41,6 +42,8 @@ const useTakePhoto = () => {
   };
 
   const takePhoto = () => {
+    trackTakeToasterButton();
+
     const canvas = canvasRef.current;
     const video = videoRef.current;
 
