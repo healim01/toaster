@@ -1,12 +1,13 @@
 import { Button } from '@/components';
 import { PhotoFrame } from '@/components/photo';
+import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { getFormatDate } from '@/utils/getFormatDate';
 import domtoimage from 'dom-to-image';
 import saveAs from 'file-saver';
 import { useRef } from 'react';
 
 const SavePhotoPage = () => {
-  useTrackPageView({ eventName: '[View] toaster booth 시작 페이지' });
+  useTrackPageView({ eventName: '[View] 사진 저장 페이지' });
 
   const divRef = useRef<HTMLDivElement>(null);
 

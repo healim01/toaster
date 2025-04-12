@@ -3,10 +3,11 @@ import { FilterSelectSection } from '@/components/filter';
 import { FrameSelectSection } from '@/components/frame';
 import { PhotoFrame } from '@/components/photo';
 import { ROUTE_PATH } from '@/constants/routePath';
+import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { useNavigate } from 'react-router-dom';
 
 const CustomPhotoPage = () => {
-  useTrackPageView({ eventName: '[View] toaster booth 시작 페이지' });
+  useTrackPageView({ eventName: '[View] 사진 커스텀 페이지' });
 
   const navigate = useNavigate();
 
