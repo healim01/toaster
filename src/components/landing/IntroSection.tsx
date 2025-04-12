@@ -1,10 +1,10 @@
 import { toasterBoothImg } from '@/assets';
 import { Button } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { useNavigate } from 'react-router-dom';
+import { useEventNavigate } from '@/hooks';
 
 const IntroSection = () => {
-  const navigate = useNavigate();
+  const navigate = useEventNavigate();
 
   return (
     <div className="flex flex-col justify-center md:w-1/3 min-h-[500px] p-4">

@@ -1,15 +1,14 @@
 import { CameraSection } from '@/components/camera';
 import { PreviewSection } from '@/components/preview';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { usePhotosContext } from '@/hooks';
+import { useEventNavigate, usePhotosContext } from '@/hooks';
 import { useTrackPageView } from '@/service/amplitude';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const TakePhotoPage = () => {
   useTrackPageView({ eventName: '[View] 사진 촬영 페이지' });
 
-  const navigate = useNavigate();
+  const navigate = useEventNavigate();
   const { photos } = usePhotosContext();
 
   useEffect(() => {
@@ -18,8 +17,10 @@ const TakePhotoPage = () => {
 
   return (
     <div className="flex flex-row flex-wrap items-center justify-center w-full h-full">
+      {/* 카메라 섹션 */}
       <CameraSection />
 
+      {/* 프리뷰 사진 섹션 */}
       <PreviewSection />
     </div>
   );

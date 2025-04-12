@@ -3,13 +3,13 @@ import { FilterSelectSection } from '@/components/filter';
 import { FrameSelectSection } from '@/components/frame';
 import { PhotoFrame } from '@/components/photo';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { useNavigate } from 'react-router-dom';
+import { useEventNavigate } from '@/hooks';
 import { useTrackPageView } from '@/service/amplitude/';
 
 const CustomPhotoPage = () => {
   useTrackPageView({ eventName: '[View] 사진 커스텀 페이지' });
 
-  const navigate = useNavigate();
+  const navigate = useEventNavigate();
 
   const handleComplete = () => {
     navigate(ROUTE_PATH.savePhoto);
