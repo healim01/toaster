@@ -15,7 +15,8 @@ Toaster Booth는 웹캠을 이용해 네 컷의 사진을 찍고,
 
 [👉 토스터 부스 바로가기](https://toaster-booth.vercel.app/)
 
-![screenshot](https://blog.kakaocdn.net/dn/2kX99/btsNdVwNn1n/8BkKpbSPuLiQeKUkxAZQNk/img.gif)
+![toaster](https://github.com/user-attachments/assets/3affca8e-1b69-4419-9e79-65ef71fa88f8)
+
 
 ## 📖 관련 블로그 포스트
 
