@@ -1,13 +1,13 @@
 import {
+  blackFrame,
   blueFrame,
   butterFrame,
-  frame,
   pinkFrame,
   whiteFrame,
 } from '@/assets/frames';
 
 export const basicFrames: Record<string, string> = {
-  블랙: frame,
+  블랙: blackFrame,
   블루베리: blueFrame,
   핑크: pinkFrame,
   버터: butterFrame,

@@ -3,7 +3,7 @@ import {
   tecotalkYesFrame,
   wooteco6Frame,
   wooteco7Frame,
-} from '@/assets/frames';
+} from '@/assets/frames/event';
 
 export const wootecoFrames: Record<string, string> = {
   내가우테코6기: wooteco6Frame,
