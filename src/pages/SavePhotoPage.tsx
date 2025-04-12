@@ -1,6 +1,6 @@
 import { Button } from '@/components';
 import { PhotoFrame } from '@/components/photo';
-import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
+import { useTrackPageView } from '@/service/amplitude';
 import { getFormatDate } from '@/utils/getFormatDate';
 import domtoimage from 'dom-to-image';
 import saveAs from 'file-saver';

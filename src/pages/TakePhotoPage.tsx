@@ -2,7 +2,7 @@ import { CameraSection } from '@/components/camera';
 import { PreviewSection } from '@/components/preview';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { usePhotosContext } from '@/hooks';
-import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
+import { useTrackPageView } from '@/service/amplitude';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 

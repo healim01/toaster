@@ -6,10 +6,12 @@ interface Props {
   eventProps?: Record<string, unknown>;
 }
 
-export const useTrackPageView = ({ eventName, eventProps }: Props) => {
+const useTrackPageView = ({ eventName, eventProps }: Props) => {
   const amplitudeService = new AmplitudeService();
 
   useEffect(() => {
     amplitudeService.customTrack(eventName, eventProps ?? {});
   }, []);
 };
+
+export default useTrackPageView;

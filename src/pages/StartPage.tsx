@@ -3,7 +3,7 @@ import {
   MarqueeSection,
   StepSection,
 } from '@/components/landing';
-import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
+import { useTrackPageView } from '@/service/amplitude';
 
 const StartPage = () => {
   useTrackPageView({ eventName: '[View] toaster booth 시작 페이지' });
