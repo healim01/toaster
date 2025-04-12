@@ -1,4 +1,4 @@
-import { GithubIcon, InstagramIcon } from '@/assets';
+import { GithubIcon, InstagramIcon, TistoryIcon } from '@/assets';
 import { YellowBg } from '@/constants/system';
 import { useLocation } from 'react-router-dom';
 
@@ -38,6 +38,14 @@ const Footer = () => {
               rel="noopener noreferrer"
             >
               <GithubIcon />
+            </a>
+            <a
+              href="https://healim01.tistory.com/107"
+              className="hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <TistoryIcon />
             </a>
           </div>
           <a

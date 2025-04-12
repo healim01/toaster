@@ -5,6 +5,7 @@ import { PhotoFrame } from '@/components/photo';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { useEventNavigate } from '@/hooks';
 import { useTrackPageView } from '@/service/amplitude/';
+import { trackFinishedEditButton } from '@/service/amplitude/trackEvent';
 
 const CustomPhotoPage = () => {
   useTrackPageView({ eventName: '[View] 사진 커스텀 페이지' });
@@ -12,6 +13,7 @@ const CustomPhotoPage = () => {
   const navigate = useEventNavigate();
 
   const handleComplete = () => {
+    trackFinishedEditButton();
     navigate(ROUTE_PATH.savePhoto);
   };
 

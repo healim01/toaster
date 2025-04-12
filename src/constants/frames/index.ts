@@ -1,6 +1,5 @@
 import { basicFrames } from './basicFrames';
 import { wootecoFrames } from './event/wootecoFrames';
-import { stickerFrames } from './stickerFrames';
 import { toastFrames } from './toastFrames';
 
 export const getFramesByEvent = (event?: string): Record<string, string> => {
@@ -18,7 +17,7 @@ export const getFramesByEvent = (event?: string): Record<string, string> => {
   return {
     ...eventFrames,
     ...toastFrames,
-    ...stickerFrames,
+    // ...stickerFrames,
     ...basicFrames,
   };
 };

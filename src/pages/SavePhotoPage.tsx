@@ -1,6 +1,7 @@
 import { Button } from '@/components';
 import { PhotoFrame } from '@/components/photo';
 import { useTrackPageView } from '@/service/amplitude';
+import { trackDownloadButton } from '@/service/amplitude/trackEvent';
 import { getFormatDate } from '@/utils/getFormatDate';
 import domtoimage from 'dom-to-image';
 import saveAs from 'file-saver';
@@ -12,6 +13,7 @@ const SavePhotoPage = () => {
   const divRef = useRef<HTMLDivElement>(null);
 
   const handleDownload = async () => {
+    trackDownloadButton();
     if (!divRef.current) return;
 
     try {
