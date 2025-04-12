@@ -1,11 +1,10 @@
 import { TextToasterIcon } from '@/assets';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { usePhotosContext } from '@/hooks';
+import { useEventNavigate, usePhotosContext } from '@/hooks';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
-  const navigate = useNavigate();
+  const navigate = useEventNavigate();
   const { setPhotos } = usePhotosContext();
   const [isScrolled, setIsScrolled] = useState(false);
 

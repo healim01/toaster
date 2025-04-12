@@ -1,3 +1,4 @@
+export { default as useEventNavigate } from './useEventNavigate';
 export { default as useFilterContext } from './useFilterContext';
 export { default as useFrameContext } from './useFrameContext';
 export { default as useIsMobileDevice } from './useIsMobileDevice';
