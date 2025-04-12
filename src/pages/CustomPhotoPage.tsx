@@ -6,6 +6,8 @@ import { ROUTE_PATH } from '@/constants/routePath';
 import { useNavigate } from 'react-router-dom';
 
 const CustomPhotoPage = () => {
+  useTrackPageView({ eventName: '[View] toaster booth 시작 페이지' });
+
   const navigate = useNavigate();
 
   const handleComplete = () => {

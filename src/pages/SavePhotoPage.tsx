@@ -6,6 +6,8 @@ import saveAs from 'file-saver';
 import { useRef } from 'react';
 
 const SavePhotoPage = () => {
+  useTrackPageView({ eventName: '[View] toaster booth 시작 페이지' });
+
   const divRef = useRef<HTMLDivElement>(null);
 
   const handleDownload = async () => {
