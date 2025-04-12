@@ -11,7 +11,7 @@ const IntroSection = () => {
       <img src={toasterBoothImg} className="w-1/2" />
 
       <p className="text-3xl font-bold text-amber-800 mt-4 mb-2">
-        오늘의 기분, 오늘의 토스트 🌞
+        오늘의 사진, 오늘의 토스트 🌞
       </p>
       <p className="text-2xl text-amber-800 mb-8">
         마음에 드는 재료를 골라, 나만의 토스트를 만들어보세요!
