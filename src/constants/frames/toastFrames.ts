@@ -8,6 +8,6 @@ import {
 export const toastFrames: Record<string, string> = {
   토스트: toastFrame,
   토스트ed: toast2Frame,
-  토스트3D: toast3DFrame,
-  토스트귀여워: toast3D2Frame,
+  '딸기잼 묻은 토스트': toast3DFrame,
+  '도리도리 토스트': toast3D2Frame,
 };
