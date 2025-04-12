@@ -24,7 +24,7 @@ const Footer = () => {
         <div className="flex flex-col h-full gap-2 items-start md:items-end">
           <div className="flex gap-4">
             <a
-              href="https://instagram.com/healim01"
+              href="https://www.instagram.com/toasterbooth_official/"
               className="hover:underline"
               target="_blank"
               rel="noopener noreferrer"
