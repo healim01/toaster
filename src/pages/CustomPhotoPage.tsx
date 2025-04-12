@@ -26,6 +26,7 @@ const CustomPhotoPage = () => {
         {/* 필터 & 프레임 선택 영역 */}
         <div className="flex flex-col h-full gap-4 flex-1">
           <FilterSelectSection />
+
           <FrameSelectSection />
         </div>
       </div>

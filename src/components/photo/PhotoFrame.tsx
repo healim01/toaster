@@ -1,5 +1,5 @@
-import { frames } from '@/constants/frames';
 import { useFilterContext, useFrameContext, usePhotosContext } from '@/hooks';
+import useFrames from '@/hooks/useFrames';
 
 const photoSize = {
   width: 450,
@@ -17,6 +17,7 @@ const positions = [
 const PhotoFrame = () => {
   const { photos } = usePhotosContext();
   const { filter } = useFilterContext();
+  const { frames } = useFrames();
   const { frame } = useFrameContext();
 
   return (
