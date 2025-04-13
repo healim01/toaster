@@ -1,4 +1,4 @@
-import MobileBlocker from '@/components/etc/MobileBlocker';
+import { MobileBlocker } from '@/components/etc';
 import { useIsMobileDevice } from '@/hooks';
 import { PropsWithChildren } from 'react';
 
