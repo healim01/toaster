@@ -37,3 +37,7 @@ export const trackGithubButton = () => {
 export const trackTistoryButton = () => {
   amplitudeService.customTrack('[Click] 티스토리 버튼');
 };
+
+export const trackComplimentDev = () => {
+  amplitudeService.customTrack('[Click] 개발자를 칭찬합니다 ❤️');
+};
