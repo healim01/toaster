@@ -6,6 +6,7 @@ export { default as pinkFrame } from './pink.png';
 export { default as whiteFrame } from './white.png';
 
 // toast
+export { default as realToastFrame } from './realToast.png';
 export { default as toast3DFrame } from './toast-3d.png';
 export { default as toast3D2Frame } from './toast-3d2.png';
 export { default as toastFrame } from './toast.png';

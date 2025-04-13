@@ -6,6 +6,8 @@ export { default as TextToasterIcon } from './icons/toaster-text.svg?react';
 export { default as ToasterIcon } from './icons/toaster.svg?react';
 
 // imgs
+export { default as Error404Img } from './imgs/404.png';
+export { default as arrowToastImg } from './imgs/arrow-toast.png';
 export { default as photoaster } from './imgs/photoaster.png';
 export { default as toasterBoothImg } from './imgs/toasterBooth.png';
 

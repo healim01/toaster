@@ -2,6 +2,7 @@ import { Footer, Header, Layout, MainLayout } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import {
   CustomPhotoPage,
+  NotFoundPage,
   SavePhotoPage,
   StartPage,
   TakePhotoPage,
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
           {
             path: ROUTE_PATH.savePhoto,
             element: <SavePhotoPage />,
+          },
+          {
+            path: '*',
+            element: <NotFoundPage />,
           },
         ],
       },
