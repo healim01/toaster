@@ -33,7 +33,6 @@ const CustomPhotoPage = () => {
         </div>
       </div>
 
-      {/* 플로팅 버튼 */}
       <FloatingButton
         label="사진 편집 완료"
         onClick={handleComplete}

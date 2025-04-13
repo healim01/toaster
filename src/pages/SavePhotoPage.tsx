@@ -6,14 +6,16 @@ const SavePhotoPage = () => {
   useTrackPageView({ eventName: '[View] 사진 저장 페이지' });
 
   return (
-    <div className="relative w-full h-screen">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div className="relative w-full min-h-screen flex flex-col md:flex-row justify-center items-center gap-10 mt-[60px] md:mt-[20px]">
+      <div className="flex-shrink-0">
         <PhotoDownloadSection />
       </div>
 
-      <div className="absolute top-1/2 left-1/2 translate-x-[250px] -translate-y-1/2 flex flex-col h-full justify-around gap-6">
+      <div className="flex flex-col items-center justify-start gap-6 md:items-start">
         <ComplimentDevSection />
-        <BackToHomeSection />
+        <div className="hidden md:block">
+          <BackToHomeSection />
+        </div>
       </div>
     </div>
   );
