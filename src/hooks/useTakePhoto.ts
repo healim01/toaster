@@ -19,7 +19,11 @@ const useTakePhoto = () => {
         const video = videoRef.current;
         if (video) {
           video.srcObject = stream;
-          video.play();
+          video.onloadedmetadata = () => {
+            video.play().catch(err => {
+              console.warn('Video play interrupted:', err);
+            });
+          };
         }
       })
       .catch(error => {
