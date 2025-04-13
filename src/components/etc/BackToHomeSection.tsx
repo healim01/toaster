@@ -18,7 +18,7 @@ const BackToHomeSection = () => {
         onClick={handleClickHome}
       >
         홈으로 돌아가기
-        <img src={arrowToastImg} alt="home" className="w-50 h-50" />
+        <img src={arrowToastImg} alt="home" className="w-40" />
       </button>
     </div>
   );

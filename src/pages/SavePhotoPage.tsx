@@ -11,7 +11,7 @@ const SavePhotoPage = () => {
         <PhotoDownloadSection />
       </div>
 
-      <div className="flex flex-col items-center justify-start gap-6 md:items-start">
+      <div className="flex flex-col items-center justify-start gap-6 md:items-end">
         <ComplimentDevSection />
         <div className="hidden md:block">
           <BackToHomeSection />
