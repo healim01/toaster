@@ -1,4 +1,5 @@
 import ToasterRiveImg from '@/assets/rive/toaster.riv?url';
+import riveWasmUrl from '@rive-app/canvas/rive.wasm?url';
 import {
   EventCallback,
   EventType,
@@ -24,7 +25,7 @@ interface Props {
   takePhoto: () => void;
 }
 
-RuntimeLoader.setWasmUrl(ToasterRiveImg);
+RuntimeLoader.setWasmUrl(riveWasmUrl);
 
 const useToasterRiv = ({ takePhoto }: Props) => {
   const { rive, RiveComponent } = useRive({
