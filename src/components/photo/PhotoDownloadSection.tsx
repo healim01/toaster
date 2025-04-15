@@ -30,7 +30,12 @@ const PhotoDownloadSection = () => {
       </div>
 
       {/* 다운로드 버튼 */}
-      <Button label="사진 다운로드" onClick={handleDownload} />
+      <Button
+        label="사진 다운로드 🔽"
+        onClick={handleDownload}
+        size="medium"
+        color="pink"
+      />
     </div>
   );
 };

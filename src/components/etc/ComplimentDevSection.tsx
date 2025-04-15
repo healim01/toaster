@@ -1,3 +1,4 @@
+import Button from '@/components/_common/Button/Button';
 import { trackComplimentDev } from '@/service/amplitude/trackEvent';
 import confetti from 'canvas-confetti';
 import { useCallback, useState } from 'react';
@@ -17,7 +18,7 @@ const ComplimentDevSection = () => {
   }, []);
 
   return (
-    <div className="p-6 text-center rounded-xl border border-gray-200 shadow-md bg-white max-w-md mx-auto mt-10">
+    <div className="p-6 text-center rounded-xl border border-gray-200 shadow-md bg-white max-w-md mx-auto">
       <h2 className="text-2xl font-semibold mb-2 text-gray-800">
         이 서비스를 만든 개발자, 어땠나요?
       </h2>
@@ -29,12 +30,12 @@ const ComplimentDevSection = () => {
           감사합니다! 개발자가 힘을 얻었어요 💪💖
         </p>
       ) : (
-        <button
+        <Button
+          label="칭찬하기 🎉"
           onClick={handleClick}
-          className="bg-yellow-400 hover:bg-yellow-500 text-white text-lg font-bold py-2 px-6 rounded-full transition"
-        >
-          칭찬하기 🎉
-        </button>
+          className="bg-yellow-300 hover:bg-yellow-400 text-white text-lg font-bold py-2 px-6 rounded-full transition"
+          round
+        />
       )}
     </div>
   );
