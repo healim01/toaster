@@ -1,22 +1,47 @@
 import { Button } from '@/components';
 import { PhotoFrame } from '@/components/photo';
-import { trackDownloadButton } from '@/service/amplitude/trackEvent';
 import { getFormatDate } from '@/utils/getFormatDate';
-import domtoimage from 'dom-to-image';
 import saveAs from 'file-saver';
+import { toBlob } from 'html-to-image';
 import { useRef } from 'react';
 
 const PhotoDownloadSection = () => {
   const divRef = useRef<HTMLDivElement>(null);
 
   const handleDownload = async () => {
-    trackDownloadButton();
     if (!divRef.current) return;
 
+    const images = divRef.current.querySelectorAll('img');
+    const loadPromises = Array.from(images).map(
+      img =>
+        new Promise(resolve => {
+          if (img.complete) return resolve(true);
+          img.onload = () => resolve(true);
+          img.onerror = () => resolve(true);
+        }),
+    );
+
     try {
-      const div = divRef.current;
-      const blob = await domtoimage.toBlob(div);
-      saveAs(blob, `toaster-booth-${getFormatDate(new Date())}.png`);
+      await Promise.all(loadPromises);
+      await toBlob(divRef.current, { cacheBust: true, pixelRatio: 4 });
+      await toBlob(divRef.current, { cacheBust: true, pixelRatio: 4 });
+      await toBlob(divRef.current, { cacheBust: true, pixelRatio: 4 });
+      await toBlob(divRef.current, { cacheBust: true, pixelRatio: 4 });
+      await toBlob(divRef.current, { cacheBust: true, pixelRatio: 4 });
+      await toBlob(divRef.current, { cacheBust: true, pixelRatio: 4 });
+      await toBlob(divRef.current, { cacheBust: true, pixelRatio: 4 });
+      await toBlob(divRef.current, { cacheBust: true, pixelRatio: 4 });
+      await toBlob(divRef.current, { cacheBust: true, pixelRatio: 4 });
+      await toBlob(divRef.current, { cacheBust: true, pixelRatio: 4 });
+      const blob = await toBlob(divRef.current, {
+        cacheBust: true,
+        pixelRatio: 4,
+      });
+      if (blob) {
+        saveAs(blob, `toaster-boothd-${getFormatDate(new Date())}1.png`);
+      } else {
+        console.error('Blob 생성 실패');
+      }
     } catch (error) {
       console.error('Error converting div to image:', error);
     }
