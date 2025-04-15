@@ -1,14 +1,14 @@
 import { arrowToastImg } from '@/assets';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { useEventNavigate } from '@/hooks';
-import { clearPhotos } from '@/utils/photoStorage';
+import { useEventNavigate, usePhotosContext } from '@/hooks';
 
 const BackToHomeSection = () => {
+  const { setPhotos } = usePhotosContext();
   const navigate = useEventNavigate();
 
   const handleClickHome = () => {
+    setPhotos([]);
     navigate(ROUTE_PATH.start);
-    clearPhotos();
   };
 
   return (

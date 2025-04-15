@@ -16,7 +16,7 @@ export const PhotosProvider = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     loadPhotos().then(restored => {
-      if (restored) setPhotos(restored);
+      setPhotos(restored ?? []);
       setIsRestored(true);
     });
   }, []);
