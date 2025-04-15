@@ -5,13 +5,12 @@ const photoSize = {
   width: 450,
   height: 253,
 };
-
-const gap = 25;
+const gap = Math.floor(25 / 2);
 const positions = [
-  { top: gap / 2, left: gap / 2 },
-  { top: gap + photoSize.height / 2, left: gap / 2 },
-  { top: (gap / 2) * 3 + (photoSize.height / 2) * 2, left: gap / 2 },
-  { top: (gap / 2) * 4 + (photoSize.height / 2) * 3, left: gap / 2 },
+  { top: gap, left: gap },
+  { top: gap * 2 + photoSize.height / 2, left: gap },
+  { top: gap * 3 + (photoSize.height / 2) * 2, left: gap },
+  { top: gap * 4 + (photoSize.height / 2) * 3, left: gap },
 ];
 
 const PhotoFrame = () => {
@@ -38,8 +37,8 @@ const PhotoFrame = () => {
               filter: filter?.filterStyle ?? 'none',
               ...positions[index],
             }}
-            width="225"
-            height="127"
+            width="230"
+            height="130"
           />
         );
       })}
