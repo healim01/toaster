@@ -1,7 +1,8 @@
 import { CameraSection } from '@/components/camera';
 import { PreviewSection } from '@/components/preview';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { useEventNavigate, usePhotosContext } from '@/hooks';
+import { useEventNavigate, useIsMobileDevice, usePhotosContext } from '@/hooks';
+import { TakePhotoMobilePage } from '@/pages';
 import { useTrackPageView } from '@/service/amplitude';
 import { useEffect } from 'react';
 
@@ -14,6 +15,9 @@ const TakePhotoPage = () => {
   useEffect(() => {
     if (photos.length >= 4) navigate(ROUTE_PATH.customPhoto);
   }, [photos]);
+
+  const isMobile = useIsMobileDevice();
+  if (isMobile) return <TakePhotoMobilePage />;
 
   return (
     <div className="flex flex-row flex-wrap items-center justify-center w-full h-full">
