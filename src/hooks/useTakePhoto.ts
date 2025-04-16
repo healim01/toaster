@@ -57,11 +57,11 @@ const useTakePhoto = () => {
 
     if (video && canvas) {
       const context = canvas.getContext('2d');
-      if (context) {
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        const imageData = canvas.toDataURL('image/png');
-        setPhotos(prev => [...prev, imageData]);
-      }
+      if (!context) return;
+
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const imageData = canvas.toDataURL('image/png');
+      setPhotos(prev => [...prev, imageData]);
     }
   };
 
