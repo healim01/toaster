@@ -1,22 +1,13 @@
 import { useFrameContext } from '@/hooks';
-import { getFrame } from '@/service/supabase';
-import { Frame } from '@/types/frame';
-import { useEffect, useState } from 'react';
+import { useGetFramesByEventQuery } from '@/hooks/queries';
 
 const useGetFrame = () => {
-  const { frame } = useFrameContext();
-  const [selectedFrame, setSelectedFrames] = useState<Frame>();
+  const { frames, isLoading: isListLoading } = useGetFramesByEventQuery();
+  const { frame: selectedFrameName } = useFrameContext();
 
-  useEffect(() => {
-    const getData = async () => {
-      const data = await getFrame(frame);
-      setSelectedFrames(data);
-    };
+  const selectedFrame = frames.find(f => f.name === selectedFrameName);
 
-    getData();
-  }, [frame]);
-
-  return { selectedFrame };
+  return { selectedFrame, isListLoading };
 };
 
 export default useGetFrame;
