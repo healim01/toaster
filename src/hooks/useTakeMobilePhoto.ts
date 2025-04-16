@@ -56,16 +56,18 @@ const useTakeMobilePhoto = () => {
 
     if (video && canvas) {
       const context = canvas.getContext('2d');
-      if (context) {
-        context.translate(canvas.width, 0);
-        context.rotate((90 * Math.PI) / 180);
+      if (!context) return;
 
-        context.drawImage(video, 0, 0, canvas.height, canvas.width);
-        context.restore();
+      context.save();
 
-        const imageData = canvas.toDataURL('image/png');
-        setPhotos(prev => [...prev, imageData]);
-      }
+      context.translate(canvas.width, 0);
+      context.rotate((90 * Math.PI) / 180);
+
+      context.drawImage(video, 0, 0, canvas.height, canvas.width);
+      context.restore();
+
+      const imageData = canvas.toDataURL('image/png');
+      setPhotos(prev => [...prev, imageData]);
     }
   };
 
