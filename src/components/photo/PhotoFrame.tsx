@@ -1,4 +1,6 @@
-import { useFilterContext, useGetFrame, usePhotosContext } from '@/hooks';
+import { PhotoFrameSkeleton } from '@/components/photo';
+import { useFilterContext, usePhotosContext } from '@/hooks';
+import { useGetFrameQuery } from '@/hooks/queries';
 
 const photoSize = {
   width: 450,
@@ -15,7 +17,7 @@ const positions = [
 const PhotoFrame = () => {
   const { photos } = usePhotosContext();
   const { filter } = useFilterContext();
-  const { selectedFrame } = useGetFrame();
+  const { frame, isLoading } = useGetFrameQuery();
 
   return (
     <div className={`relative w-[250px] h-[675px] shrink-0`}>
