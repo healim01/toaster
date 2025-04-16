@@ -1,18 +1,18 @@
 import { useFrameContext } from '@/hooks';
 import { trackFrameButton } from '@/service/amplitude/trackEvent';
+import { Frame } from '@/types/frame';
 
 interface Props {
-  frameName: string;
-  frameUrl: string;
+  frame: Frame;
 }
 
-const FrameButton = ({ frameName, frameUrl }: Props) => {
-  const { setFrame, frame } = useFrameContext();
-  const isSelected = frame === frameName;
+const FrameButton = ({ frame }: Props) => {
+  const { frame: selectedFrame, setFrame } = useFrameContext();
+  const isSelected = frame.name === selectedFrame;
 
   const handleSelectFrame = () => {
-    trackFrameButton(frameName);
-    setFrame(frameName);
+    trackFrameButton(frame.name);
+    setFrame(frame.name);
   };
 
   return (
@@ -26,8 +26,8 @@ const FrameButton = ({ frameName, frameUrl }: Props) => {
        }
       )}`}
     >
-      <img src={frameUrl} width={100} />
-      <div>{frameName}</div>
+      <img src={frame.url} width={100} />
+      <div>{frame.name}</div>
     </div>
   );
 };
