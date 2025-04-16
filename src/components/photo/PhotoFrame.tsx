@@ -1,5 +1,5 @@
-import { useFilterContext, useFrameContext, usePhotosContext } from '@/hooks';
-import useFrames from '@/hooks/useFrames';
+import { PhotoFrameSkeleton } from '@/components/photo';
+import { useFilterContext, useGetFrame, usePhotosContext } from '@/hooks';
 
 const photoSize = {
   width: 450,
@@ -16,13 +16,16 @@ const positions = [
 const PhotoFrame = () => {
   const { photos } = usePhotosContext();
   const { filter } = useFilterContext();
-  const { frames } = useFrames();
-  const { frame } = useFrameContext();
+  const { selectedFrame, isListLoading } = useGetFrame();
+
+  if (isListLoading || !selectedFrame?.url) {
+    return <PhotoFrameSkeleton />;
+  }
 
   return (
     <div className={`relative w-[250px] h-[675px] shrink-0`}>
       <img
-        src={frames[frame]}
+        src={selectedFrame?.url}
         alt="Photo Frame"
         className="absolute top-0 left-0 w-full h-full z-10"
       />

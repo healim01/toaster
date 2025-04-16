@@ -1,6 +1,8 @@
 export { default as useEventNavigate } from './useEventNavigate';
 export { default as useFilterContext } from './useFilterContext';
 export { default as useFrameContext } from './useFrameContext';
+export { default as useGetFrame } from './useGetFrame';
+export { default as useGetFramesByEvent } from './useGetFramesByEvent';
 export { default as useIsMobileDevice } from './useIsMobileDevice';
 export { default as usePhotoDownload } from './usePhotoDownload';
 export { default as usePhotosContext } from './usePhotosContext';
