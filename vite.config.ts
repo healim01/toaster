@@ -7,4 +7,10 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss(), tsconfigPaths(), svgr()],
+  server: {
+    host: true,
+    allowedHosts: [
+      '*.ngrok-free.app', // ngrok-free.app 주소 추가
+    ],
+  },
 });
