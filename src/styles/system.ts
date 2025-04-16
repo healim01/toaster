@@ -4,7 +4,7 @@ export const sizeStyle: Record<string, string> = {
   small: 'px-2 py-1 text-sm h-10',
   medium: 'px-4 py-2 text-base h-12',
   large: 'px-6 py-3 text-lg h-16',
-  full: 'w-full',
+  full: 'h-12 w-full',
 };
 
 export const colorStyle: Record<string, string> = {
