@@ -12,7 +12,11 @@ const useTakePhoto = () => {
   const openCamera = () => {
     navigator.mediaDevices
       .getUserMedia({
-        video: { width: 1920, height: 1080, facingMode: 'user' },
+        video: {
+          width: 1920,
+          height: 1080,
+          facingMode: 'user',
+        },
       })
       .then(stream => {
         setStreamVideo(stream);
