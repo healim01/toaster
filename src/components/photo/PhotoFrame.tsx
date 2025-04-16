@@ -19,10 +19,14 @@ const PhotoFrame = () => {
   const { filter } = useFilterContext();
   const { frame, isLoading } = useGetFrameQuery();
 
+  if (isLoading || !frame?.url) {
+    return <PhotoFrameSkeleton />;
+  }
+
   return (
     <div className={`relative w-[250px] h-[675px] shrink-0`}>
       <img
-        src={selectedFrame?.url}
+        src={frame?.url}
         alt="Photo Frame"
         className="absolute top-0 left-0 w-full h-full z-10"
       />
