@@ -1,8 +1,8 @@
 import { FrameButton } from '@/components/frame';
-import { useGetFramesByEvent } from '@/hooks';
+import { useGetFramesByEventQuery } from '@/hooks/queries';
 
 const FrameSelectSection = () => {
-  const frames = useGetFramesByEvent();
+  const { frames, isLoading } = useGetFramesByEventQuery();
 
   return (
     <section className="flex flex-col w-full h-fit md:h-[85%] p-5 bg-gray-50 rounded-lg md:overflow-y-scroll shadow-md">
