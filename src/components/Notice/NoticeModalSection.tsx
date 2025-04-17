@@ -7,16 +7,14 @@ const NoticeModalSection = () => {
   const { notice } = useGetNoticeQuery();
 
   useEffect(() => {
-    const isNoticeViewed = localStorage.getItem(
-      `noticeViewed ${notice?.title}`,
-    );
+    const isNoticeViewed = localStorage.getItem(`noticeViewed ${notice?.id}`);
     if (!isNoticeViewed && notice) {
       setIsOpen(true);
     }
   }, [notice]);
 
   const handleClose = () => {
-    localStorage.setItem(`noticeViewed ${notice?.title}`, 'true');
+    localStorage.setItem(`noticeViewed ${notice?.id}`, 'true');
     setIsOpen(false);
   };
 
