@@ -1,13 +1,13 @@
 import Button from '@/components/_common/Button/Button';
 import MobileCamera from '@/components/camera/MobileCamera';
-import { useTakePhoto } from '@/hooks';
+import useTakeMobilePhoto from '@/hooks/useTakeMobilePhoto';
 
 const MobileCameraSection = () => {
-  const { videoRef, canvasRef, photos, takePhoto } = useTakePhoto();
+  const { videoRef, canvasRef, takePhoto } = useTakeMobilePhoto();
 
   return (
-    <section className="flex flex-col items-center w-full h-dvh bg-green-50">
-      <div className="relative w-full h-[70dvh]">
+    <section className="flex flex-col items-center w-full h-[70dvh] bg-green-50 border-2 border-amber-400">
+      <div className="relative w-full h-full border-2 border-red-600">
         <MobileCamera videoRef={videoRef} canvasRef={canvasRef} />
       </div>
       <Button label="타이머 버튼 위치" size="full" onClick={takePhoto} />
