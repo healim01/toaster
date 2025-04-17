@@ -6,5 +6,6 @@ export { default as useGetFramesByEvent } from './useGetFramesByEvent';
 export { default as useIsMobileDevice } from './useIsMobileDevice';
 export { default as usePhotoDownload } from './usePhotoDownload';
 export { default as usePhotosContext } from './usePhotosContext';
+export { default as useTakeMobilePhoto } from './useTakeMobilePhoto';
 export { default as useTakePhoto } from './useTakePhoto';
 export { default as useToasterRiv } from './useToasterRiv';

@@ -4,6 +4,7 @@ interface Props {
   videoRef: RefObject<HTMLVideoElement | null>;
   canvasRef: RefObject<HTMLCanvasElement | null>;
 }
+
 const MobileCamera = ({ videoRef, canvasRef }: Props) => {
   return (
     <>

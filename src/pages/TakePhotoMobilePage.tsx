@@ -1,5 +1,5 @@
 import { MobileCameraSection } from '@/components/camera';
-import MobilePreviewSection from '@/components/preview/MobilePreviewSection';
+import { MobilePreviewSection } from '@/components/preview';
 
 const TakePhotoMobilePage = () => {
   return (

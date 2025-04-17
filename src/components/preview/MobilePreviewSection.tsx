@@ -8,7 +8,6 @@ const MobilePreviewSection = () => {
       <div className="w-[150px] h-[90dvw] rotate-90 bg-blue-50 flex flex-col items-center justify-center gap-4 px-4">
         {Array.from({ length: 4 }).map((_, index) => {
           const photo = photos[index];
-
           return photo ? (
             <img
               key={index}

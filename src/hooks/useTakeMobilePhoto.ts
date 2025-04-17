@@ -1,4 +1,5 @@
 import { usePhotosContext } from '@/hooks';
+import { trackTakeToasterButton } from '@/service/amplitude/trackEvent';
 import { useEffect, useRef, useState } from 'react';
 
 const useTakeMobilePhoto = () => {
@@ -49,7 +50,7 @@ const useTakeMobilePhoto = () => {
   };
 
   const takePhoto = () => {
-    // trackTakeToasterButton();
+    trackTakeToasterButton();
 
     const canvas = canvasRef.current;
     const video = videoRef.current;
@@ -82,7 +83,6 @@ const useTakeMobilePhoto = () => {
   return {
     videoRef,
     canvasRef,
-    photos,
     takePhoto,
     closeCamera,
   };
