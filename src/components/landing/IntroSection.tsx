@@ -20,7 +20,9 @@ const IntroSection = () => {
         오늘의 사진, 오늘의 토스트 🌞
       </p>
       <p className="text-2xl text-amber-800 mb-8">
-        마음에 드는 재료를 골라, 나만의 토스트를 만들어보세요!
+        마음에 드는 재료를 골라,
+        <br className="md:hidden" />
+        나만의 토스트를 만들어보세요!
         <br />
         귀여운 네컷 사진으로 추억을 담아요 📸
       </p>
