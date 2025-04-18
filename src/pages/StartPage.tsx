@@ -3,6 +3,7 @@ import {
   MarqueeSection,
   StepSection,
 } from '@/components/landing';
+import { NoticeModalSection } from '@/components/Notice';
 import { useTrackPageView } from '@/service/amplitude';
 import { clearPhotos } from '@/utils/photoStorage';
 import { useEffect } from 'react';
@@ -15,15 +16,19 @@ const StartPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center w-full min-h-screen md:gap-30">
-      <IntroSection />
+    <>
+      <NoticeModalSection />
 
-      <div className="flex flex-col">
-        <StepSection />
+      <div className="flex flex-col md:flex-row justify-center items-center w-full min-h-screen md:gap-30">
+        <IntroSection />
+
+        <div className="flex flex-col">
+          <StepSection />
+        </div>
+
+        <MarqueeSection />
       </div>
-
-      <MarqueeSection />
-    </div>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 // icons
+export { default as CloseIcon } from './icons/close.svg?react';
 export { default as GithubIcon } from './icons/github.svg?react';
 export { default as InstagramIcon } from './icons/instagram.svg?react';
 export { default as TistoryIcon } from './icons/tistory.svg?react';
