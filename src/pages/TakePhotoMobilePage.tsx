@@ -1,3 +1,4 @@
+import { ToastMessage } from '@/components';
 import { MobileCameraSection } from '@/components/camera';
 import { MobilePreviewSection } from '@/components/preview';
 
@@ -9,6 +10,8 @@ const TakePhotoMobilePage = () => {
 
       {/* 카메라 섹션 */}
       <MobileCameraSection />
+
+      <ToastMessage message="기기의 오른쪽이 위로 가도록 촬영해주세요!" />
     </div>
   );
 };
