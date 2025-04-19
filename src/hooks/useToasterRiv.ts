@@ -100,7 +100,6 @@ const useToasterRiv = ({ takePhoto }: Props) => {
 
     const handler: EventCallback = event => {
       if (!Array.isArray(event.data)) return;
-
       if (event.data.includes(BAR_CLICK_STATE) && stateToastUp) {
         clickBar();
       }
@@ -115,7 +114,7 @@ const useToasterRiv = ({ takePhoto }: Props) => {
 
   useEffect(() => {});
 
-  return { ToasterRive: RiveComponent, stateToastUp, stateTime };
+  return { ToasterRive: RiveComponent };
 };
 
 export default useToasterRiv;
