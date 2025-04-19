@@ -1,8 +1,11 @@
 import ToasterRiveImg from '@/assets/rive/toaster-mobile.riv?url';
 import riveWasmUrl from '@rive-app/canvas/rive.wasm?url';
 import {
+  Alignment,
   EventCallback,
   EventType,
+  Fit,
+  Layout,
   RuntimeLoader,
   useRive,
   useStateMachineInput,
@@ -32,6 +35,10 @@ const useToasterMobileRiv = ({ takePhoto }: Props) => {
     src: ToasterRiveImg,
     autoplay: true,
     stateMachines: STATE_MACHINE_NAME,
+    layout: new Layout({
+      fit: Fit.Fill,
+      alignment: Alignment.Center,
+    }),
   });
 
   const stateShoot = useStateMachineInput(
@@ -113,7 +120,7 @@ const useToasterMobileRiv = ({ takePhoto }: Props) => {
 
   useEffect(() => {});
 
-  return { ToasterRive: RiveComponent };
+  return { ToasterMobileRive: RiveComponent };
 };
 
 export default useToasterMobileRiv;

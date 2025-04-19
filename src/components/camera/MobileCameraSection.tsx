@@ -4,14 +4,14 @@ import useToasterMobileRiv from '@/hooks/useToasterMobileRiv';
 
 const MobileCameraSection = () => {
   const { videoRef, canvasRef, takePhoto } = useTakeMobilePhoto();
-  const { ToasterRive } = useToasterMobileRiv({
+  const { ToasterMobileRive } = useToasterMobileRiv({
     takePhoto: takePhoto,
   });
 
   return (
-    <section className="flex flex-col items-center w-full h-[70dvh]">
+    <section className="flex flex-col items-center w-full h-[65vh]">
       <div className="relative w-full h-full">
-        <ToasterRive
+        <ToasterMobileRive
           style={{
             position: 'absolute',
             top: 0,
