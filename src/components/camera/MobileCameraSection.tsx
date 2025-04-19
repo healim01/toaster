@@ -1,15 +1,47 @@
+import { ToastMessage } from '@/components';
 import { MobileCamera } from '@/components/camera';
-import { useTakeMobilePhoto } from '@/hooks';
-import useToasterMobileRiv from '@/hooks/useToasterMobileRiv';
+import { useTakeMobilePhoto, useToasterMobileRiv } from '@/hooks';
+import { useEffect, useRef, useState } from 'react';
 
 const MobileCameraSection = () => {
-  const { videoRef, canvasRef, takePhoto } = useTakeMobilePhoto();
+  const [showToast, setShowToast] = useState(false);
+  const toastTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const { videoRef, canvasRef, takePhoto: _takePhoto } = useTakeMobilePhoto();
+  const takePhoto = () => {
+    if (toastTimerRef.current) {
+      clearTimeout(toastTimerRef.current);
+    }
+    setShowToast(false);
+    _takePhoto();
+  };
+
   const { ToasterMobileRive } = useToasterMobileRiv({
-    takePhoto: takePhoto,
+    takePhoto,
   });
+
+  useEffect(() => {
+    toastTimerRef.current = setTimeout(() => {
+      setShowToast(true);
+    }, 5000);
+
+    return () => {
+      if (toastTimerRef.current) {
+        clearTimeout(toastTimerRef.current);
+      }
+    };
+  }, []);
 
   return (
     <section className="flex flex-col items-center w-full h-[65vh]">
+      {showToast && (
+        <ToastMessage
+          topPosition="right"
+          message="카메라 속 화면을 클릭하면 사진 촬영이 시작돼요!"
+          onClose={() => setShowToast(false)}
+        />
+      )}
+
       <div className="relative w-full h-full">
         <ToasterMobileRive
           style={{
