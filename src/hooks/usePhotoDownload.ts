@@ -1,7 +1,7 @@
+import { buildBlobWithRetry } from '@/utils/buildBlobWithRetry';
 import { getFormatDate } from '@/utils/getFormatDate';
 import { isSafari } from '@/utils/isSafari';
 import saveAs from 'file-saver';
-import { toBlob } from 'html-to-image';
 import { useRef, useState } from 'react';
 
 const usePhotoDownload = () => {
@@ -32,18 +32,15 @@ const usePhotoDownload = () => {
     try {
       await Promise.all(loadPromises);
       if (isSafari()) {
-        await new Promise(resolve => setTimeout(resolve, 10 * 1000));
+        await new Promise(resolve => setTimeout(resolve, 3000));
       }
 
-      const blob = await toBlob(downloadDivRef.current, {
-        cacheBust: true,
-        pixelRatio: 3,
-      });
+      const blob = await buildBlobWithRetry(downloadDivRef.current, isSafari());
 
       if (blob) {
         saveAs(blob, `toaster-booth-${getFormatDate(new Date())}.png`);
       } else {
-        console.error('Blob 생성 실패');
+        console.error('Blob 생성 실패 - Safari에서 이미지 누락 가능성 있음');
       }
     } catch (error) {
       console.error('Error converting div to image:', error);

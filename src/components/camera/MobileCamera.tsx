@@ -4,7 +4,8 @@ interface Props {
   videoRef: RefObject<HTMLVideoElement | null>;
   canvasRef: RefObject<HTMLCanvasElement | null>;
 }
-const Camera = ({ videoRef, canvasRef }: Props) => {
+
+const MobileCamera = ({ videoRef, canvasRef }: Props) => {
   return (
     <>
       <video
@@ -12,14 +13,9 @@ const Camera = ({ videoRef, canvasRef }: Props) => {
         autoPlay
         muted
         playsInline
-        className="absolute w-4/6 md:w-4/5 max-w-[480px] aspect-video 
-    -translate-x-1/2 object-contain scale-x-[-1]
-    z-0 rounded-2xl shadow-md
-    bottom-[8%] md:bottom-[11.5%]"
-        style={{
-          left: '39%',
-          objectFit: 'cover',
-        }}
+        className="absolute w-full h-full top-1/2 left-1/2 
+            -translate-x-1/2 -translate-y-1/2 scale-x-[-1] 
+            object-cover z-0 shadow-md"
       />
       <canvas
         className="hidden"
@@ -31,4 +27,4 @@ const Camera = ({ videoRef, canvasRef }: Props) => {
   );
 };
 
-export default Camera;
+export default MobileCamera;

@@ -2,7 +2,7 @@ import { usePhotosContext } from '@/hooks';
 import { trackTakeToasterButton } from '@/service/amplitude/trackEvent';
 import { useEffect, useRef, useState } from 'react';
 
-const useTakePhoto = () => {
+const useTakeMobilePhoto = () => {
   const { photos, setPhotos } = usePhotosContext();
 
   const [streamVideo, setStreamVideo] = useState<MediaStream | null>(null);
@@ -59,7 +59,14 @@ const useTakePhoto = () => {
       const context = canvas.getContext('2d');
       if (!context) return;
 
-      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      context.save();
+
+      context.translate(canvas.width, 0);
+      context.rotate((90 * Math.PI) / 180);
+
+      context.drawImage(video, 0, 0, canvas.height, canvas.width);
+      context.restore();
+
       const imageData = canvas.toDataURL('image/png');
       setPhotos(prev => [...prev, imageData]);
     }
@@ -73,7 +80,12 @@ const useTakePhoto = () => {
     if (photos.length === 4) closeCamera();
   }, [photos]);
 
-  return { videoRef, canvasRef, takePhoto, closeCamera };
+  return {
+    videoRef,
+    canvasRef,
+    takePhoto,
+    closeCamera,
+  };
 };
 
-export default useTakePhoto;
+export default useTakeMobilePhoto;
