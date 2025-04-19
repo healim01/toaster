@@ -6,4 +6,5 @@ export { default as Header } from './_common/Header/Header';
 export { default as Layout } from './_common/Layout/Layout';
 export { default as MainLayout } from './_common/Layout/MainLayout';
 export { default as Marquee } from './_common/Marquee/Marquee';
+export { default as ToastMessage } from './_common/ToastMessage/ToastMessage';
 export { default as Modal } from './_common/Modal/Modal';
