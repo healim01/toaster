@@ -1,9 +1,9 @@
 import { useFilterContext } from '@/hooks';
 import { trackFilterButton } from '@/service/amplitude/trackEvent';
-import { FilterObject } from '@/types/filter';
+import { Filter } from '@/types/filter';
 
 interface Props {
-  filter: FilterObject;
+  filter: Filter;
 }
 
 const FilterButton = ({ filter }: Props) => {
