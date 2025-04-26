@@ -3,4 +3,5 @@ export const ROUTE_PATH = {
   takePhoto: '/take-a-toast',
   customPhoto: '/put-jam-on-it',
   savePhoto: '/toasted-well',
+  myPage: '/my-toast',
 };
