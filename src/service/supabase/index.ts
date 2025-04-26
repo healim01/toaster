@@ -4,3 +4,4 @@ export { default as supabaseClient } from './supabaseClient';
 // apis
 export { default as getFrames } from './getFrames';
 export { default as getNotice } from './getNotice';
+export * from './getUserInfo';
