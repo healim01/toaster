@@ -1,14 +1,10 @@
-import { LoginTextImg, MyPageTextImg } from '@/assets';
-import Modal from '@/components/_common/Modal/Modal';
+import { LoginTextImg } from '@/assets';
+import { Modal } from '@/components';
 import { GoogleLoginButton } from '@/components/Login/GoogleLoginButton';
-import { useEventNavigate } from '@/hooks';
-import useUserContext from '@/hooks/useUserContext';
 import { supabaseClient } from '@/service/supabase';
 import { useState } from 'react';
 
-const LoginSection = () => {
-  const navigate = useEventNavigate();
-  const { user } = useUserContext();
+export const LoginSection = () => {
   const [open, setOpen] = useState(false);
 
   const handleLogin = async () => {
@@ -19,19 +15,6 @@ const LoginSection = () => {
       },
     });
   };
-
-  if (user) {
-    return (
-      <div onClick={() => navigate('/mypage')} className="cursor-pointer">
-        <img
-          src={MyPageTextImg}
-          width={140}
-          alt="My Page"
-          className="hover:drop-shadow-lg hover:drop-shadow-gray-300"
-        />
-      </div>
-    );
-  }
 
   return (
     <>
@@ -61,5 +44,3 @@ const LoginSection = () => {
     </>
   );
 };
-
-export default LoginSection;

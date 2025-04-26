@@ -1,5 +1,5 @@
 import { TextToasterIcon } from '@/assets';
-import LoginSection from '@/components/Login/LoginSection';
+import { AuthSection } from '@/components/Login';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { useEventNavigate, usePhotosContext } from '@/hooks';
 import { useEffect, useState } from 'react';
@@ -33,7 +33,7 @@ const Header = () => {
       <div className="flex flex-row justify-between items-center w-full h-full md:max-w-3/4 mx-auto">
         <TextToasterIcon width={150} height={40} onClick={handleReturn} />
 
-        <LoginSection />
+        <AuthSection />
       </div>
     </div>
   );
