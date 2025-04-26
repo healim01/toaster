@@ -1,6 +1,7 @@
 // icons
 export { default as CloseIcon } from './icons/close.svg?react';
 export { default as GithubIcon } from './icons/github.svg?react';
+export { default as GoogleIcon } from './icons/google.svg?react';
 export { default as InstagramIcon } from './icons/instagram.svg?react';
 export { default as TistoryIcon } from './icons/tistory.svg?react';
 export { default as TextToasterIcon } from './icons/toaster-text.svg?react';
@@ -9,6 +10,8 @@ export { default as ToasterIcon } from './icons/toaster.svg?react';
 // imgs
 export { default as Error404Img } from './imgs/404.png';
 export { default as arrowToastImg } from './imgs/arrow-toast.png';
+export { default as LoginTextImg } from './imgs/login-text.png';
+export { default as MyPageTextImg } from './imgs/mypage-text.png';
 export { default as photoaster } from './imgs/photoaster.png';
 export { default as toasterBoothImg } from './imgs/toasterBooth.png';
 
