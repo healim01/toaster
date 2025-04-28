@@ -12,7 +12,8 @@ export const usePhotoUpload = (
   const handleUpload = async () => {
     if (!downloadDivRef.current || !user) return;
 
-    const images = downloadDivRef.current.querySelectorAll('img');
+    const snapshot = downloadDivRef.current;
+    const images = snapshot.querySelectorAll('img');
     const loadPromises = Array.from(images).map(
       img =>
         new Promise(resolve => {
@@ -28,7 +29,7 @@ export const usePhotoUpload = (
         await new Promise(resolve => setTimeout(resolve, 3000));
       }
 
-      const blob = await buildBlobWithRetry(downloadDivRef.current, isSafari());
+      const blob = await buildBlobWithRetry(snapshot, isSafari());
       if (!blob) {
         console.error('Blob 생성 실패');
         return;
