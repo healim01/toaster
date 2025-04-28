@@ -17,7 +17,7 @@ export const ProfileSection = () => {
         <span className="text-base text-amber-900 mt-1">
           토스터 부스와 함께한지{' '}
           <strong className="text-amber-500">
-            {getElapsedDays(user?.created_at ?? '')}일 🧡
+            {getElapsedDays(user?.created_at ?? '') + 1}일 🧡
           </strong>
         </span>
       </div>
