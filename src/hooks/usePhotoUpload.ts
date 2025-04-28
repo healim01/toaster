@@ -7,7 +7,7 @@ export const usePhotoUpload = (
   downloadDivRef: React.RefObject<HTMLDivElement | null>,
 ) => {
   const { user } = useUserContext();
-  const { uploadPhoto, isSuccess } = usePostUserPhotoMutation();
+  const { uploadPhoto, isPending, isSuccess } = usePostUserPhotoMutation();
 
   const handleUpload = async () => {
     if (!downloadDivRef.current || !user) return;
@@ -41,5 +41,5 @@ export const usePhotoUpload = (
     }
   };
 
-  return { handleUpload, isSuccess };
+  return { handleUpload, isUploading: isPending, isSuccess };
 };
