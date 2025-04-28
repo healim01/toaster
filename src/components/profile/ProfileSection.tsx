@@ -1,4 +1,4 @@
-import useUserContext from '@/hooks/useUserContext';
+import { useUserContext } from '@/hooks';
 import { getElapsedDays } from '@/utils/getElapsedDays';
 
 export const ProfileSection = () => {
