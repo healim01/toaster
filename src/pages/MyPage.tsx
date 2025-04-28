@@ -1,10 +1,9 @@
-import useUserContext from '@/hooks/useUserContext';
+import { ProfileSection } from '@/components/profile';
 
 export const MyPage = () => {
-  const { user } = useUserContext();
   return (
-    <div className="flex relative w-full md:h-[92vh] pt-2 pb-2 mt-[50px]">
-      MyPage 안녕하세요 {user?.name} 님!
+    <div className="flex flex-col gap-5 relative w-full h-full pt-2 pb-2 mt-[50px]">
+      <ProfileSection />
     </div>
   );
 };

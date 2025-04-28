@@ -1,4 +1,4 @@
-import supabaseClient from '@/service/supabase/supabaseClient';
+import { supabaseClient } from '@/service/supabase';
 
 export const getUserInfo = async () => {
   const {
@@ -8,7 +8,7 @@ export const getUserInfo = async () => {
   if (user) {
     const { data: profileData } = await supabaseClient
       .from('profiles')
-      .select('id, email, name')
+      .select('*')
       .eq('id', user.id)
       .single();
 
