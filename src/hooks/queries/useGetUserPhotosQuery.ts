@@ -1,4 +1,5 @@
-import useUserContext from '@/hooks/useUserContext';
+import { QUERY_KEYS } from '@/context/queryKeys';
+import { useUserContext } from '@/hooks';
 import { getStoragePrivateUrl, getUserPhotos } from '@/service/supabase';
 import { Photo } from '@/types/photo';
 import { useSuspenseQuery } from '@tanstack/react-query';
@@ -10,7 +11,7 @@ export const useGetUserPhotosQuery = () => {
     isLoading,
     isError,
   } = useSuspenseQuery<Photo[]>({
-    queryKey: ['userPhotos', user],
+    queryKey: [QUERY_KEYS.userPhotos, user],
     queryFn: async () => {
       if (!user) return [];
 

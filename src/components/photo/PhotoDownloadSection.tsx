@@ -2,7 +2,7 @@ import { Button } from '@/components';
 import { PhotoFrame } from '@/components/photo';
 import { usePhotoDownload } from '@/hooks';
 import { usePhotoUpload } from '@/hooks/usePhotoUpload';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const PhotoDownloadSection = () => {
   const downloadDivRef = useRef<HTMLDivElement>(null);
@@ -21,14 +21,15 @@ const PhotoDownloadSection = () => {
         <PhotoFrame />
       </div>
 
-      {/* 다운로드 버튼 */}
-      <Button
-        label={isLoading ? '다운로드 중...' : '사진 다운로드 🔽'}
-        onClick={handleDownload}
-        size="medium"
-        color="pink"
-      />
-    </div>
+        {/* 다운로드 버튼 */}
+        <Button
+          label={isLoading ? '다운로드 중...' : '사진 다운로드 🔽'}
+          onClick={handleDownload}
+          size="medium"
+          color="pink"
+        />
+      </div>
+    </>
   );
 };
 
