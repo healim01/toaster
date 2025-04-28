@@ -10,7 +10,7 @@ import {
 } from '@/pages';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     element: (
       <Layout>
@@ -56,5 +56,3 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
-export default router;
