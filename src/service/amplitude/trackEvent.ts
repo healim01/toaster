@@ -15,7 +15,7 @@ export const trackFilterButton = (filter: string) => {
 };
 
 export const trackFrameButton = (frame: string) => {
-  amplitudeService.customTrack(`[Click] ${frame} 필터 버튼`);
+  amplitudeService.customTrack(`[Click] ${frame} 프레임 버튼`);
 };
 
 export const trackFinishedEditButton = () => {

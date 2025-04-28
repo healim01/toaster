@@ -17,5 +17,3 @@ export const getNotice = async (): Promise<Notice> => {
     url: getStoragePublicUrl(data.image_path),
   };
 };
-
-export default getNotice;
