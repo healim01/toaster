@@ -17,7 +17,9 @@ const PhotoDownloadSection = () => {
   useEffect(() => {
     if (isSuccess) {
       setShowToast(true);
-      setTimeout(() => setShowToast(false), 3000);
+
+      const timeoutId = setTimeout(() => setShowToast(false), 3000);
+      return () => clearTimeout(timeoutId);
     }
   }, [isSuccess]);
 
