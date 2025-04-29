@@ -1,7 +1,7 @@
 import { PRIORITY_FRAMES_TAGS } from '@/constants/framesTag';
 import { getStoragePublicUrl, supabaseClient } from '@/service/supabase';
 
-const getFrames = async (tags: string[]) => {
+export const getFrames = async (tags: string[]) => {
   const { data, error } = await supabaseClient
     .from('frames')
     .select('*')
@@ -24,5 +24,3 @@ const getFrames = async (tags: string[]) => {
     })
     .sort((a, b) => a._priorityIndex - b._priorityIndex);
 };
-
-export default getFrames;

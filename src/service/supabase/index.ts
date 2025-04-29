@@ -1,7 +1,9 @@
-export { default as getStoragePublicUrl } from './getStoragePublicUrl';
-export { default as supabaseClient } from './supabaseClient';
+export * from './getStoragePrivateUrl';
+export * from './getStoragePublicUrl';
+export * from './supabaseClient';
 
 // apis
-export { default as getFrames } from './getFrames';
-export { default as getNotice } from './getNotice';
+export * from './getFrames';
+export * from './getNotice';
 export * from './getUserInfo';
+export * from './getUserPhotos';

@@ -1,6 +1,6 @@
-export interface User {
+export interface Photo {
   id: string;
   name: string;
-  email: string;
+  url: string;
   created_at: string;
 }
