@@ -21,4 +21,6 @@
       transform: translateX(calc(-50% - 1rem));
     }
   }
+
+  --font-body: 'Wanted Sans Variable';
 }

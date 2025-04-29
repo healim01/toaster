@@ -2,10 +2,12 @@ import { buildBlobWithRetry } from '@/utils/buildBlobWithRetry';
 import { getFormatDate } from '@/utils/getFormatDate';
 import { isSafari } from '@/utils/isSafari';
 import saveAs from 'file-saver';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
-const usePhotoDownload = () => {
-  const downloadDivRef = useRef<HTMLDivElement>(null);
+const usePhotoDownload = (
+  downloadDivRef: React.RefObject<HTMLDivElement | null>,
+) => {
+  // const downloadDivRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDownload = async () => {
@@ -49,7 +51,7 @@ const usePhotoDownload = () => {
     }
   };
 
-  return { downloadDivRef, isLoading, handleDownload };
+  return { handleDownload, isLoading };
 };
 
 export default usePhotoDownload;

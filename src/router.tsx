@@ -2,6 +2,7 @@ import { Footer, Header, Layout, MainLayout } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import {
   CustomPhotoPage,
+  MyPage,
   NotFoundPage,
   SavePhotoPage,
   StartPage,
@@ -9,7 +10,7 @@ import {
 } from '@/pages';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     element: (
       <Layout>
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
             element: <SavePhotoPage />,
           },
           {
+            path: ROUTE_PATH.myPage,
+            element: <MyPage />,
+          },
+          {
             path: '*',
             element: <NotFoundPage />,
           },
@@ -51,5 +56,3 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
-export default router;

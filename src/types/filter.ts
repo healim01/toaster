@@ -1,4 +1,4 @@
-export interface FilterObject {
+export interface Filter {
   iconUrl: string;
   openIconUrl: string;
   name: string;

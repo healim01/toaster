@@ -1,9 +1,9 @@
-import { FilterObject } from '@/types/filter';
+import { Filter } from '@/types/filter';
 import { createContext, PropsWithChildren, useState } from 'react';
 
 type FilterContextType = {
-  filter: FilterObject | null;
-  setFilter: (filter: FilterObject | null) => void;
+  filter: Filter | null;
+  setFilter: (filter: Filter | null) => void;
 };
 
 export const FilterContext = createContext<FilterContextType | undefined>(
@@ -11,7 +11,7 @@ export const FilterContext = createContext<FilterContextType | undefined>(
 );
 
 export const FilterProvider = ({ children }: PropsWithChildren) => {
-  const [filter, setFilter] = useState<FilterObject | null>(null);
+  const [filter, setFilter] = useState<Filter | null>(null);
 
   return (
     <FilterContext.Provider value={{ filter, setFilter }}>

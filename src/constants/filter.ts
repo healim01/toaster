@@ -12,9 +12,9 @@ import {
   vegemiteJamImg,
   vegemiteJamOpenImg,
 } from '@/assets';
-import { FilterObject } from '@/types/filter';
+import { Filter } from '@/types/filter';
 
-export const Filter: Record<string, FilterObject> = {
+export const Filters: Record<string, Filter> = {
   straw: {
     iconUrl: strawberryJamImg,
     openIconUrl: strawberryJamOpenImg,
