@@ -1,7 +1,9 @@
 // icons
+export { default as CheckIcon } from './icons/check.svg?react';
 export { default as CloseIcon } from './icons/close.svg?react';
 export { default as GithubIcon } from './icons/github.svg?react';
 export { default as GoogleIcon } from './icons/google.svg?react';
+export { default as InfoIcon } from './icons/info.svg?react';
 export { default as InstagramIcon } from './icons/instagram.svg?react';
 export { default as TistoryIcon } from './icons/tistory.svg?react';
 export { default as TextToasterIcon } from './icons/toaster-text.svg?react';

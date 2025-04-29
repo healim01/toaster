@@ -27,7 +27,10 @@ const PhotoDownloadSection = () => {
   return (
     <>
       {showToast && (
-        <ToastMessage message="사진 업로드에 성공했습니다! 이제 내 갤러리에서 다시 볼 수 있어요!" />
+        <ToastMessage
+          type="success"
+          message="사진 업로드에 성공했습니다! 이제 내 갤러리에서 다시 볼 수 있어요!"
+        />
       )}
       {showUploadingToast && (
         <ToastMessage message="사진을 업로드하고 있어요!" />
