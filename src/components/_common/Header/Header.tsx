@@ -1,4 +1,5 @@
 import { TextToasterIcon } from '@/assets';
+import { AuthSection } from '@/components/Login';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { useEventNavigate, usePhotosContext } from '@/hooks';
 import { useEffect, useState } from 'react';
@@ -29,8 +30,10 @@ const Header = () => {
       ${isScrolled ? 'md:bg-yellow-50 md:shadow-sm' : 'md:bg-transparent'}
     `}
     >
-      <div className="flex flex-row items-center w-full h-full max-w-screen-xl px-4 sm:px-6 md:px-8 mx-auto">
+      <div className="flex flex-row justify-between items-center w-full h-full md:max-w-3/4 mx-auto">
         <TextToasterIcon width={150} height={40} onClick={handleReturn} />
+
+        <AuthSection />
       </div>
     </div>
   );

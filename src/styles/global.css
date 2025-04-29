@@ -8,6 +8,15 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Wanted Sans Variable';
+  src: url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/WantedSansVariable.woff2')
+    format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   html,
   body,

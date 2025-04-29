@@ -1,4 +1,5 @@
 import { FilterProvider, FrameProvider, PhotosProvider } from '@/context';
+import { UserProvider } from '@/context/UserContext';
 import router from '@/router';
 import { amplitudeInitializer } from '@/service/amplitude/amplitudeInitializer';
 import '@/styles/global.css';
@@ -18,13 +19,15 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <FilterProvider>
-        <PhotosProvider>
-          <FrameProvider>
-            <RouterProvider router={router} />
-          </FrameProvider>
-        </PhotosProvider>
-      </FilterProvider>
+      <UserProvider>
+        <FilterProvider>
+          <PhotosProvider>
+            <FrameProvider>
+              <RouterProvider router={router} />
+            </FrameProvider>
+          </PhotosProvider>
+        </FilterProvider>
+      </UserProvider>
     </QueryClientProvider>
   );
 }
