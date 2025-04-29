@@ -5,10 +5,12 @@ import { usePhotoUpload } from '@/hooks/usePhotoUpload';
 import { useEffect, useRef, useState } from 'react';
 
 const PhotoDownloadSection = () => {
-  const [showToast, setShowToast] = useState(false);
+  const [showUploadSuccessToast, setShowUploadSuccessToast] = useState(false);
+
   const downloadDivRef = useRef<HTMLDivElement>(null);
   const { handleDownload, isLoading } = usePhotoDownload(downloadDivRef);
-  const { handleUpload, isSuccess } = usePhotoUpload(downloadDivRef);
+  const { handleUpload, isSuccess, isUploading } =
+    usePhotoUpload(downloadDivRef);
 
   useEffect(() => {
     handleUpload();
@@ -16,18 +18,26 @@ const PhotoDownloadSection = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      setShowToast(true);
+      setShowUploadSuccessToast(true);
 
-      const timeoutId = setTimeout(() => setShowToast(false), 3000);
+      const timeoutId = setTimeout(
+        () => setShowUploadSuccessToast(false),
+        3000,
+      );
       return () => clearTimeout(timeoutId);
     }
   }, [isSuccess]);
 
   return (
     <>
-      {showToast && (
-        <ToastMessage message="사진 업로드에 성공했습니다! 이제 내 갤러리에서 다시 볼 수 있어요!" />
+      {showUploadSuccessToast && (
+        <ToastMessage
+          type="success"
+          message="사진 업로드에 성공했습니다! 이제 내 갤러리에서 다시 볼 수 있어요!"
+        />
       )}
+      {isUploading && <ToastMessage message="사진을 업로드하고 있어요!" />}
+
       <div className="flex flex-col items-end w-fit h-fit md:flex-row p-5 gap-5 bg-white rounded-2xl">
         {/* 사진 프레임 */}
         <div ref={downloadDivRef}>
