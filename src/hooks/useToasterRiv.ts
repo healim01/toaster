@@ -63,6 +63,8 @@ const useToasterRiv = ({ takePhoto }: Props) => {
   );
 
   const clickBar = () => {
+    if (stateToastUp?.value === false) return;
+
     const timer =
       typeof stateTime?.value === 'number' && stateTime.value !== -1
         ? stateTime.value

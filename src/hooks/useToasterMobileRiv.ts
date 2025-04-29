@@ -10,7 +10,7 @@ import {
   useRive,
   useStateMachineInput,
 } from '@rive-app/react-canvas';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const STATE_MACHINE_NAME = 'toaster statemachine';
 const MOBILE_CLICK_STATE = 'click_idle';
@@ -24,13 +24,14 @@ const STATE_NAME = {
   },
 };
 
+RuntimeLoader.setWasmUrl(riveWasmUrl);
+
 interface Props {
   takePhoto: () => void;
 }
 
-RuntimeLoader.setWasmUrl(riveWasmUrl);
-
 const useToasterMobileRiv = ({ takePhoto }: Props) => {
+  const [isShooting, setIsShooting] = useState(false);
   const { rive, RiveComponent } = useRive({
     src: ToasterRiveImg,
     autoplay: true,
@@ -69,11 +70,15 @@ const useToasterMobileRiv = ({ takePhoto }: Props) => {
     STATE_NAME.countdown[5],
   );
 
-  const clickBar = useCallback(() => {
+  const clickCamera = useCallback(() => {
+    if (isShooting) return;
+
     const timer =
       typeof stateTime?.value === 'number' && stateTime.value !== 0
         ? stateTime.value
         : 3;
+
+    setIsShooting(true);
 
     controlCountDown(timer);
     controlToast(timer);
@@ -96,6 +101,7 @@ const useToasterMobileRiv = ({ takePhoto }: Props) => {
       setTimeout(() => {
         stateShoot.fire();
         takePhoto();
+        setIsShooting(false);
       }, 1000 * timer);
     }
   };
@@ -107,7 +113,7 @@ const useToasterMobileRiv = ({ takePhoto }: Props) => {
       if (!Array.isArray(event.data)) return;
 
       if (event.data.includes(MOBILE_CLICK_STATE)) {
-        clickBar();
+        clickCamera();
       }
     };
 
@@ -116,7 +122,7 @@ const useToasterMobileRiv = ({ takePhoto }: Props) => {
     return () => {
       rive.off(EventType.StateChange, handler);
     };
-  }, [rive, clickBar]);
+  }, [rive, clickCamera]);
 
   useEffect(() => {});
 
