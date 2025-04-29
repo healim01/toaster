@@ -15,8 +15,13 @@ export const UserProvider = ({ children }: PropsWithChildren) => {
   const [user, setUser] = useState<User | null>(null);
 
   const fetchUserInfo = async () => {
-    const profile = await getUserInfo();
-    setUser(profile);
+    try {
+      const profile = await getUserInfo();
+      setUser(profile);
+    } catch (error) {
+      console.error('Failed to fetch user info:', error);
+      setUser(null);
+    }
   };
 
   useEffect(() => {
