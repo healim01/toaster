@@ -5,7 +5,7 @@ import { usePhotoUpload } from '@/hooks/usePhotoUpload';
 import { useEffect, useRef, useState } from 'react';
 
 const PhotoDownloadSection = () => {
-  const [showToast, setShowToast] = useState(false);
+  const [showUploadSuccessToast, setShowUploadSuccessToast] = useState(false);
   const [showUploadingToast, setShowUploadingToast] = useState(true);
 
   const downloadDivRef = useRef<HTMLDivElement>(null);
@@ -19,16 +19,19 @@ const PhotoDownloadSection = () => {
   useEffect(() => {
     if (isSuccess) {
       setShowUploadingToast(false);
-      setShowToast(true);
+      setShowUploadSuccessToast(true);
 
-      const timeoutId = setTimeout(() => setShowToast(false), 3000);
+      const timeoutId = setTimeout(
+        () => setShowUploadSuccessToast(false),
+        3000,
+      );
       return () => clearTimeout(timeoutId);
     }
   }, [isSuccess]);
 
   return (
     <>
-      {showToast && (
+      {showUploadSuccessToast && (
         <ToastMessage
           type="success"
           message="사진 업로드에 성공했습니다! 이제 내 갤러리에서 다시 볼 수 있어요!"
