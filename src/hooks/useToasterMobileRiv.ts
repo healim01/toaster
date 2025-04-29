@@ -72,17 +72,16 @@ const useToasterMobileRiv = ({ takePhoto }: Props) => {
 
   const clickCamera = useCallback(() => {
     if (isShooting) return;
+    setIsShooting(true);
 
     const timer =
       typeof stateTime?.value === 'number' && stateTime.value !== 0
         ? stateTime.value
         : 3;
 
-    setIsShooting(true);
-
     controlCountDown(timer);
     controlToast(timer);
-  }, [stateTime]);
+  }, [stateTime, isShooting]);
 
   const controlCountDown = (timer: number) => {
     if (stateCountDown1 && timer === 1) {
