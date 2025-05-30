@@ -114,8 +114,6 @@ const useToasterRiv = ({ takePhoto }: Props) => {
     };
   }, [rive, stateToastUp]);
 
-  useEffect(() => {});
-
   return { ToasterRive: RiveComponent };
 };
 
