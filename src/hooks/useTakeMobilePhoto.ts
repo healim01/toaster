@@ -1,11 +1,10 @@
 import { usePhotosContext } from '@/hooks';
 import { trackTakeToasterButton } from '@/service/amplitude/trackEvent';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 const useTakeMobilePhoto = () => {
   const { photos, setPhotos } = usePhotosContext();
 
-  const [streamVideo, setStreamVideo] = useState<MediaStream | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -19,7 +18,6 @@ const useTakeMobilePhoto = () => {
         },
       })
       .then(stream => {
-        setStreamVideo(stream);
         const video = videoRef.current;
         if (video) {
           video.srcObject = stream;
@@ -36,16 +34,12 @@ const useTakeMobilePhoto = () => {
   };
 
   const closeCamera = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.srcObject = null;
-    }
-
-    if (streamVideo) {
-      streamVideo.getTracks().forEach(track => {
-        track.stop();
-      });
-      setStreamVideo(null);
+    const video = videoRef.current;
+    if (video) {
+      video.pause();
+      const stream = video.srcObject as MediaStream;
+      stream?.getTracks().forEach(track => track.stop());
+      video.srcObject = null;
     }
   };
 
