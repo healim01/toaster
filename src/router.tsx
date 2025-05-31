@@ -8,6 +8,7 @@ import {
   StartPage,
   TakePhotoPage,
 } from '@/pages';
+import AddStickerPage from '@/pages/AddStickerPage';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
 export const router = createBrowserRouter([
@@ -36,8 +37,12 @@ export const router = createBrowserRouter([
             element: <TakePhotoPage />,
           },
           {
-            path: ROUTE_PATH.customPhoto,
+            path: ROUTE_PATH.selectFrame,
             element: <CustomPhotoPage />,
+          },
+          {
+            path: ROUTE_PATH.addSticker,
+            element: <AddStickerPage />,
           },
           {
             path: ROUTE_PATH.savePhoto,

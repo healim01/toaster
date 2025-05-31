@@ -1,7 +1,8 @@
 export const ROUTE_PATH = {
   start: '/',
   takePhoto: '/take-a-toast',
-  customPhoto: '/put-jam-on-it',
+  selectFrame: '/put-jam-on-it',
+  addSticker: '/put-topping-on-it',
   savePhoto: '/toasted-well',
   myPage: '/my-toast',
 };
