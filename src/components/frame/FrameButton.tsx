@@ -10,6 +10,8 @@ interface Props {
   onImageLoad: () => void;
 }
 
+const currentMonthTag = getCurrentMonthTag();
+
 const FrameButton = ({ frame, imageLoaded, onImageLoad }: Props) => {
   const { frame: selectedFrame, setFrame } = useFrameContext();
   const isSelected = frame.name === selectedFrame;
@@ -17,11 +19,6 @@ const FrameButton = ({ frame, imageLoaded, onImageLoad }: Props) => {
   const handleSelectFrame = () => {
     trackFrameButton(frame.name);
     setFrame(frame.name);
-  };
-
-  const isNewFrame = (tags: string[]) => {
-    const currentMonthTag = getCurrentMonthTag();
-    return tags.includes(currentMonthTag);
   };
 
   return (
@@ -35,12 +32,13 @@ const FrameButton = ({ frame, imageLoaded, onImageLoad }: Props) => {
         : 'border-gray-300 bg-white hover:bg-blue-50 hover:shadow-sm'
     }`}
     >
-      {isNewFrame(frame.tags) && (
+      {frame.tags.includes(currentMonthTag) && (
         <img
           src={newFrameTagImg}
           width={60}
           className="absolute top-0 left-0 transform -translate-x-1/3 -translate-y-1/3"
-          alt="new"
+          alt=""
+          aria-hidden="true"
         />
       )}
       <img src={frame.url} alt={frame.name} width={100} onLoad={onImageLoad} />
