@@ -14,6 +14,7 @@ export { default as Error404Img } from './imgs/404.png';
 export { default as arrowToastImg } from './imgs/arrow-toast.png';
 export { default as LoginTextImg } from './imgs/login-text.png';
 export { default as MyPageTextImg } from './imgs/mypage-text.png';
+export { default as newFrameTagImg } from './imgs/new.png';
 export { default as photoaster } from './imgs/photoaster.png';
 export { default as toasterBoothImg } from './imgs/toasterBooth.png';
 
