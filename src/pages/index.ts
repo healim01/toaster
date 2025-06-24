@@ -1,3 +1,4 @@
+export { default as AddStickerPage } from './AddStickerPage';
 export { default as CustomPhotoPage } from './CustomPhotoPage';
 export * from './MyPage';
 export { default as NotFoundPage } from './NotFoundPage';

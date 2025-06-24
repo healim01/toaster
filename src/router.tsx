@@ -1,6 +1,7 @@
 import { Footer, Header, Layout, MainLayout } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import {
+  AddStickerPage,
   CustomPhotoPage,
   MyPage,
   NotFoundPage,
@@ -8,7 +9,6 @@ import {
   StartPage,
   TakePhotoPage,
 } from '@/pages';
-import AddStickerPage from '@/pages/AddStickerPage';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
 export const router = createBrowserRouter([
