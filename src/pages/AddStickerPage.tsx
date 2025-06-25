@@ -2,6 +2,7 @@ import { sticker } from '@/assets';
 import { FloatingButton } from '@/components';
 import { PhotoFrame } from '@/components/photo';
 import { usePhotoDownload } from '@/hooks';
+import { useGetStickersQuery } from '@/hooks/queries/useGetStickersQuery';
 import { useTrackPageView } from '@/service/amplitude/';
 import { useEffect, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
@@ -21,6 +22,7 @@ const AddStickerPage = () => {
   useTrackPageView({ eventName: '[View] 스티커 추가 페이지' });
 
   const [addedStickers, setAddedStickers] = useState<StickerItem[]>([]);
+  const { stickers } = useGetStickersQuery();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const stickerRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const [readyToRenderMoveable, setReadyToRenderMoveable] = useState(false);
@@ -90,13 +92,13 @@ const AddStickerPage = () => {
 
         <section className="flex flex-col w-full h-fit md:h-[85%] p-5 bg-gray-50 rounded-lg shadow-md">
           <div className="grid grid-cols-2 md:grid-cols-8 gap-4 w-full justify-center justify-items-center mb-4">
-            {sticker.map((sti, idx) => (
+            {stickers.map((sti, idx) => (
               <div
                 key={idx}
                 className="target cursor-pointer"
-                onClick={() => handleAddSticker(sti)}
+                onClick={() => handleAddSticker(sti.url)}
               >
-                <img src={sti} />
+                <img src={sti.url} />
               </div>
             ))}
           </div>
