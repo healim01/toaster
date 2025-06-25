@@ -1,15 +1,9 @@
-import { FloatingButton } from '@/components';
-import { PhotoFrame } from '@/components/photo';
-import { usePhotoDownload } from '@/hooks';
+import { PhotoDownloadSection, PhotoFrame } from '@/components/photo';
 import { useGetStickersQuery } from '@/hooks/queries';
 import { useTrackPageView } from '@/service/amplitude';
+import { AddedStickerItem } from '@/types/sticker';
 import { useEffect, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
-
-type StickerItem = {
-  id: string;
-  src: string;
-};
 
 const getStickerId = (src: string, order: number) => {
   const parts = src.split('/');
@@ -21,10 +15,12 @@ const AddStickerPage = () => {
   useTrackPageView({ eventName: '[View] 스티커 추가 페이지' });
   const { stickers } = useGetStickersQuery();
 
-  const [addedStickers, setAddedStickers] = useState<StickerItem[]>([]);
+  const [addedStickers, setAddedStickers] = useState<AddedStickerItem[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const stickerRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const [readyToRenderMoveable, setReadyToRenderMoveable] = useState(false);
+
+  const downloadDivRef = useRef<HTMLDivElement>(null);
 
   const handleAddSticker = (src: string) => {
     const id = getStickerId(src, addedStickers.length);
@@ -47,9 +43,6 @@ const AddStickerPage = () => {
     };
   }, [selectedId, addedStickers]);
 
-  const downloadDivRef = useRef<HTMLDivElement>(null);
-  const { handleDownload } = usePhotoDownload(downloadDivRef);
-
   return (
     <div className="flex relative w-full md:h-[92vh] pt-2 pb-2">
       <div className="flex flex-col  md:flex-row gap-4 w-full h-full mt-[50px]">
@@ -60,6 +53,7 @@ const AddStickerPage = () => {
         >
           <PhotoFrame />
 
+          {/* 추가된 스티커들 */}
           {addedStickers.map((sti, idx) => (
             <div
               key={sti.id}
@@ -83,6 +77,7 @@ const AddStickerPage = () => {
           ))}
         </div>
 
+        {/* 스티커 이동 수단 */}
         {selectedId && readyToRenderMoveable && (
           <Moveable
             key={selectedId}
@@ -98,6 +93,7 @@ const AddStickerPage = () => {
           />
         )}
 
+        {/* 스티커 리스트 */}
         <section className="flex flex-col w-full h-fit md:h-[85%] p-5 bg-gray-50 rounded-lg shadow-md">
           <div className="grid grid-cols-2 md:grid-cols-8 gap-4 w-full justify-center justify-items-center mb-4">
             {stickers.map((sti, idx) => (
@@ -113,14 +109,8 @@ const AddStickerPage = () => {
         </section>
       </div>
 
-      <FloatingButton
-        label="사진 저장하기"
-        onClick={handleDownload}
-        variant="contained"
-        color="pink"
-        size="medium"
-        round
-      />
+      {/* 사진 다운로드 섹션 */}
+      <PhotoDownloadSection downloadDivRef={downloadDivRef} />
     </div>
   );
 };

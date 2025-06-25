@@ -9,3 +9,8 @@ export interface StickerTheme {
   theme: string;
   type: string;
 }
+
+export type AddedStickerItem = {
+  id: string;
+  src: string;
+};
