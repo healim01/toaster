@@ -94,7 +94,7 @@ const AddStickerPage = () => {
         )}
 
         {/* 스티커 리스트 */}
-        <section className="flex flex-col w-full h-fit md:h-[85%] p-5 bg-gray-50 rounded-lg shadow-md">
+        <section className="flex flex-col w-full h-fit md:h-[85%] p-5 bg-gray-50 rounded-lg shadow-md md:overflow-y-scroll">
           <div className="grid grid-cols-2 md:grid-cols-8 gap-4 w-full justify-center justify-items-center mb-4">
             {stickers.map((sti, idx) => (
               <div
