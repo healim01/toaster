@@ -6,6 +6,7 @@ export const getStickerThemes = async (): Promise<StickerTheme[]> => {
     .from('stickers')
     .select('theme, type')
     .eq('isActive', true)
+    .order('created_at', { ascending: false })
     .throwOnError();
 
   return data;
