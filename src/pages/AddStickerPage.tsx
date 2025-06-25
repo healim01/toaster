@@ -1,9 +1,8 @@
-import { sticker } from '@/assets';
 import { FloatingButton } from '@/components';
 import { PhotoFrame } from '@/components/photo';
 import { usePhotoDownload } from '@/hooks';
-import { useGetStickersQuery } from '@/hooks/queries/useGetStickersQuery';
-import { useTrackPageView } from '@/service/amplitude/';
+import { useGetStickersQuery } from '@/hooks/queries';
+import { useTrackPageView } from '@/service/amplitude';
 import { useEffect, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
 
@@ -12,23 +11,23 @@ type StickerItem = {
   src: string;
 };
 
-const getStickerId = (src: string) => {
+const getStickerId = (src: string, order: number) => {
   const parts = src.split('/');
   const filename = parts.pop();
-  return `sticker-${encodeURIComponent(filename!)}`;
+  return `sticker-${order}-${encodeURIComponent(filename!)}`;
 };
 
 const AddStickerPage = () => {
   useTrackPageView({ eventName: '[View] 스티커 추가 페이지' });
+  const { stickers } = useGetStickersQuery();
 
   const [addedStickers, setAddedStickers] = useState<StickerItem[]>([]);
-  const { stickers } = useGetStickersQuery();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const stickerRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const [readyToRenderMoveable, setReadyToRenderMoveable] = useState(false);
 
   const handleAddSticker = (src: string) => {
-    const id = getStickerId(src);
+    const id = getStickerId(src, addedStickers.length);
     setAddedStickers(prev => [...prev, { id, src }]);
     setSelectedId(id);
   };
@@ -61,34 +60,43 @@ const AddStickerPage = () => {
         >
           <PhotoFrame />
 
-          {addedStickers.map(sti => (
+          {addedStickers.map((sti, idx) => (
             <div
               key={sti.id}
               className="absolute top-0 left-0 z-[100]"
               ref={el => {
-                const id = getStickerId(sti.src);
+                const id = getStickerId(sti.src, idx);
                 stickerRefs.current[id] = el;
               }}
               onClick={() => {
                 setSelectedId(sti.id);
               }}
-              style={{ width: 80, height: 80, cursor: 'move' }}
+              style={{
+                minWidth: 'fit-content',
+                maxWidth: '100%',
+                height: '100px',
+                cursor: 'move',
+              }}
             >
               <img src={sti.src} className="w-full h-full" />
             </div>
           ))}
-
-          {selectedId && readyToRenderMoveable && (
-            <Moveable
-              key={selectedId}
-              target={stickerRefs.current[selectedId] || undefined}
-              draggable
-              onDrag={e => {
-                e.target.style.transform = e.transform;
-              }}
-            />
-          )}
         </div>
+
+        {selectedId && readyToRenderMoveable && (
+          <Moveable
+            key={selectedId}
+            target={stickerRefs.current[selectedId] || undefined}
+            draggable={true}
+            scalable={true}
+            rotatable={true}
+            pinchable={true}
+            pinchOutside={true}
+            onRender={e => {
+              e.target.style.cssText += e.cssText;
+            }}
+          />
+        )}
 
         <section className="flex flex-col w-full h-fit md:h-[85%] p-5 bg-gray-50 rounded-lg shadow-md">
           <div className="grid grid-cols-2 md:grid-cols-8 gap-4 w-full justify-center justify-items-center mb-4">
