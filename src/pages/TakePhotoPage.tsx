@@ -13,7 +13,7 @@ const TakePhotoPage = () => {
   const { photos } = usePhotosContext();
 
   useEffect(() => {
-    if (photos.length >= 4) navigate(ROUTE_PATH.customPhoto);
+    if (photos.length >= 4) navigate(ROUTE_PATH.selectFrame);
   }, [photos]);
 
   const isMobile = useIsMobileDevice();

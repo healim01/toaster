@@ -14,7 +14,7 @@ const CustomPhotoPage = () => {
 
   const handleComplete = () => {
     trackFinishedEditButton();
-    navigate(ROUTE_PATH.savePhoto);
+    navigate(ROUTE_PATH.addSticker);
   };
 
   return (

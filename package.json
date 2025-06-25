@@ -20,6 +20,7 @@
     "file-saver": "^2.0.5",
     "html-to-image": "^1.11.13",
     "idb-keyval": "^6.2.1",
+    "moveable": "^0.53.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-error-boundary": "^5.0.0",
