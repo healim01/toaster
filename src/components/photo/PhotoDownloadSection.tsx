@@ -8,15 +8,15 @@ const PhotoDownloadSection = ({
 }: {
   downloadDivRef: React.RefObject<HTMLDivElement | null>;
 }) => {
-  const [showUploadSuccessToast, setShowUploadSuccessToast] = useState(false);
-
   const { handleDownload } = usePhotoDownload(downloadDivRef);
-  const { handleUpload, isSuccess, isUploading } =
-    usePhotoUpload(downloadDivRef);
 
-  useEffect(() => {
+  const [showUploadSuccessToast, setShowUploadSuccessToast] = useState(false);
+  const { handleUpload, isSuccess, isPending } = usePhotoUpload(downloadDivRef);
+
+  const clickDownloadButton = () => {
     handleUpload();
-  }, []);
+    handleDownload();
+  };
 
   useEffect(() => {
     if (isSuccess) {
@@ -38,11 +38,11 @@ const PhotoDownloadSection = ({
           message="사진 업로드에 성공했습니다! 이제 내 갤러리에서 다시 볼 수 있어요!"
         />
       )}
-      {isUploading && <ToastMessage message="사진을 업로드하고 있어요!" />}
+      {isPending && <ToastMessage message="사진을 업로드하고 있어요!" />}
 
       <FloatingButton
         label="사진 저장하기"
-        onClick={handleDownload}
+        onClick={clickDownloadButton}
         variant="contained"
         color="pink"
         size="medium"

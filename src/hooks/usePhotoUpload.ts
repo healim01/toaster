@@ -41,5 +41,5 @@ export const usePhotoUpload = (
     }
   };
 
-  return { handleUpload, isUploading: isPending, isSuccess };
+  return { handleUpload, isPending, isSuccess };
 };
