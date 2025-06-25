@@ -56,7 +56,7 @@ const AddStickerPage = () => {
         {/* 사진 영역 */}
         <div
           ref={downloadDivRef}
-          className="flex items-center justify-center w-full md:w-[280px] h-fit bg-gray-50 p-4 rounded-lg shadow-md"
+          className="relative flex items-center justify-center w-full md:w-[280px] h-fit bg-gray-50 p-4 rounded-lg shadow-md"
         >
           <PhotoFrame />
 
@@ -74,7 +74,7 @@ const AddStickerPage = () => {
               style={{
                 minWidth: 'fit-content',
                 maxWidth: '100%',
-                height: '100px',
+                height: '80px',
                 cursor: 'move',
               }}
             >
@@ -114,7 +114,7 @@ const AddStickerPage = () => {
       </div>
 
       <FloatingButton
-        label="사진 편집 완료"
+        label="사진 저장하기"
         onClick={handleDownload}
         variant="contained"
         color="pink"
