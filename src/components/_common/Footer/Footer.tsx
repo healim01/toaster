@@ -60,7 +60,7 @@ const Footer = () => {
             href="mailto:HyelimChoi01@gmail.com"
             className="text-xs sm:text-sm break-all"
           >
-            Contact: HyelimChoi01@gmail.com
+            서비스 문의하기
           </a>
           <p className="text-xs sm:text-sm">
             Cooked with JavaScript, served with love
