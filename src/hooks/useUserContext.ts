@@ -6,5 +6,5 @@ export const useUserContext = () => {
   if (!state) throw new Error('UserProvider not found');
 
   const { user, setUser } = state;
-  return { user, setUser };
+  return { userId: user?.id, user, setUser };
 };

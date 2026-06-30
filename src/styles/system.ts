@@ -19,7 +19,7 @@ export const variantStyle = (variant: ButtonVariant, color: string): string => {
   const baseColor = colorStyle[color] || colorStyle.blue;
   const variantClasses: Record<ButtonVariant, string> = {
     contained: `${baseColor} shadow hover:shadow-lg`,
-    outlined: `border border-${color}-500 text-${color}-500 bg-transparent hover:bg-${color}-100`,
+    outlined: `border border-${color}-500 text-${color}-500 hover:shadow-lg bg-transparent`,
     text: `bg-transparent text-${color}-500 hover:bg-${color}-100`,
   };
   return variantClasses[variant];
