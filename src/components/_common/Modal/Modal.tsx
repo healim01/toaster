@@ -1,13 +1,15 @@
-import { CloseIcon } from '@/assets';
 import { ReactNode, useEffect } from 'react';
+
+import { CloseIcon } from '@/assets';
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
+  closeButton?: boolean;
 }
 
-const Modal = ({ isOpen, onClose, children }: Props) => {
+const Modal = ({ isOpen, onClose, children, closeButton = true }: Props) => {
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -40,16 +42,18 @@ const Modal = ({ isOpen, onClose, children }: Props) => {
         className="relative bg-white rounded-xl p-6 shadow-lg w-fit max-w-2xl mx-4"
         onClick={e => e.stopPropagation()}
       >
-        <button
-          className="absolute top-4 right-4
+        {closeButton && (
+          <button
+            className="absolute top-4 right-4
              bg-white border border-gray-300 rounded-full 
              w-10 aspect-square flex items-center justify-center 
              shadow-lg hover:shadow-xl transition"
-          onClick={onClose}
-          aria-label="Close"
-        >
-          <CloseIcon />
-        </button>
+            onClick={onClose}
+            aria-label="Close"
+          >
+            <CloseIcon />
+          </button>
+        )}
         {children}
       </div>
     </div>

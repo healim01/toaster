@@ -1,8 +1,10 @@
 import { CheckIcon, CloseIcon, InfoIcon } from '@/assets';
 import { useEffect, useState } from 'react';
 
+export type ToastMessageType = 'success' | 'error' | 'info';
+
 interface Props {
-  type?: 'success' | 'error' | 'info';
+  type?: ToastMessageType;
   topPosition?: 'top' | 'right';
   message?: string;
   duration?: number;

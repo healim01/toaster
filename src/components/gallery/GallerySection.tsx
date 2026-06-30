@@ -1,6 +1,7 @@
 import { GalleryContentSkeleton, GalleryItem } from '@/components/gallery';
-import { useGetUserPhotosQuery } from '@/hooks/queries';
+
 import { Suspense } from 'react';
+import { useGetUserPhotosQuery } from '@/hooks/queries';
 
 export const GallerySection = () => {
   return (

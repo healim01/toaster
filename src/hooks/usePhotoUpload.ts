@@ -1,16 +1,16 @@
-import { useUserContext } from '@/hooks';
-import { usePostUserPhotoMutation } from '@/hooks/queries/usePostUserPhotoMutation';
 import { buildBlobWithRetry } from '@/utils/buildBlobWithRetry';
 import { isSafari } from '@/utils/isSafari';
+import { usePostUserPhotoMutation } from '@/hooks/queries/usePostUserPhotoMutation';
+import { useUserContext } from '@/hooks';
 
 export const usePhotoUpload = (
   downloadDivRef: React.RefObject<HTMLDivElement | null>,
 ) => {
-  const { user } = useUserContext();
+  const { userId } = useUserContext();
   const { uploadPhoto, isPending, isSuccess } = usePostUserPhotoMutation();
 
   const handleUpload = async () => {
-    if (!downloadDivRef.current || !user) return;
+    if (!downloadDivRef.current || !userId) return;
 
     const snapshot = downloadDivRef.current;
     const images = snapshot.querySelectorAll('img');
@@ -35,7 +35,7 @@ export const usePhotoUpload = (
         return;
       }
 
-      await uploadPhoto({ userId: user.id, file: blob });
+      await uploadPhoto({ userId, file: blob });
     } catch (error) {
       console.error('사진 저장 실패:', error);
     }
